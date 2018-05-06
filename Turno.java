@@ -1,8 +1,6 @@
 package Diagrama;
 
-public enum Turno {
-
-	;
+public enum Turno {;
 
 	private int INTEGRAL;
 
