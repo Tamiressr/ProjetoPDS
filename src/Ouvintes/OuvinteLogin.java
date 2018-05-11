@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import Janela.JanelaCadastrar;
 
 public class OuvinteLogin implements ActionListener{
-	JFrame janela;
+	private JFrame janela;
 	
 	public OuvinteLogin(JFrame janela) {
 		this.janela= janela;

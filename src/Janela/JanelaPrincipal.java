@@ -55,30 +55,30 @@ public class JanelaPrincipal {
 		frmPrincipal.setBounds(100, 100, 550, 520);
 		frmPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPrincipal.setLocation(400, 100);
-		
-		GroupLayout groupLayout = new GroupLayout(frmPrincipal.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 534, Short.MAX_VALUE)
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 460, Short.MAX_VALUE)
-		);
-		frmPrincipal.getContentPane().setLayout(groupLayout);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		frmPrincipal.setJMenuBar(menuBar);
-		
+
 		JMenu mnreaDaEscola = new JMenu("Escola");
 		menuBar.add(mnreaDaEscola);
-		
+
 		JMenuItem mntmLogin = new JMenuItem("Login");
 		mnreaDaEscola.add(mntmLogin);
-		
+
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteLogin ouvinteLogin=new OuvinteLogin(frmPrincipal);
+		OuvinteLogin ouvinteLogin = new OuvinteLogin(frmPrincipal);
 		mntmCadastrar.addActionListener(ouvinteLogin);
 		mnreaDaEscola.add(mntmCadastrar);
+		frmPrincipal.getContentPane().setLayout(null);
 	}
+
+	public JFrame getFrmPrincipal() {
+		return frmPrincipal;
+	}
+
+	public void setFrmPrincipal(JFrame frmPrincipal) {
+		this.frmPrincipal = frmPrincipal;
+	}
+	
+	
 }
