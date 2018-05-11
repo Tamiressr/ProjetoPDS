@@ -1,55 +1,31 @@
 package Janela;
 
+import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import java.awt.BorderLayout;
-import java.awt.GridBagLayout;
+import java.awt.Font;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.awt.GridBagConstraints;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
 
-import Ouvintes.OuvinteLogin;
+import Ouvintes.OuvinteJanelaCadatro;
+import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteSalvar;
+import Ouvintes.OuvinteVoltarInicio;
 
-import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
-import java.awt.Color;
-import javax.swing.JInternalFrame;
-import javax.swing.JLayeredPane;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JSpinner;
-import javax.swing.JProgressBar;
-import javax.swing.JPasswordField;
-import java.awt.Component;
-import java.awt.Rectangle;
-import java.awt.ComponentOrientation;
-import java.awt.Cursor;
-import javax.swing.UIManager;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.DebugGraphics;
-import java.awt.SystemColor;
-
-public class JanelaCadastrar {
-
+public class JanelaCadastrar{
 	private JFrame frame;
 	private JTextField textFielNome;
 	private JTextField txtLinkdosite;
@@ -87,39 +63,43 @@ public class JanelaCadastrar {
 	 */
 	public JanelaCadastrar() {
 		initialize();
-		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame=new JFrame();
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
-		frame.getContentPane().setBackground(Color.GRAY);
 		frame.setTitle("Acompanhamento de Vagas");
 		frame.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		frame.setBounds(100, 100, 550, 520);
+		frame.setBounds(100, 100, 550, 550);
 		frame.setLocation(400, 100);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
+		frame.setVisible(true);
 		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
-
+		
 		JMenu mnreaDaEscola = new JMenu("Escola");
 		menuBar.add(mnreaDaEscola);
 
 		JMenuItem mntmLogin = new JMenuItem("Login");
+		OuvinteJanelaLogin ouvinteJanelaLogin=new OuvinteJanelaLogin(frame);
+		mntmLogin.addActionListener(ouvinteJanelaLogin);
 		mnreaDaEscola.add(mntmLogin);
 
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteLogin ouvinteLogin = new OuvinteLogin(frame);
-		mntmCadastrar.addActionListener(ouvinteLogin);
+		OuvinteJanelaCadatro ouvinteJanelaCadatro= new OuvinteJanelaCadatro(frame);
+		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
+		frame.getContentPane().setLayout(null);
 		
-
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		JLabel lblCadastrar = new JLabel("Cadastro de Escola");
 		lblCadastrar.setBounds(10, 32, 514, 37);
 		lblCadastrar.setHorizontalAlignment(SwingConstants.CENTER);
@@ -190,8 +170,9 @@ public class JanelaCadastrar {
 
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
-		// btnVoltar.addActionListener(new ActionListener());
 		btnVoltar.setBounds(20, 410, 150, 40);
+		OuvinteVoltarInicio ouvinteVoltarInicio=new OuvinteVoltarInicio(this);
+		btnVoltar.addActionListener(ouvinteVoltarInicio);
 		frame.getContentPane().add(btnVoltar);
 
 		JLabel lblLinkDoSite = new JLabel("Link do Site");
@@ -291,9 +272,6 @@ public class JanelaCadastrar {
 		txtBairro.setColumns(10);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(new Rectangle(100, 100, 100, 100));
-		btnSalvar.setForeground(Color.BLACK);
-		btnSalvar.setBackground(Color.WHITE);
 		btnSalvar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnSalvar.setBounds(360, 410, 150, 40);
 		OuvinteSalvar ouvinteSalvar=new OuvinteSalvar(this);
@@ -315,6 +293,8 @@ public class JanelaCadastrar {
 		txtCnpj.setBounds(367, 230, 146, 25);
 		frame.getContentPane().add(txtCnpj);
 		txtCnpj.setColumns(10);
+		
+		frame.setVisible(true);
 
 	}
 	

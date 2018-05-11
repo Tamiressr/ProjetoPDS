@@ -1,6 +1,7 @@
 package Janela;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -9,18 +10,27 @@ import javax.swing.JButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Window.Type;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import Ouvintes.OuvinteLogin;
+import com.jtattoo.plaf.aero.AeroLookAndFeel;
+import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
+
+import Ouvintes.OuvinteJanelaCadatro;
+import Ouvintes.OuvinteJanelaLogin;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-public class JanelaPrincipal {
+public class JanelaPrincipal{
 
-	private JFrame frmPrincipal;
+	private JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -29,8 +39,9 @@ public class JanelaPrincipal {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
 					JanelaPrincipal window = new JanelaPrincipal();
-					window.frmPrincipal.setVisible(true);
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -43,42 +54,53 @@ public class JanelaPrincipal {
 	 */
 	public JanelaPrincipal() {
 		initialize();
+		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmPrincipal = new JFrame();
-		frmPrincipal.setType(Type.UTILITY);
-		frmPrincipal.setTitle("Acompanhamento de Vagas");
-		frmPrincipal.setBounds(100, 100, 550, 520);
-		frmPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmPrincipal.setLocation(400, 100);
+		frame=new JFrame();
+		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
+		frame.setTitle("Acompanhamento de Vagas");
+		frame.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		frame.setBounds(100, 100, 550, 550);
+		frame.setLocation(400, 100);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
+		frame.setVisible(true);
+		
 
 		JMenuBar menuBar = new JMenuBar();
-		frmPrincipal.setJMenuBar(menuBar);
-
+		frame.setJMenuBar(menuBar);
+		
 		JMenu mnreaDaEscola = new JMenu("Escola");
 		menuBar.add(mnreaDaEscola);
 
 		JMenuItem mntmLogin = new JMenuItem("Login");
+		OuvinteJanelaLogin ouvinteJanelaLogin=new OuvinteJanelaLogin(frame);
+		mntmLogin.addActionListener(ouvinteJanelaLogin);
 		mnreaDaEscola.add(mntmLogin);
 
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteLogin ouvinteLogin = new OuvinteLogin(frmPrincipal);
-		mntmCadastrar.addActionListener(ouvinteLogin);
+		OuvinteJanelaCadatro ouvinteJanelaCadatro= new OuvinteJanelaCadatro(frame);
+		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
-		frmPrincipal.getContentPane().setLayout(null);
+		
+		frame.getContentPane().setLayout(null);
 	}
 
-	public JFrame getFrmPrincipal() {
-		return frmPrincipal;
+
+	public JFrame getFrame() {
+		return frame;
 	}
 
-	public void setFrmPrincipal(JFrame frmPrincipal) {
-		this.frmPrincipal = frmPrincipal;
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
-	
+
 	
 }
