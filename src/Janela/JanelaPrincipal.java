@@ -91,6 +91,9 @@ public class JanelaPrincipal{
 		mnreaDaEscola.add(mntmCadastrar);
 		
 		frame.getContentPane().setLayout(null);
+		
+		
+		
 	}
 
 

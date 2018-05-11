@@ -100,6 +100,8 @@ public class JanelaCadastrar{
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		
+		
 		JLabel lblCadastrar = new JLabel("Cadastro de Escola");
 		lblCadastrar.setBounds(10, 32, 514, 37);
 		lblCadastrar.setHorizontalAlignment(SwingConstants.CENTER);

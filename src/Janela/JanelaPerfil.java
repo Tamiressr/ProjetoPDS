@@ -73,6 +73,8 @@ public class JanelaPerfil {
 		frame.getContentPane().setLayout(null);
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
 	}
 
 }
