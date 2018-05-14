@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
+import Model.Escola;
 import Model.Facade;
 import View.JanelaCadastrar;
 import View.JanelaPerfil;
@@ -23,7 +24,8 @@ public class OuvinteSalvar implements ActionListener {
 		
 		ArrayList<String> array=janela.returnValores();
 		int id=Facade.getFacade().criarEscola(array);
-				
+	
+		System.out.println(id);
 		new JanelaPerfil(id);
 		
 	}

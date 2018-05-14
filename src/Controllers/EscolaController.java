@@ -31,8 +31,22 @@ public class EscolaController {
 		em.getTransaction().begin();
 		em.merge(escola);
 		em.getTransaction().commit();
+		
 		emf.close();
 
+
+	}
+	public int procurarID(Escola escola) {
+		List<Escola> list= listar();
+		
+		for(Escola p:list) {
+			if(p.getNome().equals(escola.getNome())) {
+				return p.getId();
+			}
+		}
+		System.out.println("inexistente teste");
+		return 0;
+		
 	}
 
 	public void remover(int id) {
@@ -51,9 +65,9 @@ public class EscolaController {
 		Query consulta = em.createQuery("select escola from Escola escola ");
 
 		List<Escola> resultados = consulta.getResultList();
-		for (Escola p : resultados) {
-			System.out.println(p);
-		}
+//		for (Escola p : resultados) {
+//			System.out.println(p);
+//		}
 		em.getTransaction().commit();
 		emf.close();
 

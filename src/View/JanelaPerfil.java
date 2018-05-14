@@ -29,8 +29,8 @@ public class JanelaPerfil {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JanelaPerfil window = new JanelaPerfil(1);
-					window.frame.setVisible(true);
+//					JanelaPerfil window = new JanelaPerfil();
+//					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

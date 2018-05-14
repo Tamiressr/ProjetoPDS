@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 public class Escola {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nome;
 	private String cnpj;
@@ -22,18 +22,20 @@ public class Escola {
 	private String email;
 	private String senha;
 	private String nivelDeGoverno;
-//	@Column
-//	private Endereco endereco;
-//	@Column
-//	private Telefone telefone;
+	// @Column
+	// private Endereco endereco;
+	// @Column
+	// private Telefone fixo;
+	// @Column
+	// private Telefone celular;
 
-	@OneToMany(mappedBy="escola")
-	private List<Turma> turmas = new ArrayList<>();
-	
+//	@OneToMany(mappedBy = "escola")
+//	private List<Turma> turmas = new ArrayList<>();
+
 	public Escola() {
-		
+
 	}
-	
+
 	public String toString() {
 		return "Escola [Nome=" + nome + ", CNPJ=" + cnpj + ", Link=" + link + ", Email=" + email + ",]";
 	}
@@ -86,13 +88,13 @@ public class Escola {
 		this.senha = senha;
 	}
 
-	public List<Turma> getTurmas() {
-		return turmas;
-	}
-
-	public void setTurmas(List<Turma> turmas) {
-		this.turmas = turmas;
-	}
+//	public List<Turma> getTurmas() {
+//		return turmas;
+//	}
+//
+//	public void setTurmas(List<Turma> turmas) {
+//		this.turmas = turmas;
+//	}
 
 	public String getNivelDeGoverno() {
 		return nivelDeGoverno;

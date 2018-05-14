@@ -12,7 +12,8 @@ public class OuvinteExcluirConta implements ActionListener{
 	private int id;
 	private JFrame janela;
 
-	public OuvinteExcluirConta(JFrame janela, int id) {
+
+	public OuvinteExcluirConta(JFrame janela,int id) {
 		this.janela = janela;
 		this.id=id;
 	}
