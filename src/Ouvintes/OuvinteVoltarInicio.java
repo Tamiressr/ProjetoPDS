@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import Janela.JanelaCadastrar;
-import Janela.JanelaPrincipal;
+import View.JanelaCadastrar;
+import View.JanelaPrincipal;
 
 public class OuvinteVoltarInicio implements ActionListener{
 	private JFrame janela;

@@ -7,9 +7,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import Diagrama.Escola;
-import Diagrama.Turma;
-import Diagrama.Turno;
+import Model.Escola;
+import Model.Turma;
+import Model.Turno;
 
 public class TurmaController {
 	private EntityManagerFactory emf;

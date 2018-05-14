@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import Janela.JanelaCadastrar;
-import Janela.JanelaPerfil;
-import Janela.JanelaPrincipal;
-import Principal.Facade;
+import Model.Facade;
+import View.JanelaCadastrar;
+import View.JanelaPerfil;
+import View.JanelaPrincipal;
 
 public class OuvinteSalvar implements ActionListener {
 	private JanelaCadastrar janela;
@@ -22,9 +22,9 @@ public class OuvinteSalvar implements ActionListener {
 		janela.getFrame().dispose();
 		
 		ArrayList<String> array=janela.returnValores();
-		String cnpj=Facade.getFacade().criarEscola(array);
+		int id=Facade.getFacade().criarEscola(array);
 				
-		new JanelaPerfil(cnpj);
+		new JanelaPerfil(id);
 		
 	}
 
