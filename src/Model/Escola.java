@@ -1,46 +1,49 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "escola")
 public class Escola {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	@Column
 	private String nome;
-	@Column
-	private String nivelDeGoverno;
-	@Column
 	private String cnpj;
-	@Column
 	private String link;
-	@Column
 	private String email;
-	@Column
 	private String senha;
+	private String nivelDeGoverno;
 //	@Column
 //	private Endereco endereco;
 //	@Column
-//	private Telefone celular;
-//	@Column
-//	private Telefone fixo;
+//	private Telefone telefone;
 
+	@OneToMany(mappedBy="escola")
+	private List<Turma> turmas = new ArrayList<>();
+	
 	public Escola() {
-//		this.endereco=new Endereco();
-//		this.celular=new Telefone();
-//		this.fixo=new Telefone();
-
+		
 	}
-
+	
 	public String toString() {
 		return "Escola [Nome=" + nome + ", CNPJ=" + cnpj + ", Link=" + link + ", Email=" + email + ",]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -83,29 +86,13 @@ public class Escola {
 		this.senha = senha;
 	}
 
-//	public Endereco getEndereco() {
-//		return endereco;
-//	}
-//
-//	public void setEndereco(Endereco endereco) {
-//		this.endereco = endereco;
-//	}
-//
-//	public Telefone getCelular() {
-//		return celular;
-//	}
-//
-//	public void setCelular(Telefone celular) {
-//		this.celular = celular;
-//	}
-//
-//	public Telefone getFixo() {
-//		return fixo;
-//	}
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
 
-//	public void setFixo(Telefone fixo) {
-//		this.fixo = fixo;
-//	}
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
+	}
 
 	public String getNivelDeGoverno() {
 		return nivelDeGoverno;
@@ -113,10 +100,6 @@ public class Escola {
 
 	public void setNivelDeGoverno(String nivelDeGoverno) {
 		this.nivelDeGoverno = nivelDeGoverno;
-	}
-
-	public int getId() {
-		return id;
 	}
 
 }
