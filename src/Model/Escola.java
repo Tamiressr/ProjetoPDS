@@ -22,18 +22,18 @@ public class Escola {
 	private String email;
 	private String senha;
 	private String nivelDeGoverno;
-	// @Column
-	// private Endereco endereco;
+	@OneToMany
+	private Endereco endereco;
 	// @Column
 	// private Telefone fixo;
 	// @Column
 	// private Telefone celular;
 
-//	@OneToMany(mappedBy = "escola")
-//	private List<Turma> turmas = new ArrayList<>();
+	@OneToMany(mappedBy = "escola")
+	private List<Turma> turmas = new ArrayList<>();
 
 	public Escola() {
-
+		endereco=new Endereco();
 	}
 
 	public String toString() {
@@ -102,6 +102,22 @@ public class Escola {
 
 	public void setNivelDeGoverno(String nivelDeGoverno) {
 		this.nivelDeGoverno = nivelDeGoverno;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
 	}
 
 }

@@ -293,7 +293,7 @@ public class JanelaEditaPerfil{
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnSalvar.setBounds(360, 410, 150, 40);
-		OuvinteAtualizarPerfil ouvinteAtualizarPerfil=new OuvinteAtualizarPerfil(frame,id);
+		OuvinteAtualizarPerfil ouvinteAtualizarPerfil=new OuvinteAtualizarPerfil(this,id);
 		btnSalvar.addActionListener(ouvinteAtualizarPerfil);
 		frame.getContentPane().add(btnSalvar);
 		

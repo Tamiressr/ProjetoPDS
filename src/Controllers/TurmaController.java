@@ -24,7 +24,7 @@ public class TurmaController {
 	}
 
 	private TurmaController() {
-		emf = Persistence.createEntityManagerFactory("escola");
+		emf = Persistence.createEntityManagerFactory("turma");
 		em = emf.createEntityManager();
 	}
 
@@ -75,5 +75,13 @@ public class TurmaController {
 		emf.close();
 
 		return resultados;
+	}
+	
+	public static void main(String[] args) {
+		Escola escola=new Escola();
+		escola.setNome("6");
+		escola.getEndereco().setRua("rua");
+	
+		EscolaController.getEscolaController().salvar(escola);
 	}
 }

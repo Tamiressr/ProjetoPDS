@@ -94,9 +94,9 @@ public class Facade {
 
 	}
 
-	public void atualizar(int id) {
-		Escola escola = procurarEscolaPorCnpj(id);
-		EscolaController.getEscolaController().atualizar(escola, escola.getId());
+	public void atualizar(int id, ArrayList<String> array) {
+		Escola escola = EscolaController.getEscolaController().procurarEscola(id);
+		EscolaController.getEscolaController().atualizar(escola, id,array);
 	}
 
 	public List<Escola> listar() {

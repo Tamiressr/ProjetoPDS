@@ -1,12 +1,24 @@
 package Model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Endereco {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String rua;
 	private short numero;
 	private String cidade;
 	private String cep;
 	private String bairro;
 	
+	@OneToOne
+	private Escola escola;
 	
 	
 	

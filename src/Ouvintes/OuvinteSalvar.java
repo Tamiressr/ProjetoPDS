@@ -24,8 +24,8 @@ public class OuvinteSalvar implements ActionListener {
 		
 		ArrayList<String> array=janela.returnValores();
 		int id=Facade.getFacade().criarEscola(array);
-	
-		System.out.println(id);
+		
+		
 		new JanelaPerfil(id);
 		
 	}
