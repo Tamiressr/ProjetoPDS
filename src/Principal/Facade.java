@@ -1,10 +1,14 @@
 package Principal;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 import javax.persistence.Persistence;
 
-import Controllers.Controller;
+import Controllers.EscolaController;
 import Diagrama.Escola;
 import Diagrama.FeedBack;
 import Diagrama.PreMatricula;
@@ -32,7 +36,7 @@ public class Facade {
 		return facade;
 	}
 	
-	public boolean criarEscola(ArrayList<String> array) {
+	public String criarEscola(ArrayList<String> array) {
 		JanelaCadastrar janela=new JanelaCadastrar();
 		
 		String nome=array.get(0);
@@ -52,11 +56,76 @@ public class Facade {
 		
 		Escola escola=diretor.criarEscola(nome, telefoneFixo, telefoneCelular, senha, email, link, cnpj, nivel, rua, bairro, numero, cep, cidade);
 		
-		Controller.getController().salvar(escola);
+		EscolaController.getEscolaController().salvar(escola);
 		
-		return true;
+		return escola.getCnpj();
 	}
 	
+	public void excluirConta(String cnpj) {
+		List<Escola> list=EscolaController.getEscolaController().listar();
+		for(Escola e:list) {
+			if(e.getCnpj().equals(cnpj)) {
+				EscolaController.getEscolaController().remover(e.getId());
+			}
+		}
+	}
+	public void excluirConta(int id) {
+		List<Escola> list=EscolaController.getEscolaController().listar();
+		for(Escola e:list) {
+			if(e.getId()==id) {
+				EscolaController.getEscolaController().remover(e.getId());
+			}
+		}
+	}
+	
+	public Escola procurarEscolaPorCnpj(String cnpj) {
+		List<Escola> list=EscolaController.getEscolaController().listar();
+		for(Escola e:list) {
+			if(e.getCnpj().equals(cnpj)) {
+				return e;
+			}
+		}
+		return null;
+	}
+	public List<String> procurarEscolaPorCNPJ(String cnpj){
+		List<Escola> list=EscolaController.getEscolaController().listar();
+		ArrayList<String> lista = new ArrayList<>();
+		for(Escola e:list) {
+			if(e.getCnpj().equals(cnpj)) {
+				lista.add(e.getNome());
+				lista.add(e.getLink());
+				lista.add(e.getEmail());
+				lista.add(e.getSenha());
+				
+				lista.add(e.getCnpj());
+				return lista;
+				
+//				textFielNome.setText(escola.getNome());
+//				txtLinkdosite.setText(escola.getLink());
+//				txtEmail.setText(escola.getEmail());
+//				txtSenha.setText(escola.getSenha());
+////				txtRua.setText(escola.getEndereco().getRua());
+////				txtNumero.setText(""+escola.getEndereco().getNumero());
+////				txtCidade.setText(escola.getEndereco().getCidade());
+////				txtCep.setText(escola.getEndereco().getCep());
+////				txtBairro.setText(escola.getEndereco().getBairro());
+////				frmtdtxtfldTelefonefixo.setText(escola.getFixo().toString());
+////				formattedTextFieldTelefoneCelular.setText(escola.getCelular().toString());
+//				txtCnpj.setText("");
+			}
+		}
+		return null;
+		
+	}
+	
+	public void atualizar(String cnpj) {
+		Escola escola=procurarEscolaPorCnpj(cnpj);
+		EscolaController.getEscolaController().atualizar(escola, escola.getId());
+	}
+	
+	public List<Escola> listar(){
+		return EscolaController.getEscolaController().listar();
+	}
 	
 
 }

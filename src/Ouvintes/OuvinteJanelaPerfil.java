@@ -5,20 +5,22 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import Janela.JanelaCadastrar;
-import Janela.JanelaPrincipal;
+import Janela.JanelaPerfil;
 
-public class OuvinteVoltarInicio implements ActionListener{
+public class OuvinteJanelaPerfil implements ActionListener{
 	private JFrame janela;
+	private String cnpj;
 
-	public OuvinteVoltarInicio(JFrame janela) {
+	public OuvinteJanelaPerfil(JFrame janela,String cnpj) {
 		this.janela = janela;
+		this.cnpj=cnpj;
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		janela.dispose();
-		new JanelaPrincipal();
-		
+		new JanelaPerfil(cnpj);
 	}
+	
+	
 
 }

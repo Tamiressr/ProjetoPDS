@@ -25,14 +25,17 @@ public class Escola {
 	private String email;
 	@Column
 	private String senha;
-	@Column
-	private Endereco endereco;
-	@Column
-	private Telefone celular;
-	@Column
-	private Telefone fixo;
+//	@Column
+//	private Endereco endereco;
+//	@Column
+//	private Telefone celular;
+//	@Column
+//	private Telefone fixo;
 
 	public Escola() {
+//		this.endereco=new Endereco();
+//		this.celular=new Telefone();
+//		this.fixo=new Telefone();
 
 	}
 
@@ -80,29 +83,29 @@ public class Escola {
 		this.senha = senha;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
+//	public Endereco getEndereco() {
+//		return endereco;
+//	}
+//
+//	public void setEndereco(Endereco endereco) {
+//		this.endereco = endereco;
+//	}
+//
+//	public Telefone getCelular() {
+//		return celular;
+//	}
+//
+//	public void setCelular(Telefone celular) {
+//		this.celular = celular;
+//	}
+//
+//	public Telefone getFixo() {
+//		return fixo;
+//	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public Telefone getCelular() {
-		return celular;
-	}
-
-	public void setCelular(Telefone celular) {
-		this.celular = celular;
-	}
-
-	public Telefone getFixo() {
-		return fixo;
-	}
-
-	public void setFixo(Telefone fixo) {
-		this.fixo = fixo;
-	}
+//	public void setFixo(Telefone fixo) {
+//		this.fixo = fixo;
+//	}
 
 	public String getNivelDeGoverno() {
 		return nivelDeGoverno;
@@ -111,7 +114,9 @@ public class Escola {
 	public void setNivelDeGoverno(String nivelDeGoverno) {
 		this.nivelDeGoverno = nivelDeGoverno;
 	}
-	
-	
+
+	public int getId() {
+		return id;
+	}
 
 }

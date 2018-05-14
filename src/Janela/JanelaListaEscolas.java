@@ -3,24 +3,30 @@ package Janela;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JScrollPane;
 
-import Ouvintes.OuvinteEditaPerfil;
-import Ouvintes.OuvinteExcluirConta;
 import Ouvintes.OuvinteJanelaCadatro;
 import Ouvintes.OuvinteJanelaLogin;
-import Ouvintes.OuvinteJanelaPerfil;
 import Ouvintes.OuvinteListaEscolas;
-import javax.swing.JButton;
+import Principal.Facade;
 
-public class JanelaPerfil {
+import javax.swing.JList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import Diagrama.Escola;
+
+public class JanelaListaEscolas {
 
 	private JFrame frame;
-	private String cnpj;
+	private JTable table;
+	private DefaultTableModel modelo;
 
 	/**
 	 * Launch the application.
@@ -29,7 +35,7 @@ public class JanelaPerfil {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JanelaPerfil window = new JanelaPerfil("1");
+					JanelaListaEscolas window = new JanelaListaEscolas();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,8 +47,7 @@ public class JanelaPerfil {
 	/**
 	 * Create the application.
 	 */
-	public JanelaPerfil(String cnpj) {
-		this.cnpj=cnpj;
+	public JanelaListaEscolas() {
 		initialize();
 	}
 
@@ -50,7 +55,7 @@ public class JanelaPerfil {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame=new JFrame();
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -61,52 +66,58 @@ public class JanelaPerfil {
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
+		
 
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
-
+		
 		JMenu mnreaDaEscola = new JMenu("Escola");
 		menuBar.add(mnreaDaEscola);
 
 		JMenuItem mntmLogin = new JMenuItem("Login");
-		OuvinteJanelaLogin ouvinteJanelaLogin = new OuvinteJanelaLogin(frame);
+		OuvinteJanelaLogin ouvinteJanelaLogin=new OuvinteJanelaLogin(frame);
 		mntmLogin.addActionListener(ouvinteJanelaLogin);
 		mnreaDaEscola.add(mntmLogin);
 
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteJanelaCadatro ouvinteJanelaCadatro = new OuvinteJanelaCadatro(frame);
+		OuvinteJanelaCadatro ouvinteJanelaCadatro= new OuvinteJanelaCadatro(frame);
 		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
-
-		frame.getContentPane().setLayout(null);
-
+		
 		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
-		OuvinteListaEscolas ouvinteListaEscolas = new OuvinteListaEscolas(frame);
+		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
 		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
 		mnreaDaEscola.add(mntmListaEscolas);
-
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
+		
+		
+		
+		frame.getContentPane().setLayout(null);
+		modelo = new DefaultTableModel();
 
-		JButton btnSair = new JButton("Sair");
-		btnSair.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnSair.setBounds(436, 22, 85, 40);
-		frame.getContentPane().add(btnSair);
+		modelo.addColumn("Nome");
+		modelo.addColumn("Email");
+		modelo.addColumn("Telefone");
 
-		JButton btnEditarPerfil = new JButton("Editar Informa\u00E7\u00F5es");
-		btnEditarPerfil.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnEditarPerfil.setBounds(266, 22, 160, 40);
-		OuvinteEditaPerfil ouvinteEditaPerfil=new OuvinteEditaPerfil(frame, cnpj);
-		btnEditarPerfil.addActionListener(ouvinteEditaPerfil);
-		frame.getContentPane().add(btnEditarPerfil);
+		List<Escola> list=Facade.getFacade().listar();
+		
+		for (Escola e : list) {
+			Object[] array = new Object[3];
+			array[0] = e.getNome();
+			array[1] = e.getEmail();
+			modelo.addRow(array);
+		}
+		
+		table = new JTable(modelo);
 
-		JButton btnExcluirConta = new JButton("Excluir Conta");
-		btnExcluirConta.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnExcluirConta.setBounds(106, 22, 150, 40);
-		OuvinteExcluirConta ouvinteExcluirConta=new OuvinteExcluirConta(frame,cnpj);
-		btnExcluirConta.addActionListener(ouvinteExcluirConta);
-		frame.getContentPane().add(btnExcluirConta);
-
+		JScrollPane painelTabela = new JScrollPane(table);
+		painelTabela.setBounds(50, 150, 450, 250);
+		frame.getContentPane().add(painelTabela);
+		
+		
+		
 	}
+	
+	
 }

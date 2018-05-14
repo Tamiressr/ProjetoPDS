@@ -15,7 +15,7 @@ public class Telefone {
 	
 	
 	public String toString() {
-		return "Telefone [DDD=" + ddd + ",Numero=" + numero + "]";
+		return ddd+numero;
 	}
 
 	public short getDdd() {

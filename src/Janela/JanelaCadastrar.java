@@ -4,6 +4,8 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.ArrayList;
 
@@ -22,6 +24,7 @@ import javax.swing.text.MaskFormatter;
 
 import Ouvintes.OuvinteJanelaCadatro;
 import Ouvintes.OuvinteJanelaLogin;
+import Ouvintes.OuvinteListaEscolas;
 import Ouvintes.OuvinteSalvar;
 import Ouvintes.OuvinteVoltarInicio;
 
@@ -34,13 +37,13 @@ public class JanelaCadastrar{
 	private JTextField txtRua;
 	private JFormattedTextField txtNumero;
 	private JTextField txtCidade;
-	private JPasswordField txtCep;
+	private JFormattedTextField txtCep;
 	private JTextField txtBairro;
 	private JFormattedTextField frmtdtxtfldTelefonefixo;
 	private JFormattedTextField formattedTextFieldTelefoneCelular;
 	private JComboBox comboBoxNivies;
 	private String[] niveis={ "Municipal", "Estadual", "Federal" };
-	private JTextField txtCnpj;
+	private JFormattedTextField txtCnpj;
 
 	/**
 	 * Launch the application.
@@ -97,6 +100,11 @@ public class JanelaCadastrar{
 		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
 		frame.getContentPane().setLayout(null);
+		
+		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
+		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
+		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
+		mnreaDaEscola.add(mntmListaEscolas);
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -173,7 +181,7 @@ public class JanelaCadastrar{
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnVoltar.setBounds(20, 410, 150, 40);
-		OuvinteVoltarInicio ouvinteVoltarInicio=new OuvinteVoltarInicio(this);
+		OuvinteVoltarInicio ouvinteVoltarInicio=new OuvinteVoltarInicio(frame);
 		btnVoltar.addActionListener(ouvinteVoltarInicio);
 		frame.getContentPane().add(btnVoltar);
 
@@ -254,11 +262,18 @@ public class JanelaCadastrar{
 		lblCep.setBounds(294, 313, 46, 20);
 		frame.getContentPane().add(lblCep);
 
-		txtCep = new JPasswordField();
-		txtCep.setAlignmentX(Component.LEFT_ALIGNMENT);
-		txtCep.setFont(new Font("Arial", Font.PLAIN, 14));
-		txtCep.setBounds(367, 310, 146, 25);
-		frame.getContentPane().add(txtCep);
+		try {
+			MaskFormatter mascaraCEP = new MaskFormatter("##.###-###");
+			txtCep = new JFormattedTextField(mascaraCEP);
+
+			txtCep.setAlignmentX(Component.LEFT_ALIGNMENT);
+			txtCep.setFont(new Font("Arial", Font.PLAIN, 14));
+			txtCep.setBounds(367, 310, 146, 25);
+			frame.getContentPane().add(txtCep);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
 		txtCep.setColumns(10);
 
 		JLabel lblBairro = new JLabel("Bairro");
@@ -283,6 +298,8 @@ public class JanelaCadastrar{
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnLimpar.setBounds(190, 410, 150, 40);
+		OuvinteLimpaCampos ouvinteLimpaCampos=new OuvinteLimpaCampos(frame);
+		btnLimpar.addActionListener(ouvinteLimpaCampos);
 		frame.getContentPane().add(btnLimpar);
 		
 		JLabel lblCnpj = new JLabel("CNPJ");
@@ -290,11 +307,19 @@ public class JanelaCadastrar{
 		lblCnpj.setBounds(294, 233, 46, 20);
 		frame.getContentPane().add(lblCnpj);
 		
-		txtCnpj = new JTextField();
-		txtCnpj.setFont(new Font("Arial", Font.PLAIN, 14));
-		txtCnpj.setBounds(367, 230, 146, 25);
-		frame.getContentPane().add(txtCnpj);
-		txtCnpj.setColumns(10);
+		
+		try {
+			MaskFormatter mascaraCNPJ = new MaskFormatter("##.###.###/####-##");
+			txtCnpj = new JFormattedTextField(mascaraCNPJ);
+			txtCnpj.setFont(new Font("Arial", Font.PLAIN, 14));
+			txtCnpj.setBounds(367, 230, 146, 25);
+			frame.getContentPane().add(txtCnpj);
+			txtCnpj.setColumns(10);
+
+			txtCnpj.setText("TelefoneFixo");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
 		frame.setVisible(true);
 
@@ -328,5 +353,31 @@ public class JanelaCadastrar{
 
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
+	}
+	
+	
+	public class OuvinteLimpaCampos implements ActionListener {
+		private JFrame frame;
+		
+		public OuvinteLimpaCampos(JFrame frame) {
+			this.frame=frame;
+		}
+
+		public void actionPerformed(ActionEvent arg0) {
+			textFielNome.setText("");
+			txtLinkdosite.setText("");
+			txtEmail.setText("");
+			txtSenha.setText("");
+			txtRua.setText("");
+			txtNumero.setText("");
+			txtCidade.setText("");
+			txtCep.setText("");
+			txtBairro.setText("");
+			frmtdtxtfldTelefonefixo.setText("");
+			formattedTextFieldTelefoneCelular.setText("");
+			txtCnpj.setText("");
+			
+			frame.repaint();
+		}
 	}
 }

@@ -23,6 +23,7 @@ import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
 
 import Ouvintes.OuvinteJanelaCadatro;
 import Ouvintes.OuvinteJanelaLogin;
+import Ouvintes.OuvinteListaEscolas;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -89,6 +90,11 @@ public class JanelaPrincipal{
 		OuvinteJanelaCadatro ouvinteJanelaCadatro= new OuvinteJanelaCadatro(frame);
 		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
+		
+		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
+		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
+		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
+		mnreaDaEscola.add(mntmListaEscolas);
 		
 		frame.getContentPane().setLayout(null);
 		

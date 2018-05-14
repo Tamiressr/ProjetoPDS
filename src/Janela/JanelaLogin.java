@@ -11,6 +11,7 @@ import javax.swing.JMenuItem;
 
 import Ouvintes.OuvinteJanelaCadatro;
 import Ouvintes.OuvinteJanelaLogin;
+import Ouvintes.OuvinteListaEscolas;
 
 public class JanelaLogin{
 
@@ -72,6 +73,11 @@ public class JanelaLogin{
 		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
 		frame.getContentPane().setLayout(null);
+		
+		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
+		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
+		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
+		mnreaDaEscola.add(mntmListaEscolas);
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
