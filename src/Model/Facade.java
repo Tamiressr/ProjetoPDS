@@ -8,7 +8,6 @@ import java.util.ListIterator;
 
 import javax.persistence.Persistence;
 
-import Controllers.CentralDeInformacoes;
 import Controllers.EscolaController;
 import View.JanelaCadastrar;
 
@@ -35,37 +34,35 @@ public class Facade {
 
 	public int criarEscola(ArrayList<String> array) {
 		Escola escola = diretor.criarEscola(array);
-//		EscolaController.getEscolaController().salvar(escola);
-//		
-//		return EscolaController.getEscolaController().procurarID(escola);
-		CentralDeInformacoes.getCentralDeInformacoes().adicionarEscola(escola);
-		return escola.getId();
+		EscolaController.getEscolaController().salvar(escola);
+		
+		return EscolaController.getEscolaController().procurarID(escola);
 		
 	}
 
 	public void excluirConta(int id) {
-//		EscolaController.getEscolaController().remover(id);
+		EscolaController.getEscolaController().remover(id);
 		
 		
 	}
 
 	public Escola procurarEscolaPorCnpj(String cnpj) {
-//		List<Escola> list = EscolaController.getEscolaController().listar();
-//		for (Escola e : list) {
-//			if (e.getCnpj().equals(cnpj)) {
-//				return e;
-//			}
-//		}
+		List<Escola> list = EscolaController.getEscolaController().listar();
+		for (Escola e : list) {
+			if (e.getCnpj().equals(cnpj)) {
+				return e;
+			}
+		}
 		return null;
 	}
 
 	public Escola procurarEscolaPorCnpj(int id) {
-//		List<Escola> list = EscolaController.getEscolaController().listar();
-//		for (Escola e : list) {
-//			if (e.getId() == id) {
-//				return e;
-//			}
-//		}
+		List<Escola> list = EscolaController.getEscolaController().listar();
+		for (Escola e : list) {
+			if (e.getId() == id) {
+				return e;
+			}
+		}
 		return null;
 	}
 
