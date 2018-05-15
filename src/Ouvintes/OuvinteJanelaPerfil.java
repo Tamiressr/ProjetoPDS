@@ -5,20 +5,20 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import Janela.JanelaPerfil;
+import View.JanelaPerfil;
 
 public class OuvinteJanelaPerfil implements ActionListener{
 	private JFrame janela;
-	private String cnpj;
+	private int id;
 
-	public OuvinteJanelaPerfil(JFrame janela,String cnpj) {
+	public OuvinteJanelaPerfil(JFrame janela,int id) {
 		this.janela = janela;
-		this.cnpj=cnpj;
+		this.id=id;
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		janela.dispose();
-		new JanelaPerfil(cnpj);
+		new JanelaPerfil(id);
 	}
 	
 	

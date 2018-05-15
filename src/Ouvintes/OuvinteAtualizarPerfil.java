@@ -2,24 +2,29 @@ package Ouvintes;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import Principal.Facade;
+import Model.Facade;
+import View.JanelaEditaPerfil;
 
 public class OuvinteAtualizarPerfil implements ActionListener {
-	private JFrame janela;
-	private String cnpj;
+	private JanelaEditaPerfil janela;
+	private int id;
 
-	public OuvinteAtualizarPerfil(JFrame janela,String cnpj) {
+	public OuvinteAtualizarPerfil(JanelaEditaPerfil janela,int id) {
 		this.janela = janela;
-		this.cnpj=cnpj;
+		this.id=id;
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
 		JOptionPane.showConfirmDialog(null, "Tem Certeza?");
-		Facade.getFacade().atualizar(cnpj);
+		
+		ArrayList<String> array=new ArrayList<>();
+		array=janela.returnValores();
+		Facade.getFacade().atualizar(id,array);
 	}
 
 }
