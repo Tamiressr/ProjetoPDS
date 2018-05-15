@@ -1,5 +1,6 @@
 package View;
 
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -11,7 +12,8 @@ import javax.swing.JMenuItem;
 
 import Ouvintes.OuvinteEditaPerfil;
 import Ouvintes.OuvinteExcluirConta;
-import Ouvintes.OuvinteJanelaCadatro;
+import Ouvintes.OuvinteGerenciarTurma;
+import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteJanelaPerfil;
 import Ouvintes.OuvinteListaEscolas;
@@ -29,8 +31,8 @@ public class JanelaPerfil {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-//					JanelaPerfil window = new JanelaPerfil();
-//					window.frame.setVisible(true);
+					JanelaPerfil window = new JanelaPerfil(1);
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -74,7 +76,7 @@ public class JanelaPerfil {
 		mnreaDaEscola.add(mntmLogin);
 
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteJanelaCadatro ouvinteJanelaCadatro = new OuvinteJanelaCadatro(frame);
+		OuvinteJanelaCadastro ouvinteJanelaCadatro = new OuvinteJanelaCadastro(frame);
 		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
 
@@ -103,10 +105,29 @@ public class JanelaPerfil {
 
 		JButton btnExcluirConta = new JButton("Excluir Conta");
 		btnExcluirConta.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnExcluirConta.setBounds(106, 22, 150, 40);
+		btnExcluirConta.setBackground(Color.red);
+		btnExcluirConta.setBounds(411, 449, 123, 40);
 		OuvinteExcluirConta ouvinteExcluirConta=new OuvinteExcluirConta(frame,id);
 		btnExcluirConta.addActionListener(ouvinteExcluirConta);
 		frame.getContentPane().add(btnExcluirConta);
+		
+		JButton btnGerenciarSeries = new JButton("Gerenciar Séries");
+		btnGerenciarSeries.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnGerenciarSeries.setBounds(10, 22, 150, 40);
+		OuvinteGerenciarTurma ouvinteGerenciarTurma=new OuvinteGerenciarTurma(this, id);
+		btnGerenciarSeries.addActionListener(ouvinteGerenciarTurma);
+		frame.getContentPane().add(btnGerenciarSeries);
 
 	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+	
+	
+	
 }

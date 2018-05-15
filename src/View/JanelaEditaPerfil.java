@@ -26,7 +26,7 @@ import javax.swing.text.MaskFormatter;
 import Model.Escola;
 import Model.Facade;
 import Ouvintes.OuvinteAtualizarPerfil;
-import Ouvintes.OuvinteJanelaCadatro;
+import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteJanelaPerfil;
 import Ouvintes.OuvinteListaEscolas;
@@ -105,7 +105,7 @@ public class JanelaEditaPerfil{
 		mnreaDaEscola.add(mntmLogin);
 
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteJanelaCadatro ouvinteJanelaCadatro= new OuvinteJanelaCadatro(frame);
+		OuvinteJanelaCadastro ouvinteJanelaCadatro= new OuvinteJanelaCadastro(frame);
 		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
 		frame.getContentPane().setLayout(null);

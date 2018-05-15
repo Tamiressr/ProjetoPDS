@@ -80,8 +80,17 @@ public class TurmaController {
 	public static void main(String[] args) {
 		Escola escola=new Escola();
 		escola.setNome("6");
-		escola.getEndereco().setRua("rua");
-	
+		Turma turma=new Turma();
+		turma.setNome((short) 8);
+
+		escola.getTurmas().add(turma);
+		turma.setEscola(escola);
+		escola.getEndereco().setRua("");
+		
+//		EnderecoController.getEnderecoController().salvar(escola.getEndereco());
 		EscolaController.getEscolaController().salvar(escola);
+//		TurmaController.getTurmaController().salvar(turma);
+		
+	
 	}
 }

@@ -7,10 +7,10 @@ import javax.swing.JFrame;
 
 import View.JanelaCadastrar;
 
-public class OuvinteJanelaCadatro implements ActionListener{
+public class OuvinteJanelaCadastro implements ActionListener{
 	private JFrame janela;
 	
-	public OuvinteJanelaCadatro(JFrame janela) {
+	public OuvinteJanelaCadastro(JFrame janela) {
 		this.janela= janela;
 	}
 

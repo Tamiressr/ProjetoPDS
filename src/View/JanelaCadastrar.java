@@ -1,5 +1,6 @@
 package View;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.EventQueue;
@@ -22,7 +23,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
 
-import Ouvintes.OuvinteJanelaCadatro;
+import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteListaEscolas;
 import Ouvintes.OuvinteSalvar;
@@ -96,7 +97,7 @@ public class JanelaCadastrar{
 		mnreaDaEscola.add(mntmLogin);
 
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteJanelaCadatro ouvinteJanelaCadatro= new OuvinteJanelaCadatro(frame);
+		OuvinteJanelaCadastro ouvinteJanelaCadatro= new OuvinteJanelaCadastro(frame);
 		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
 		frame.getContentPane().setLayout(null);
@@ -291,6 +292,7 @@ public class JanelaCadastrar{
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnSalvar.setBounds(360, 410, 150, 40);
+		btnSalvar.setBackground(new Color(164, 255, 72));
 		OuvinteSalvar ouvinteSalvar=new OuvinteSalvar(this);
 		btnSalvar.addActionListener(ouvinteSalvar);
 		frame.getContentPane().add(btnSalvar);
