@@ -42,7 +42,8 @@ public class Facade {
 
 	public void excluirConta(int id) {
 		EscolaController.getEscolaController().remover(id);
-		
+		///
+//		asfsfsdf
 		
 	}
 
