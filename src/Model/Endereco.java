@@ -21,14 +21,6 @@ public class Endereco {
 	
 	@OneToOne
 	private Escola escola;
-	
-	
-	
-	
-	
-	
-	
-
 
 	public String toString() {
 		return "Endereco [Rua=" + rua + ", Numero=" + numero + ", Cidade=" + cidade + ", CEP=" + cep + ", Bairro="

@@ -42,15 +42,15 @@ public class CentralDeInformacoes {
 		return null;
 	}
 
-	public void excluirEscola(int id) {
-		for (Escola escola : escolas) {
-			if ((escola.getId()==id) {
-				return escola;
-			}
-		}
-		
-		
-	}
+//	public void excluirEscola(int id) {
+//		for (Escola escola : escolas) {
+//			if ((escola.getId()) {
+//				return escola;
+//			}
+//		}
+//		
+//		
+//	}
 	
 	public ArrayList<Escola> getEscolas() {
 		return escolas;

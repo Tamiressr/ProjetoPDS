@@ -3,12 +3,14 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,15 +24,16 @@ public class Escola {
 	private String email;
 	private String senha;
 	private String nivelDeGoverno;
-	@OneToMany
+	
+	@OneToOne(mappedBy="escola", cascade=CascadeType.ALL)
 	private Endereco endereco;
-	// @Column
-	// private Telefone fixo;
-	// @Column
-	// private Telefone celular;
+	
+	@OneToMany(mappedBy="escola", cascade=CascadeType.ALL)
+	private List<Telefone> telefone = new ArrayList<>();
 
-	@OneToMany(mappedBy = "escola")
+	@OneToMany(mappedBy="escola")
 	private List<Turma> turmas = new ArrayList<>();
+	
 
 	public Escola() {
 		endereco=new Endereco();
@@ -88,14 +91,6 @@ public class Escola {
 		this.senha = senha;
 	}
 
-//	public List<Turma> getTurmas() {
-//		return turmas;
-//	}
-//
-//	public void setTurmas(List<Turma> turmas) {
-//		this.turmas = turmas;
-//	}
-
 	public String getNivelDeGoverno() {
 		return nivelDeGoverno;
 	}
@@ -118,6 +113,14 @@ public class Escola {
 
 	public void setTurmas(List<Turma> turmas) {
 		this.turmas = turmas;
+	}
+
+	public List<Telefone> getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(List<Telefone> telefone) {
+		this.telefone = telefone;
 	}
 
 }

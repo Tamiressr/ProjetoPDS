@@ -39,30 +39,33 @@ public class Facade {
 //		
 //		return EscolaController.getEscolaController().procurarID(escola);
 		CentralDeInformacoes.getCentralDeInformacoes().adicionarEscola(escola);
+		return escola.getId();
 		
 	}
 
 	public void excluirConta(int id) {
-		EscolaController.getEscolaController().remover(id);
+//		EscolaController.getEscolaController().remover(id);
+		
+		
 	}
 
 	public Escola procurarEscolaPorCnpj(String cnpj) {
-		List<Escola> list = EscolaController.getEscolaController().listar();
-		for (Escola e : list) {
-			if (e.getCnpj().equals(cnpj)) {
-				return e;
-			}
-		}
+//		List<Escola> list = EscolaController.getEscolaController().listar();
+//		for (Escola e : list) {
+//			if (e.getCnpj().equals(cnpj)) {
+//				return e;
+//			}
+//		}
 		return null;
 	}
 
 	public Escola procurarEscolaPorCnpj(int id) {
-		List<Escola> list = EscolaController.getEscolaController().listar();
-		for (Escola e : list) {
-			if (e.getId() == id) {
-				return e;
-			}
-		}
+//		List<Escola> list = EscolaController.getEscolaController().listar();
+//		for (Escola e : list) {
+//			if (e.getId() == id) {
+//				return e;
+//			}
+//		}
 		return null;
 	}
 
