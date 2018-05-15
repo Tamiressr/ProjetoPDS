@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import Janela.JanelaPerfil;
+import View.JanelaPerfil;
 
 public class OuvinteJanelaPerfil implements ActionListener{
 	private JFrame janela;

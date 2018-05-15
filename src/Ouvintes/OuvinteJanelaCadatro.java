@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import Janela.JanelaCadastrar;
+import View.JanelaCadastrar;
 
 public class OuvinteJanelaCadatro implements ActionListener{
 	private JFrame janela;

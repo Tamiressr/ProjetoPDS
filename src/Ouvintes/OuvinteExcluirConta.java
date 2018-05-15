@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import Principal.Facade;
+import Model.Facade;
 
 public class OuvinteExcluirConta implements ActionListener{
 	private String cnpj;

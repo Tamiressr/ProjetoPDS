@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import Principal.Facade;
+import Model.Facade;
 
 public class OuvinteAtualizarPerfil implements ActionListener {
 	private JFrame janela;

@@ -7,38 +7,28 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import Model.Endereco;
 import Model.Escola;
+import Model.Turno;
 
-public class EscolaController {
-	 EntityManagerFactory emf;
-	 EntityManager em;
-	 
-	private static EscolaController escolaController;
+public class TurnoController {
+	private EntityManagerFactory emf;
+	private EntityManager em;
+	private static TurnoController turnoController;
 
-	public static EscolaController getEscolaController() {
-		if (escolaController == null) {
-			escolaController = new EscolaController();
+	public static TurnoController getEscolaController() {
+		if (turnoController == null) {
+			turnoController = new TurnoController();
 		}
-		return escolaController;
+		return turnoController;
 	}
 
-	public EscolaController() {
-		emf = Persistence.createEntityManagerFactory("escola");
+	private TurnoController() {
+		emf = Persistence.createEntityManagerFactory("esse");
 		em = emf.createEntityManager();
 
 	}
 
 	public void salvar(Escola escola) {
-		em.getTransaction().begin();
-		em.merge(escola);
-		em.getTransaction().commit();
-		emf.close();
-		em.close();
-
-	}
-	public void salvarEndereco(Endereco escola) {
-		
 		em.getTransaction().begin();
 		em.merge(escola);
 		em.getTransaction().commit();
@@ -57,12 +47,12 @@ public class EscolaController {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Escola> listar() {
+	public List<Turno> listar() {
 		em.getTransaction().begin();
-		Query consulta = em.createQuery("select escola from Escola escola ");
+		Query consulta = em.createQuery("select turn from Turno turno");
 
-		List<Escola> resultados = consulta.getResultList();
-		for (Escola p : resultados) {
+		List<Turno> resultados = consulta.getResultList();
+		for (Turno p : resultados) {
 			System.out.println(p);
 		}
 		em.getTransaction().commit();
@@ -71,15 +61,15 @@ public class EscolaController {
 		return resultados;
 	}
 
-	public void atualizar(Escola escola, int id) {
+	public void atualizar( int id) {
 		em.getTransaction().begin();
 		Escola e = em.find(Escola.class, id);
 		if (e != null) {
-			e.setNome(escola.getNome());
-			e.setEmail(escola.getEmail());
-			e.setCnpj(escola.getCnpj());
-			e.setLink(escola.getLink());
-			e.setSenha(escola.getSenha());
+//			e.setNome(escola.getNome());
+//			e.setEmail(escola.getEmail());
+//			e.setCnpj(escola.getCnpj());
+//			e.setLink(escola.getLink());
+//			e.setSenha(escola.getSenha());
 			e = em.merge(e);
 			System.out.println(e.getNome());
 		} else {
@@ -88,4 +78,5 @@ public class EscolaController {
 		em.getTransaction().commit();
 		emf.close();
 	}
+
 }
