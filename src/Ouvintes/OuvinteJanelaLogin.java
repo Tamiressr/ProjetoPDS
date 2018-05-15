@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import Janela.Janela;
-import Janela.JanelaCadastrar;
-import Janela.JanelaLogin;
-import Janela.JanelaPrincipal;
+import View.Janela;
+import View.JanelaCadastrar;
+import View.JanelaLogin;
+import View.JanelaPrincipal;
 
 public class OuvinteJanelaLogin implements ActionListener{
 	private JFrame frame;
