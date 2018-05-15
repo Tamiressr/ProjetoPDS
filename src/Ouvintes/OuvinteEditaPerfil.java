@@ -5,21 +5,21 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import Janela.JanelaCadastrar;
-import Janela.JanelaEditaPerfil;
+import View.JanelaCadastrar;
+import View.JanelaEditaPerfil;
 
 public class OuvinteEditaPerfil implements ActionListener {
-	private String cnpj;
+	private int id;
 	private JFrame janela;
 	
-	public OuvinteEditaPerfil(JFrame janela,String cnpj) {
+	public OuvinteEditaPerfil(JFrame janela,int id) {
 		this.janela = janela;
-		this.cnpj=cnpj;
+		this.id=id;
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
 		janela.dispose();
-		new JanelaEditaPerfil(cnpj);
+		new JanelaEditaPerfil(id);
 
 	}
 }
