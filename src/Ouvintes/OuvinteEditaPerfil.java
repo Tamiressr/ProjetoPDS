@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import View.JanelaCadastrar;
-import View.JanelaEditaPerfil;
+import Janela.JanelaCadastrar;
+import Janela.JanelaEditaPerfil;
 
 public class OuvinteEditaPerfil implements ActionListener {
 	private String cnpj;

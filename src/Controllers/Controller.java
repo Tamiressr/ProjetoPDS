@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import Model.Escola;
+import Diagrama.Escola;
 
 public class Controller {
 	private static Controller controller;

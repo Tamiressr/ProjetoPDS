@@ -6,14 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-
-import Model.Endereco;
-import Model.Escola;
+import Diagrama.Escola;
 
 public class EscolaController {
-	 EntityManagerFactory emf;
-	 EntityManager em;
-	 
+	private EntityManagerFactory emf;
+	private EntityManager em;
 	private static EscolaController escolaController;
 
 	public static EscolaController getEscolaController() {
@@ -23,22 +20,13 @@ public class EscolaController {
 		return escolaController;
 	}
 
-	public EscolaController() {
+	private EscolaController() {
 		emf = Persistence.createEntityManagerFactory("escola");
 		em = emf.createEntityManager();
 
 	}
 
 	public void salvar(Escola escola) {
-		em.getTransaction().begin();
-		em.merge(escola);
-		em.getTransaction().commit();
-		emf.close();
-		em.close();
-
-	}
-	public void salvarEndereco(Endereco escola) {
-		
 		em.getTransaction().begin();
 		em.merge(escola);
 		em.getTransaction().commit();
