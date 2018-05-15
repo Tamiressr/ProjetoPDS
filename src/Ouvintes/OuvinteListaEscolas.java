@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import View.JanelaListaEscolas;
+import Janela.JanelaListaEscolas;
 
 public class OuvinteListaEscolas implements ActionListener {
 	private JFrame janela;
