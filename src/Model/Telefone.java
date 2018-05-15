@@ -1,18 +1,20 @@
 package Model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Telefone {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 	private short ddd;
-<<<<<<< HEAD:src/Diagrama/Telefone.java
-
-<<<<<<< HEAD:src/Diagrama/Telefone.java
-<<<<<<< HEAD:src/Model/Telefone.java
-=======
->>>>>>> parent of 9a8738d... Teste:src/Model/Telefone.java
-=======
->>>>>>> parent of 5114008... Teste:src/Model/Telefone.java
 	private String numero;
+	
+	
 
 	@ManyToOne
 	private Escola escola;
@@ -38,4 +40,21 @@ public class Telefone {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Escola getEscola() {
+		return escola;
+	}
+
+	public void setEscola(Escola escola) {
+		this.escola = escola;
+	}
+	
 }
