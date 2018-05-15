@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Diretor {
 	private BuilderEscola builderEscola;
+	private int id;
 
 	public Diretor(BuilderEscola escola) {
 		this.builderEscola = escola;
@@ -34,6 +35,11 @@ public class Diretor {
 	public Escola criarEscola(String nome, String telefoneFixo, String telefoneCelular, String senha, String email,
 			String link, String cnpj, String nivel, String rua, String bairro, String numero, String cep,
 			String cidade) {
+		/**
+		 * Lembra tirar em caso o banco de dados de certo
+		 */
+		builderEscola.getEscola().setId(id);
+		id++;
 		builderEscola.nomeBuilder(nome);
 		builderEscola.telefoneFixoBuilder(telefoneFixo);
 		builderEscola.telefoneCelularBuilder(telefoneCelular);

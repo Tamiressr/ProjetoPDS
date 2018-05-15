@@ -29,6 +29,7 @@ public class CentralDeInformacoes {
 
 	public void adicionarEscola(Escola escola) {
 		escolas.add(escola);
+		Persistencia.getPersistencia().salvarCentral(central);
 	}
 
 	public Escola recuperarEscola(String login, String senha) {
@@ -41,6 +42,16 @@ public class CentralDeInformacoes {
 		return null;
 	}
 
+	public void excluirEscola(int id) {
+		for (Escola escola : escolas) {
+			if ((escola.getId()==id) {
+				return escola;
+			}
+		}
+		
+		
+	}
+	
 	public ArrayList<Escola> getEscolas() {
 		return escolas;
 	}

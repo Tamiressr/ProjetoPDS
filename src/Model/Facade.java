@@ -8,6 +8,7 @@ import java.util.ListIterator;
 
 import javax.persistence.Persistence;
 
+import Controllers.CentralDeInformacoes;
 import Controllers.EscolaController;
 import View.JanelaCadastrar;
 
@@ -34,9 +35,11 @@ public class Facade {
 
 	public int criarEscola(ArrayList<String> array) {
 		Escola escola = diretor.criarEscola(array);
-		EscolaController.getEscolaController().salvar(escola);
+//		EscolaController.getEscolaController().salvar(escola);
+//		
+//		return EscolaController.getEscolaController().procurarID(escola);
+		CentralDeInformacoes.getCentralDeInformacoes().adicionarEscola(escola);
 		
-		return EscolaController.getEscolaController().procurarID(escola);
 	}
 
 	public void excluirConta(int id) {
@@ -101,6 +104,12 @@ public class Facade {
 
 	public List<Escola> listar() {
 		return EscolaController.getEscolaController().listar();
+	}
+	
+	public void salvarTurma(int id, ArrayList<String> array) {
+		Escola escola = EscolaController.getEscolaController().procurarEscola(id);
+		Turma turma=new Turma();
+		escola.getTurmas().add(turma);
 	}
 
 }

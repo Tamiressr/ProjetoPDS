@@ -114,7 +114,7 @@ public class JanelaPerfil {
 		JButton btnGerenciarSeries = new JButton("Gerenciar Séries");
 		btnGerenciarSeries.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnGerenciarSeries.setBounds(10, 22, 150, 40);
-		OuvinteGerenciarTurma ouvinteGerenciarTurma=new OuvinteGerenciarTurma(this, id);
+		OuvinteGerenciarTurma ouvinteGerenciarTurma=new OuvinteGerenciarTurma(frame, id);
 		btnGerenciarSeries.addActionListener(ouvinteGerenciarTurma);
 		frame.getContentPane().add(btnGerenciarSeries);
 

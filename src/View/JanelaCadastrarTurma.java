@@ -3,6 +3,7 @@ package View;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -13,8 +14,10 @@ import Ouvintes.OuvinteGerenciarTurma;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteListaEscolas;
+import Ouvintes.OuvinteSalvaTurma;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,14 +27,21 @@ import javax.swing.JRadioButton;
 import org.jdesktop.swingx.JXRadioGroup;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JList;
 
 public class JanelaCadastrarTurma {
 
 	private JFrame frame;
-	private String[] serie= {"   1º","   2º","   3º","   4º","   5º","   6º","   7º","   8º","   9º"};
+	private String[] serie = { "   1º", "   2º", "   3º", "   4º", "   5º", "   6º", "   7º", "   8º", "   9º" };
 	private JTextField txtQuantidadetotaldevagas;
 	private JTextField txtQuantidadedisponivel;
 	private int id;
+	private JComboBox comboBox;
+	private ButtonGroup menu;
+	private JRadioButton rdbtnManh;
+	private JRadioButton rdbtnTarde;
+	private JRadioButton rdbtnNoite;
+	private JRadioButton rdbtnIntegral;
 
 	/**
 	 * Launch the application.
@@ -53,7 +63,7 @@ public class JanelaCadastrarTurma {
 	 * Create the application.
 	 */
 	public JanelaCadastrarTurma(int id) {
-		this.id=id;
+		this.id = id;
 		initialize();
 	}
 
@@ -61,7 +71,7 @@ public class JanelaCadastrarTurma {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame=new JFrame();
+		frame = new JFrame();
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -72,108 +82,141 @@ public class JanelaCadastrarTurma {
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
-		
+
 		JMenu mnreaDaEscola = new JMenu("Escola");
 		menuBar.add(mnreaDaEscola);
 
 		JMenuItem mntmLogin = new JMenuItem("Login");
-		OuvinteJanelaLogin ouvinteJanelaLogin=new OuvinteJanelaLogin(frame);
+		OuvinteJanelaLogin ouvinteJanelaLogin = new OuvinteJanelaLogin(frame);
 		mntmLogin.addActionListener(ouvinteJanelaLogin);
 		mnreaDaEscola.add(mntmLogin);
 
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteJanelaCadastro ouvinteJanelaCadatro= new OuvinteJanelaCadastro(frame);
+		OuvinteJanelaCadastro ouvinteJanelaCadatro = new OuvinteJanelaCadastro(frame);
 		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
 		frame.getContentPane().setLayout(null);
-		
+
 		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
-		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
+		OuvinteListaEscolas ouvinteListaEscolas = new OuvinteListaEscolas(frame);
 		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
 		mnreaDaEscola.add(mntmListaEscolas);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
 		panel.setBounds(38, 65, 473, 165);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		JLabel lblSrie = new JLabel("S\u00E9rie");
 		lblSrie.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblSrie.setBounds(18, 12, 48, 19);
 		panel.add(lblSrie);
-		
-		JComboBox comboBox = new JComboBox(serie);
+
+		comboBox = new JComboBox(serie);
 		comboBox.setFont(new Font("Arial", Font.PLAIN, 14));
 		comboBox.setBounds(62, 11, 65, 20);
 		panel.add(comboBox);
-		
-		ButtonGroup menu=new ButtonGroup();
-		
-		
-		JRadioButton rdbtnManh = new JRadioButton("Manh\u00E3");
+
+		menu = new ButtonGroup();
+
+		rdbtnManh = new JRadioButton("Manh\u00E3");
 		rdbtnManh.setBounds(18, 41, 109, 23);
 		panel.add(rdbtnManh);
 		menu.add(rdbtnManh);
-		
-		JRadioButton rdbtnTarde = new JRadioButton("Tarde");
+
+		rdbtnTarde = new JRadioButton("Tarde");
 		rdbtnTarde.setBounds(18, 71, 109, 23);
 		panel.add(rdbtnTarde);
 		menu.add(rdbtnTarde);
-		
-		JRadioButton rdbtnNoite = new JRadioButton("Noite");
+
+		rdbtnNoite = new JRadioButton("Noite");
 		rdbtnNoite.setBounds(18, 101, 109, 23);
 		panel.add(rdbtnNoite);
 		menu.add(rdbtnNoite);
-		
-		JRadioButton rdbtnIntegral = new JRadioButton("Integral");
+
+		rdbtnIntegral = new JRadioButton("Integral");
 		rdbtnIntegral.setBounds(18, 131, 109, 23);
 		panel.add(rdbtnIntegral);
 		menu.add(rdbtnIntegral);
-		
+
 		JLabel lblQuantidadeTotalDe = new JLabel("Quantidade Total de Vagas na Turma");
 		lblQuantidadeTotalDe.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblQuantidadeTotalDe.setBounds(171, 12, 280, 14);
 		panel.add(lblQuantidadeTotalDe);
-		
+
 		txtQuantidadetotaldevagas = new JTextField();
 		txtQuantidadetotaldevagas.setFont(new Font("Arial", Font.PLAIN, 14));
-		txtQuantidadetotaldevagas.setBounds(181, 38, 118, 20);
+		txtQuantidadetotaldevagas.setBounds(181, 38, 118, 23);
 		panel.add(txtQuantidadetotaldevagas);
 		txtQuantidadetotaldevagas.setColumns(10);
-		
+
 		JLabel lblQuantidadeDisponivelDe = new JLabel("Quantidade Disponivel de Vagas na Turma");
 		lblQuantidadeDisponivelDe.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblQuantidadeDisponivelDe.setBounds(171, 71, 280, 14);
 		panel.add(lblQuantidadeDisponivelDe);
-		
+
 		txtQuantidadedisponivel = new JTextField();
 		txtQuantidadedisponivel.setFont(new Font("Arial", Font.PLAIN, 14));
-		txtQuantidadedisponivel.setBounds(181, 97, 118, 20);
+		txtQuantidadedisponivel.setBounds(181, 97, 118, 23);
 		panel.add(txtQuantidadedisponivel);
 		txtQuantidadedisponivel.setColumns(10);
-		
+
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnSalvar.setBounds(362, 131, 89, 23);
+		OuvinteSalvaTurma ouvinteSalvaTurma=new OuvinteSalvaTurma(id, this);
+		btnSalvar.addActionListener(ouvinteSalvaTurma);
 		panel.add(btnSalvar);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.GRAY);
 		panel_1.setBounds(38, 264, 473, 209);
 		frame.getContentPane().add(panel_1);
-		
+
+		JList list = new JList();
+		list.setFont(new Font("Arial", Font.PLAIN, 14));
+		panel_1.add(list);
+
 		JButton btnVolta = new JButton("Volta");
 		btnVolta.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnVolta.setBounds(361, 14, 150, 40);
-//		OuvinteGerenciarTurma ouvinteGerenciarTurma=new OuvinteGerenciarTurma(this,id);
+		OuvinteGerenciarTurma ouvinteGerenciarTurma = new OuvinteGerenciarTurma(frame, id);
+		btnVolta.addActionListener(ouvinteGerenciarTurma);
 		frame.getContentPane().add(btnVolta);
-		
-		
-		
-		
+
+	}
+
+	public ArrayList<String> retornaValores() {
+		// private JTextField txtQuantidadetotaldevagas;
+		// private JTextField txtQuantidadedisponivel;
+		ArrayList<String> array = new ArrayList<>();
+
+		String selecionado = serie[comboBox.getSelectedIndex()];
+		array.add(selecionado);
+		System.out.println(button());
+		array.add(button());
+		array.add(txtQuantidadetotaldevagas.getText());
+		array.add(txtQuantidadedisponivel.getText());
+
+		return array;
+	}
+
+	private String button() {
+		ButtonModel o = menu.getSelection();
+		if (rdbtnManh.isSelected()) {
+			return "manhã";
+		} else if (rdbtnTarde.isSelected()) {
+			return "tarde";
+		} else if (rdbtnNoite.isSelected()) {
+			return "noite";
+		} else if (rdbtnIntegral.isSelected()) {
+			return "integral";
+		}
+		return "";
+
 	}
 }
