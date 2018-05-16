@@ -1,0 +1,36 @@
+<Controllers.CentralDeInformacoes>
+  <array>
+    <Model.Escola>
+      <id>0</id>
+      <nome>mmmmmm</nome>
+      <cnpj>  .   .   /    -  </cnpj>
+      <link></link>
+      <email></email>
+      <senha></senha>
+      <nivelDeGoverno>Municipal</nivelDeGoverno>
+      <endereco>
+        <id>0</id>
+        <rua></rua>
+        <numero>1</numero>
+        <cidade></cidade>
+        <cep>  .   -   </cep>
+        <bairro></bairro>
+      </endereco>
+      <telefone>
+        <Model.Telefone>
+          <id>0</id>
+          <ddd>72</ddd>
+          <numero> </numero>
+        </Model.Telefone>
+        <Model.Telefone>
+          <id>0</id>
+          <ddd>72</ddd>
+          <numero> </numero>
+        </Model.Telefone>
+      </telefone>
+      <turmas/>
+    </Model.Escola>
+  </array>
+  <contador>0</contador>
+  <cont>0</cont>
+</Controllers.CentralDeInformacoes>

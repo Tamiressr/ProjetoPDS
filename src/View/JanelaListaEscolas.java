@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteListaEscolas;
+import Ouvintes.OuvinteVoltarInicio;
 
 import javax.swing.JList;
 import javax.swing.JTable;
@@ -21,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 import Model.Escola;
 import Model.Facade;
+import javax.swing.JButton;
 
 public class JanelaListaEscolas {
 
@@ -63,7 +65,6 @@ public class JanelaListaEscolas {
 		frame.setBounds(100, 100, 550, 550);
 		frame.setLocation(400, 100);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
 		
@@ -96,28 +97,32 @@ public class JanelaListaEscolas {
 		frame.getContentPane().setLayout(null);
 		modelo = new DefaultTableModel();
 
-		modelo.addColumn("Nome");
-		modelo.addColumn("Email");
-		modelo.addColumn("Telefone");
+		modelo.addColumn("Escolas");
 
 		List<Escola> list=Facade.getFacade().listar();
 		
 		for (Escola e : list) {
-			Object[] array = new Object[3];
-			array[0] = e.getNome();
-			array[1] = e.getEmail();
+			Object[] array = new Object[1];
+			array[0] = e.toString();
 			modelo.addRow(array);
 		}
-		
+
 		table = new JTable(modelo);
 
 		JScrollPane painelTabela = new JScrollPane(table);
 		painelTabela.setBounds(50, 150, 450, 250);
 		frame.getContentPane().add(painelTabela);
 		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnVoltar.setBounds(408, 11, 92, 40);
+		OuvinteVoltarInicio ouvinteVoltarInicio=new OuvinteVoltarInicio(frame);
+		btnVoltar.addActionListener(ouvinteVoltarInicio);
+		frame.getContentPane().add(btnVoltar);
+		
+		
+		
 		
 		
 	}
-	
-	
 }

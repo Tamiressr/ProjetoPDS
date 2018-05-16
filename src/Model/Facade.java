@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 import javax.persistence.Persistence;
+import javax.swing.JOptionPane;
 
 import Controllers.EscolaController;
 import View.JanelaCadastrar;
@@ -68,32 +69,28 @@ public class Facade {
 	}
 
 	public List<String> procurarEscolaPorCNPJ(int id) {
-		List<Escola> list = EscolaController.getEscolaController().listar();
-		ArrayList<String> lista = new ArrayList<>();
-		for (Escola e : list) {
+		List<Escola> lista = EscolaController.getEscolaController().listar();
+		ArrayList<String> list = new ArrayList<String>();
+		
+		for (Escola e : lista) {
 			if (e.getId() == id) {
-				lista.add(e.getNome());
-				lista.add(e.getLink());
-				lista.add(e.getEmail());
-				lista.add(e.getSenha());
-
-				lista.add(e.getCnpj());
-				return lista;
-
-				// textFielNome.setText(escola.getNome());
-				// txtLinkdosite.setText(escola.getLink());
-				// txtEmail.setText(escola.getEmail());
-				// txtSenha.setText(escola.getSenha());
-				//// txtRua.setText(escola.getEndereco().getRua());
-				//// txtNumero.setText(""+escola.getEndereco().getNumero());
-				//// txtCidade.setText(escola.getEndereco().getCidade());
-				//// txtCep.setText(escola.getEndereco().getCep());
-				//// txtBairro.setText(escola.getEndereco().getBairro());
-				//// frmtdtxtfldTelefonefixo.setText(escola.getFixo().toString());
-				//// formattedTextFieldTelefoneCelular.setText(escola.getCelular().toString());
-				// txtCnpj.setText("");
+				list.add(e.getNome());
+//				list.add(e.getTelefone().get(0).toString());
+//				list.add(e.getTelefone().get(1).toString());
+				list.add(e.getLink());
+				list.add(e.getEmail());
+				list.add(e.getSenha());
+				list.add(e.getCnpj());
+//				list.add(e.getEndereco().getRua());
+//				list.add(e.getEndereco().getNumero()+"");
+//				list.add(e.getEndereco().getCidade());
+//				list.add(e.getEndereco().getCep());
+//				list.add(e.getEndereco().getBairro());
+	
+				return list;
 			}
 		}
+		JOptionPane.showMessageDialog(null, "Nada");
 		return null;
 
 	}

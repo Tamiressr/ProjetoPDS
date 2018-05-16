@@ -3,7 +3,6 @@ package Ouvintes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import View.JanelaCadastrarTurma;
 import View.JanelaGerenciarTurma;
 import View.JanelaPerfil;
 
@@ -18,8 +17,9 @@ public class OuvinteCadastrarTurma implements ActionListener{
 	
 
 	public void actionPerformed(ActionEvent e) {
-		janela.getFrame().dispose();
-		new JanelaCadastrarTurma(id);
+		janela.addPainel();
+		janela.getFrame().repaint();
+//		new JanelaCadastrarTurma(id);
 	}
 
 }

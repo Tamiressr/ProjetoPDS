@@ -393,19 +393,30 @@ public class JanelaEditaPerfil{
 	public void colocarDados() {
 		List<String> list=Facade.getFacade().procurarEscolaPorCNPJ(id);
 		
-		textFielNome.setText(list.get(0));
-		txtLinkdosite.setText(list.get(1));
-		txtEmail.setText(list.get(2));
-		txtSenha.setText(list.get(3));
-//		txtRua.setText(escola.getEndereco().getRua());
-//		txtNumero.setText(""+escola.getEndereco().getNumero());
-//		txtCidade.setText(escola.getEndereco().getCidade());
-//		txtCep.setText(escola.getEndereco().getCep());
-//		txtBairro.setText(escola.getEndereco().getBairro());
-//		frmtdtxtfldTelefonefixo.setText(escola.getFixo().toString());
-//		formattedTextFieldTelefoneCelular.setText(escola.getCelular().toString());
-		txtCnpj.setText(list.get(4));
+		System.out.println(list.get(0));
+		System.out.println(list.size());
+		String nome=list.get(0);
+		
+		textFielNome.setText(nome);
+//		txtLinkdosite.setText(list.get(1));
+//		txtEmail.setText(list.get(2));
+//		txtSenha.setText(list.get(3));
+//		txtCnpj.setText(list.get(4));
 		
 		
+//		textFielNome.setText(list.get(0));
+//		formattedTextFieldTelefoneCelular.setText(list.get(1));
+//		frmtdtxtfldTelefonefixo.setText(list.get(3));
+//		txtLinkdosite.setText(list.get(4));
+//		txtEmail.setText(list.get(5));
+//		txtSenha.setText(list.get(6));
+//		txtCnpj.setText(list.get(7));
+//		
+//		txtRua.setText(list.get(8));
+//		txtNumero.setText(list.get(9));
+//		txtCidade.setText(list.get(10));
+//		txtCep.setText(list.get(11));
+//		txtBairro.setText(list.get(12));
+
 	}
 }

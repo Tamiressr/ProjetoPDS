@@ -40,14 +40,16 @@ public class Escola {
 	}
 
 	public String toString() {
-		return "Escola [Nome=" + nome + ", CNPJ=" + cnpj + ", Link=" + link + ", Email=" + email + ",]";
+		return "Nome=" + nome + ",  CNPJ=" + cnpj + ",  Link=" + link + ",  E-mail=" + email + ",  Nível de Governo="
+				+ nivelDeGoverno + ",  Endereco=" + endereco + ",  Telefone=" + telefone;
 	}
+
 
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	private void setId(int id) {
 		this.id = id;
 	}
 

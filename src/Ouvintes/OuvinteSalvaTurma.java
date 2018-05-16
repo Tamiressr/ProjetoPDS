@@ -6,20 +6,20 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import Model.Facade;
-import View.JanelaCadastrarTurma;
+import View.JanelaGerenciarTurma;
 
 public class OuvinteSalvaTurma implements ActionListener{
 	private int id;
-	private JanelaCadastrarTurma janela;
+	private JanelaGerenciarTurma janela;
 	
-	public OuvinteSalvaTurma(int id, JanelaCadastrarTurma janela) {
+	public OuvinteSalvaTurma(int id, JanelaGerenciarTurma janela) {
 		this.id=id;
 		this.janela=janela;
 	}
 	
 
 	public void actionPerformed(ActionEvent e) {
-		Facade.getFacade().salvarTurma(id, janela.retornaValores());
+//		Facade.getFacade().salvarTurma(id, janela.retornaValores());
 		
 	}
 

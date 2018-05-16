@@ -117,7 +117,7 @@ public class JanelaCadastrar{
 		lblCadastrar.setFont(new Font("Times New Roman", Font.PLAIN, 36));
 		frame.getContentPane().add(lblCadastrar);
 
-		JLabel lblNome = new JLabel("Nome");
+		JLabel lblNome = new JLabel("Nome*");
 		lblNome.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNome.setBounds(10, 113, 103, 20);
 		frame.getContentPane().add(lblNome);
@@ -129,7 +129,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(textFielNome);
 		textFielNome.setColumns(10);
 
-		JLabel lblNvelDeEnsino = new JLabel("N\u00EDvel de Governo");
+		JLabel lblNvelDeEnsino = new JLabel("N\u00EDvel de Governo*");
 		lblNvelDeEnsino.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNvelDeEnsino.setBounds(10, 153, 117, 20);
 		frame.getContentPane().add(lblNvelDeEnsino);
@@ -137,7 +137,7 @@ public class JanelaCadastrar{
 		comboBoxNivies= new JComboBox(niveis);
 		comboBoxNivies.setAlignmentX(Component.LEFT_ALIGNMENT);
 		comboBoxNivies.setFont(new Font("Arial", Font.PLAIN, 14));
-		comboBoxNivies.setBounds(121, 150, 146, 25);
+		comboBoxNivies.setBounds(134, 150, 133, 25);
 		frame.getContentPane().add(comboBoxNivies);
 
 		JLabel lblTelefoneCelular = new JLabel("Telefone Celular");
@@ -198,7 +198,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtLinkdosite);
 		txtLinkdosite.setColumns(10);
 
-		JLabel lblEmail = new JLabel("Email");
+		JLabel lblEmail = new JLabel("Email*");
 		lblEmail.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblEmail.setBounds(294, 193, 92, 20);
 		frame.getContentPane().add(lblEmail);
@@ -210,7 +210,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtEmail);
 		txtEmail.setColumns(10);
 
-		JLabel lblSenha = new JLabel("Senha");
+		JLabel lblSenha = new JLabel("Senha*");
 		lblSenha.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblSenha.setBounds(10, 233, 92, 20);
 		frame.getContentPane().add(lblSenha);
@@ -222,7 +222,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtSenha);
 		txtSenha.setColumns(10);
 
-		JLabel lblRua = new JLabel("Rua");
+		JLabel lblRua = new JLabel("Rua*");
 		lblRua.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblRua.setBounds(10, 273, 46, 20);
 		frame.getContentPane().add(lblRua);
@@ -234,7 +234,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtRua);
 		txtRua.setColumns(10);
 
-		JLabel lblNumero = new JLabel("Numero");
+		JLabel lblNumero = new JLabel("Numero*");
 		lblNumero.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNumero.setBounds(294, 273, 92, 20);
 		frame.getContentPane().add(lblNumero);
@@ -246,9 +246,9 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtNumero);
 		txtNumero.setColumns(10);
 
-		JLabel lblCidade = new JLabel("Cidade");
+		JLabel lblCidade = new JLabel("Cidade*");
 		lblCidade.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblCidade.setBounds(10, 313, 46, 20);
+		lblCidade.setBounds(10, 313, 61, 20);
 		frame.getContentPane().add(lblCidade);
 
 		txtCidade = new JTextField();
@@ -258,7 +258,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtCidade);
 		txtCidade.setColumns(10);
 
-		JLabel lblCep = new JLabel("CEP");
+		JLabel lblCep = new JLabel("CEP*");
 		lblCep.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblCep.setBounds(294, 313, 46, 20);
 		frame.getContentPane().add(lblCep);
@@ -277,7 +277,7 @@ public class JanelaCadastrar{
 		
 		txtCep.setColumns(10);
 
-		JLabel lblBairro = new JLabel("Bairro");
+		JLabel lblBairro = new JLabel("Bairro*");
 		lblBairro.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblBairro.setBounds(10, 353, 46, 20);
 		frame.getContentPane().add(lblBairro);
@@ -304,7 +304,7 @@ public class JanelaCadastrar{
 		btnLimpar.addActionListener(ouvinteLimpaCampos);
 		frame.getContentPane().add(btnLimpar);
 		
-		JLabel lblCnpj = new JLabel("CNPJ");
+		JLabel lblCnpj = new JLabel("CNPJ*");
 		lblCnpj.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblCnpj.setBounds(294, 233, 46, 20);
 		frame.getContentPane().add(lblCnpj);
@@ -319,6 +319,10 @@ public class JanelaCadastrar{
 			txtCnpj.setColumns(10);
 
 			txtCnpj.setText("TelefoneFixo");
+			
+			JLabel lblCamposObrigatorios = new JLabel("*Campos Obrigatorios");
+			lblCamposObrigatorios.setBounds(396, 80, 117, 14);
+			frame.getContentPane().add(lblCamposObrigatorios);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

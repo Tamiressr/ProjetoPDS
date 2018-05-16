@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import Model.Facade;
+import View.JanelaPrincipal;
 
 public class OuvinteExcluirConta implements ActionListener{
 	private int id;
@@ -19,16 +20,14 @@ public class OuvinteExcluirConta implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-//		janela.dispose();
 		int confirm=JOptionPane.showConfirmDialog(null, "Deseja excluir sua conta?");
 		if(confirm==0) {
 			Facade.getFacade().excluirConta(id);
-		}else if(confirm==1) {
-			System.out.println("nao");
+			janela.dispose();
+			new JanelaPrincipal();
 		}else {
-			System.out.println("a");
+			
 		}
-		
 	}
 
 }

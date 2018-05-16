@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.swing.JOptionPane;
 
 import Model.Escola;
 
@@ -29,17 +30,17 @@ public class EscolaController {
 	}
 
 	public void salvar(Escola escola) {
+		CentralDeInformacoes.getCentralDeInformacoes().adicionarEscola(escola);
+		
 		em.getTransaction().begin();
 		em.merge(escola);
 		em.getTransaction().commit();
-
 		emf.close();
-
 	}
 
 	public int procurarID(Escola escola) {
-		List<Escola> list = listar();
-
+//		List<Escola> list = listar();
+		List<Escola> list=CentralDeInformacoes.getCentralDeInformacoes().getArray();
 		for (Escola p : list) {
 			if (p.getEmail().equals(escola.getEmail())) {
 				return p.getId();
@@ -49,7 +50,8 @@ public class EscolaController {
 	}
 	
 	public Escola procurarEscola(int id) {
-		List<Escola> list = listar();
+//		List<Escola> list = listar();
+		List<Escola> list=CentralDeInformacoes.getCentralDeInformacoes().getArray();
 
 		for (Escola p : list) {
 			if (p.getId()==id) {
@@ -61,11 +63,12 @@ public class EscolaController {
 
 	public void remover(int id) {
 		em.getTransaction().begin();
-		Escola p = em.find(Escola.class, id);
-		if (p != null)
-			em.remove(p);
+		Escola escola = em.find(Escola.class, id);
+		CentralDeInformacoes.getCentralDeInformacoes().remover(escola);
+		if (escola != null)
+			em.remove(escola);
 		else
-			System.out.println("inexistente");
+			JOptionPane.showMessageDialog(null, "Conta Não Encontrada");
 		em.getTransaction().commit();
 	}
 
@@ -75,18 +78,14 @@ public class EscolaController {
 		Query consulta = em.createQuery("select escola from Escola escola ");
 
 		List<Escola> resultados = consulta.getResultList();
-		// for (Escola p : resultados) {
-		// System.out.println(p);
-		// }
+
 		em.getTransaction().commit();
 		emf.close();
 
-		return resultados;
+		return CentralDeInformacoes.getCentralDeInformacoes().getArray();
 	}
 
 	public void atualizar(Escola escola,int id, ArrayList<String> array) {
-		em.getTransaction().begin();
-		Escola e = em.find(Escola.class, id);
 //		0 array.add(textFielNome.getText());
 //		1 array.add(formattedTextFieldTelefoneCelular.getText());
 //		String nivel=niveis[comboBoxNivies.getSelectedIndex()];
@@ -102,18 +101,23 @@ public class EscolaController {
 //		10 array.add(txtCidade.getText());
 //		11 array.add(txtCep.getText());
 //		12 array.add(txtBairro.getText());
+		
+		em.getTransaction().begin();
+		Escola novaEscola = em.find(Escola.class, id);
 
-		if (e != null) {
-			e.setNome(array.get(0));
-			e.setLink(array.get(4));
-			e.setEmail(array.get(5));
-			e.setSenha(array.get(6));
-			e = em.merge(e);
+		if (novaEscola != null) {
+			novaEscola.setNome(array.get(0));
+			novaEscola.setLink(array.get(4));
+			novaEscola.setEmail(array.get(5));
+			novaEscola.setSenha(array.get(6));
+			novaEscola = em.merge(novaEscola);
 			em.getTransaction().commit();
 			emf.close();
 		} else {
 			System.out.println("escola inexistente");
 		}
+		CentralDeInformacoes.getCentralDeInformacoes().remover(escola);
+		CentralDeInformacoes.getCentralDeInformacoes().adicionarEscola(novaEscola);
 		
 	}
 }

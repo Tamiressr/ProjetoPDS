@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import Model.Facade;
 import View.JanelaEditaPerfil;
+import View.JanelaPerfil;
 
 public class OuvinteAtualizarPerfil implements ActionListener {
 	private JanelaEditaPerfil janela;
@@ -20,11 +21,17 @@ public class OuvinteAtualizarPerfil implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		JOptionPane.showConfirmDialog(null, "Tem Certeza?");
+		int confirm=JOptionPane.showConfirmDialog(null, "Tem Certeza?");
+		if(confirm==0) {
+			ArrayList<String> array=new ArrayList<>();
+			array=janela.returnValores();
+			Facade.getFacade().atualizar(id,array);			
+		}else if(confirm==1) {
+			
+		}else {
+			new JanelaPerfil(id);
+		}
 		
-		ArrayList<String> array=new ArrayList<>();
-		array=janela.returnValores();
-		Facade.getFacade().atualizar(id,array);
 	}
 
 }

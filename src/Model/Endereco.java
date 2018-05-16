@@ -23,8 +23,8 @@ public class Endereco {
 	private Escola escola;
 
 	public String toString() {
-		return "Endereco [Rua=" + rua + ", Numero=" + numero + ", Cidade=" + cidade + ", CEP=" + cep + ", Bairro="
-				+ bairro + "]";
+		return "Rua=" + rua + ", Numero=" + numero + ", Cidade=" + cidade + ", CEP=" + cep + ", Bairro="
+				+ bairro;
 	}
 
 	public String getRua() {

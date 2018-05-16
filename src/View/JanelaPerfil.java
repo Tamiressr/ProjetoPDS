@@ -17,6 +17,8 @@ import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteJanelaPerfil;
 import Ouvintes.OuvinteListaEscolas;
+import Ouvintes.OuvinteSair;
+
 import javax.swing.JButton;
 
 public class JanelaPerfil {
@@ -94,6 +96,8 @@ public class JanelaPerfil {
 		JButton btnSair = new JButton("Sair");
 		btnSair.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnSair.setBounds(436, 22, 85, 40);
+		OuvinteSair ouvinteSair=new OuvinteSair(this);
+		btnSair.addActionListener(ouvinteSair);
 		frame.getContentPane().add(btnSair);
 
 		JButton btnEditarPerfil = new JButton("Editar Informa\u00E7\u00F5es");
@@ -126,6 +130,14 @@ public class JanelaPerfil {
 
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	
