@@ -321,7 +321,7 @@ public class JanelaCadastrar{
 			txtCnpj.setText("TelefoneFixo");
 			
 			JLabel lblCamposObrigatorios = new JLabel("*Campos Obrigatorios");
-			lblCamposObrigatorios.setBounds(396, 80, 117, 14);
+			lblCamposObrigatorios.setBounds(396, 80, 128, 14);
 			frame.getContentPane().add(lblCamposObrigatorios);
 		} catch (ParseException e) {
 			e.printStackTrace();

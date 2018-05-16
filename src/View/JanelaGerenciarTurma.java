@@ -31,6 +31,7 @@ public class JanelaGerenciarTurma {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JPanel panel;
+	private JButton btnCadastrarTurma;
 
 	/**
 	 * Launch the application.
@@ -95,7 +96,7 @@ public class JanelaGerenciarTurma {
 		mnreaDaEscola.add(mntmListaEscolas);
 		
 		
-		JButton btnCadastrarTurma = new JButton("Cadastrar Turma");
+		btnCadastrarTurma = new JButton("Cadastrar Turma");
 		btnCadastrarTurma.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnCadastrarTurma.setBounds(190, 11, 150, 40);
 		OuvinteCadastrarTurma ouvinteCadastrarTurma=new OuvinteCadastrarTurma(this, id);
@@ -232,5 +233,14 @@ public class JanelaGerenciarTurma {
 	public void listaSeries() {
 		
 	}
+
+	public JButton getBtnCadastrarTurma() {
+		return btnCadastrarTurma;
+	}
+
+	public void setBtnCadastrarTurma(JButton btnCadastrarTurma) {
+		this.btnCadastrarTurma = btnCadastrarTurma;
+	}
+	
 }
 
