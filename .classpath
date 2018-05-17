@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mysql"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/XStream"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySql"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Temas"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/beautyeye_lnf.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/beautyeye_lnf_v3.5_all_in_one.zip"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/JTattoo-1.6.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/substance.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/substance-swingx.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/substance-watermark-pack.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/swingx.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/synthetica.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBatik.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlackEye.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlackMoon.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlackStar.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlueIce.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlueMoon.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlueSteel.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaClassy.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaGreenDream.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaMauveMetallic.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaOrangeMetallic.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaSilverMoon.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaSimple2D.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaSkyMetallic.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaWhiteVision.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Downloads/eclipselink/eclipselink.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Downloads/eclipselink/javax.persistence_2.1.0.v201304241213.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Downloads/eclipselink/mysql-connector-java-5.1.30.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/imagemmmmm.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/imagem!.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/image!.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/imagemmm.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

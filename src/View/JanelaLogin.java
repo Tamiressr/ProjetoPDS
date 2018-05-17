@@ -12,10 +12,20 @@ import javax.swing.JMenuItem;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteListaEscolas;
+import java.awt.Color;
 
 public class JanelaLogin{
 
 	private JFrame frame;
+	private PainelLogin painel;
+
+	public PainelLogin getPainel() {
+		return painel;
+	}
+
+	public void setPainel(PainelLogin painel) {
+		this.painel = painel;
+	}
 
 	/**
 	 * Launch the application.
@@ -39,6 +49,7 @@ public class JanelaLogin{
 	 */
 	public JanelaLogin() {
 		initialize();
+		
 	}
 
 	/**
@@ -46,6 +57,7 @@ public class JanelaLogin{
 	 */
 	private void initialize() {
 		frame=new JFrame();
+		frame.getContentPane().setBackground(new Color(102, 51, 0));
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -55,7 +67,10 @@ public class JanelaLogin{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
+		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setVisible(true);
+
+
 		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
@@ -75,12 +90,23 @@ public class JanelaLogin{
 		frame.getContentPane().setLayout(null);
 		
 		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
+	
 		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
 		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
 		mnreaDaEscola.add(mntmListaEscolas);
+
+		painel= new PainelLogin();
+		painel.setBounds(50, 80, 450, 296);
+		painel.setBackground(new Color(255, 255, 255));
+		frame.getContentPane().add(painel);
 		
+		frame.getContentPane().setLayout(null);		
+		frame.getContentPane().setLayout(null);		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 	}
 
 	public JFrame getFrame() {

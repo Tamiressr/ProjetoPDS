@@ -16,6 +16,8 @@ public class OuvinteListaTurma implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		janela.getFrame().remove(janela.getPanel());
+		janela.getFrame().repaint();
 		janela.listaTurma();
 		janela.getFrame().repaint();
 //		janela.getFrame();

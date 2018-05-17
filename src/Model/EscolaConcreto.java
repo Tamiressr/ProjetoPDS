@@ -73,7 +73,7 @@ public class EscolaConcreto extends BuilderEscola{
 		super.escola.setCidade(cidade);
 		if(numero!=null || !numero.equals("")) {
 			short nu=(short) Integer.parseInt(numero);
-			super.escola.setNumeroCasa(nu);
+			super.escola.setNumeroCasa(nu);			
 		}
 		super.escola.setRua(rua);
 		return this;

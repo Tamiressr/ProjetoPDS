@@ -32,19 +32,13 @@ public class Escola {
 	
 	@OneToMany(mappedBy="escola", cascade=CascadeType.ALL)
 	private List<Telefone> telefone = new ArrayList<>();
-
-	@OneToMany(mappedBy="escola")
+	
+	@OneToMany(mappedBy="escola", cascade= CascadeType.ALL)
 	private List<Turma> turmas = new ArrayList<>();
 	
 
 	public Escola() {
 	}
-
-	public String toString() {
-		return "Nome=" + nome + ",  CNPJ=" + cnpj + ",  Link=" + link + ",  E-mail=" + email + ",  Nível de Governo="
-				+ nivelDeGoverno + ",  Telefone=" + telefone;
-	}
-
 
 	public int getId() {
 		return id;
@@ -101,6 +95,21 @@ public class Escola {
 	public void setNivelDeGoverno(String nivelDeGoverno) {
 		this.nivelDeGoverno = nivelDeGoverno;
 	}
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
+	}
+
+	public List<Telefone> getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(List<Telefone> telefone) {
+		this.telefone = telefone;
+	}
 
 	public String getRua() {
 		return rua;
@@ -108,14 +117,6 @@ public class Escola {
 
 	public void setRua(String rua) {
 		this.rua = rua;
-	}
-
-	public int getNumeroCasa() {
-		return numeroCasa;
-	}
-
-	public void setNumeroCasa(int numeroCasa) {
-		this.numeroCasa = numeroCasa;
 	}
 
 	public String getBairro() {
@@ -142,20 +143,13 @@ public class Escola {
 		this.cidade = cidade;
 	}
 
-	public List<Turma> getTurmas() {
-		return turmas;
+	public int getNumeroCasa() {
+		return numeroCasa;
 	}
 
-	public void setTurmas(List<Turma> turmas) {
-		this.turmas = turmas;
+	public void setNumeroCasa(int numeroCasa) {
+		this.numeroCasa = numeroCasa;
 	}
-
-	public List<Telefone> getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(List<Telefone> telefone) {
-		this.telefone = telefone;
-	}
+	
 
 }

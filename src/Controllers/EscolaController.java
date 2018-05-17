@@ -30,7 +30,6 @@ public class EscolaController {
 	}
 
 	public void salvar(Escola escola) {
-		
 		em.getTransaction().begin();
 		em.merge(escola);
 		em.getTransaction().commit();
@@ -110,7 +109,8 @@ public class EscolaController {
 			em.getTransaction().commit();
 			emf.close();
 		} else {
-			JOptionPane.showMessageDialog(null,"escola inexistente");
+			System.out.println("escola inexistente");
 		}
+		
 	}
 }
