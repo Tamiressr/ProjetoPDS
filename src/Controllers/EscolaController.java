@@ -30,7 +30,6 @@ public class EscolaController {
 	}
 
 	public void salvar(Escola escola) {
-		CentralDeInformacoes.getCentralDeInformacoes().adicionarEscola(escola);
 		
 		em.getTransaction().begin();
 		em.merge(escola);
@@ -39,8 +38,7 @@ public class EscolaController {
 	}
 
 	public int procurarID(Escola escola) {
-//		List<Escola> list = listar();
-		List<Escola> list=CentralDeInformacoes.getCentralDeInformacoes().getArray();
+		List<Escola> list = listar();
 		for (Escola p : list) {
 			if (p.getEmail().equals(escola.getEmail())) {
 				return p.getId();
@@ -50,8 +48,7 @@ public class EscolaController {
 	}
 	
 	public Escola procurarEscola(int id) {
-//		List<Escola> list = listar();
-		List<Escola> list=CentralDeInformacoes.getCentralDeInformacoes().getArray();
+		List<Escola> list = listar();
 
 		for (Escola p : list) {
 			if (p.getId()==id) {
@@ -64,7 +61,6 @@ public class EscolaController {
 	public void remover(int id) {
 		em.getTransaction().begin();
 		Escola escola = em.find(Escola.class, id);
-		CentralDeInformacoes.getCentralDeInformacoes().remover(escola);
 		if (escola != null)
 			em.remove(escola);
 		else
@@ -82,7 +78,7 @@ public class EscolaController {
 		em.getTransaction().commit();
 		emf.close();
 
-		return CentralDeInformacoes.getCentralDeInformacoes().getArray();
+		return resultados;
 	}
 
 	public void atualizar(Escola escola,int id, ArrayList<String> array) {
@@ -114,10 +110,7 @@ public class EscolaController {
 			em.getTransaction().commit();
 			emf.close();
 		} else {
-			System.out.println("escola inexistente");
+			JOptionPane.showMessageDialog(null,"escola inexistente");
 		}
-		CentralDeInformacoes.getCentralDeInformacoes().remover(escola);
-		CentralDeInformacoes.getCentralDeInformacoes().adicionarEscola(novaEscola);
-		
 	}
 }
