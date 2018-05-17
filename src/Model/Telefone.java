@@ -14,8 +14,6 @@ public class Telefone {
 	private short ddd;
 	private String numero;
 	
-	
-
 	@ManyToOne
 	private Escola escola;
 	
