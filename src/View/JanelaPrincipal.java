@@ -6,12 +6,17 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import java.awt.Cursor;
 
+<<<<<<< HEAD
 import com.jtattoo.plaf.aero.AeroLookAndFeel;
 import com.jtattoo.plaf.aluminium.AluminiumLookAndFeel;
 import com.jtattoo.plaf.bernstein.BernsteinButtonUI;
 import com.jtattoo.plaf.bernstein.BernsteinCheckBoxUI;
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
+=======
+//import com.jtattoo.plaf.aero.AeroLookAndFeel;
+//import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
+>>>>>>> 29a105e0d6022cf2129e839c94d2fa99868ea409
 
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
@@ -38,9 +43,12 @@ public class JanelaPrincipal{
 			public void run() {
 				try {
 //					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+<<<<<<< HEAD
 					UIManager.setLookAndFeel(new AeroLookAndFeel());
 //					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 					UIManager.setLookAndFeel(new AluminiumLookAndFeel());
+=======
+>>>>>>> 29a105e0d6022cf2129e839c94d2fa99868ea409
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -72,31 +80,13 @@ public class JanelaPrincipal{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
+		frame.setJMenuBar(Janela.setMenuBar(frame));
+		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
 		
 
-		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
+//		Janela.setMenuBar();
 		
-		JMenu mnreaDaEscola = new JMenu("Escola");
-		menuBar.add(mnreaDaEscola);
-
-		JMenuItem mntmLogin = new JMenuItem("Login");
-		OuvinteJanelaLogin ouvinteJanelaLogin=new OuvinteJanelaLogin(frame);
-		mntmLogin.addActionListener(ouvinteJanelaLogin);
-		mnreaDaEscola.add(mntmLogin);
-
-		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteJanelaCadastro ouvinteJanelaCadatro= new OuvinteJanelaCadastro(frame);
-		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
-		mnreaDaEscola.add(mntmCadastrar);
-		
-		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
-		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
-		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
-		mnreaDaEscola.add(mntmListaEscolas);
-		
-		frame.getContentPane().setLayout(null);
 		
 		
 		

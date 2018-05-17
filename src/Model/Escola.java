@@ -24,11 +24,9 @@ public class Escola {
 	private String email;
 	private String senha;
 	private String nivelDeGoverno;
-	private String rua;
-	private int numeroCasa;
-	private String bairro;
-	private String cep;
-	private String cidade;
+	
+	@OneToOne(mappedBy="escola", cascade=CascadeType.ALL)
+	private Endereco endereco;
 	
 	@OneToMany(mappedBy="escola", cascade=CascadeType.ALL)
 	private List<Telefone> telefone = new ArrayList<>();
@@ -38,11 +36,12 @@ public class Escola {
 	
 
 	public Escola() {
+		endereco=new Endereco();
 	}
 
 	public String toString() {
 		return "Nome=" + nome + ",  CNPJ=" + cnpj + ",  Link=" + link + ",  E-mail=" + email + ",  Nível de Governo="
-				+ nivelDeGoverno + ",  Telefone=" + telefone;
+				+ nivelDeGoverno + ",  Endereco=" + endereco + ",  Telefone=" + telefone;
 	}
 
 
@@ -102,44 +101,12 @@ public class Escola {
 		this.nivelDeGoverno = nivelDeGoverno;
 	}
 
-	public String getRua() {
-		return rua;
+	public Endereco getEndereco() {
+		return endereco;
 	}
 
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-
-	public int getNumeroCasa() {
-		return numeroCasa;
-	}
-
-	public void setNumeroCasa(int numeroCasa) {
-		this.numeroCasa = numeroCasa;
-	}
-
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 	public List<Turma> getTurmas() {

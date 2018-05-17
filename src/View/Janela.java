@@ -10,14 +10,15 @@ import javax.swing.JMenuItem;
 
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
+import Ouvintes.OuvinteListaEscolas;
 
 public class Janela {
-	private static JFrame frame;
 	
 	public Janela() {
 		
 		
 	}
+<<<<<<< HEAD
 	
 	public JFrame contruiJanela() {
 		frame=new JFrame();
@@ -35,10 +36,12 @@ public class Janela {
 		return frame;
 	}
 	public static JFrame setJanela() {
+=======
+	public static JMenuBar setMenuBar(JFrame frame) {
+>>>>>>> 29a105e0d6022cf2129e839c94d2fa99868ea409
 		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
 		
-		JMenu mnreaDaEscola = new JMenu("Escola");
+		JMenu mnreaDaEscola = new JMenu("Iniciar");
 		menuBar.add(mnreaDaEscola);
 
 		JMenuItem mntmLogin = new JMenuItem("Login");
@@ -46,25 +49,25 @@ public class Janela {
 		mntmLogin.addActionListener(ouvinteJanelaLogin);
 		mnreaDaEscola.add(mntmLogin);
 
-		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
+		
+		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
+		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
+		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
+		mnreaDaEscola.add(mntmListaEscolas);
+		
+		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar Escola");
 		OuvinteJanelaCadastro ouvinteJanelaCadatro= new OuvinteJanelaCadastro(frame);
 		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
-		frame.getContentPane().setLayout(null);
 		
 		
-		return frame;
+		
+		
+		return menuBar;
 		
 	}
 	
 
 	
-	
-	public JFrame getFrame() {
-		return frame;
-	}
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
 
 }

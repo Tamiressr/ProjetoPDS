@@ -66,33 +66,8 @@ public class JanelaListaEscolas {
 		frame.setLocation(400, 100);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
+		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setVisible(true);
-		
-
-		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
-		
-		JMenu mnreaDaEscola = new JMenu("Escola");
-		menuBar.add(mnreaDaEscola);
-
-		JMenuItem mntmLogin = new JMenuItem("Login");
-		OuvinteJanelaLogin ouvinteJanelaLogin=new OuvinteJanelaLogin(frame);
-		mntmLogin.addActionListener(ouvinteJanelaLogin);
-		mnreaDaEscola.add(mntmLogin);
-
-		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteJanelaCadastro ouvinteJanelaCadatro= new OuvinteJanelaCadastro(frame);
-		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
-		mnreaDaEscola.add(mntmCadastrar);
-		
-		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
-		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
-		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
-		mnreaDaEscola.add(mntmListaEscolas);
-		
-		
-		
-		
 		
 		frame.getContentPane().setLayout(null);
 		modelo = new DefaultTableModel();
