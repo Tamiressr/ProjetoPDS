@@ -18,6 +18,8 @@ import Ouvintes.OuvinteListaEscolas;
 import Ouvintes.OuvinteListaTurma;
 import Ouvintes.OuvinteSalvaTurma;
 
+import javax.swing.ButtonGroup;
+import javax.swing.GroupLayout.Group;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -185,21 +187,29 @@ public class JanelaGerenciarTurma {
 		comboBox.setBounds(66, 22, 65, 20);
 		panel.add(comboBox);
 		
+		ButtonGroup grupo=new ButtonGroup();
+		
+		
 		JRadioButton radioButton = new JRadioButton("Manh\u00E3");
 		radioButton.setBounds(22, 52, 109, 23);
+		grupo.add(radioButton);
 		panel.add(radioButton);
 		
 		JRadioButton radioButton_1 = new JRadioButton("Tarde");
 		radioButton_1.setBounds(22, 82, 109, 23);
+		grupo.add(radioButton_1);
 		panel.add(radioButton_1);
 		
 		JRadioButton radioButton_2 = new JRadioButton("Noite");
 		radioButton_2.setBounds(22, 112, 109, 23);
+		grupo.add(radioButton_2);
 		panel.add(radioButton_2);
 		
 		JRadioButton radioButton_3 = new JRadioButton("Integral");
 		radioButton_3.setBounds(22, 142, 109, 23);
+		grupo.add(radioButton_3);
 		panel.add(radioButton_3);
+		
 		
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("Arial", Font.PLAIN, 14));

@@ -16,8 +16,10 @@ public class Janela {
 	
 	public Janela() {
 		
+		
 	}
-	public static JFrame setJanela() {
+	
+	public JFrame contruiJanela() {
 		frame=new JFrame();
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
@@ -30,6 +32,9 @@ public class Janela {
 		frame.setResizable(false);
 		frame.setVisible(true);
 		
+		return frame;
+	}
+	public static JFrame setJanela() {
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		

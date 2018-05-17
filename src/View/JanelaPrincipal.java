@@ -4,21 +4,13 @@ import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JFrame;
-import javax.swing.JList;
-import java.awt.BorderLayout;
-import javax.swing.JButton;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
-import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Window.Type;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.jtattoo.plaf.aero.AeroLookAndFeel;
+import com.jtattoo.plaf.aluminium.AluminiumLookAndFeel;
+import com.jtattoo.plaf.bernstein.BernsteinButtonUI;
+import com.jtattoo.plaf.bernstein.BernsteinCheckBoxUI;
+import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
 
 import Ouvintes.OuvinteJanelaCadastro;
@@ -28,6 +20,11 @@ import Ouvintes.OuvinteListaEscolas;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.UIManager;
+
+import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
+import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelCross;
+import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelWin;
 
 public class JanelaPrincipal{
 
@@ -40,7 +37,10 @@ public class JanelaPrincipal{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+//					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					UIManager.setLookAndFeel(new AeroLookAndFeel());
+//					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+					UIManager.setLookAndFeel(new AluminiumLookAndFeel());
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
