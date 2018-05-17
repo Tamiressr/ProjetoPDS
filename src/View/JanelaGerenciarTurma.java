@@ -3,6 +3,7 @@ package View;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -14,14 +15,24 @@ import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteJanelaPerfil;
 import Ouvintes.OuvinteListaEscolas;
+import Ouvintes.OuvinteListaTurma;
+import Ouvintes.OuvinteSalvaTurma;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+import Model.Escola;
+import Model.Facade;
+import Model.Turma;
+
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.JTable;
 
 public class JanelaGerenciarTurma {
 
@@ -32,6 +43,10 @@ public class JanelaGerenciarTurma {
 	private JTextField textField_2;
 	private JPanel panel;
 	private JButton btnCadastrarTurma;
+	private JButton btnListaTurma;
+	private JTable table;
+	private DefaultTableModel modelo;
+	private String[] serie= {"  1º","  2º","  3º","  4º","  5º","  6º","  7º","  8º","  9º"};
 
 	/**
 	 * Launch the application.
@@ -98,81 +113,65 @@ public class JanelaGerenciarTurma {
 		
 		btnCadastrarTurma = new JButton("Cadastrar Turma");
 		btnCadastrarTurma.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnCadastrarTurma.setBounds(190, 11, 150, 40);
+		btnCadastrarTurma.setBounds(190, 22, 150, 40);
 		OuvinteCadastrarTurma ouvinteCadastrarTurma=new OuvinteCadastrarTurma(this, id);
 		btnCadastrarTurma.addActionListener(ouvinteCadastrarTurma);
 		frame.getContentPane().add(btnCadastrarTurma);
 		
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnExcluir.setBounds(367, 11, 150, 40);
+		btnExcluir.setBounds(367, 22, 150, 40);
 		frame.getContentPane().add(btnExcluir);
 		
 		JButton btnProcurar = new JButton("Procurar");
 		btnProcurar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnProcurar.setBounds(367, 62, 150, 40);
+		btnProcurar.setBounds(367, 82, 150, 40);
 		frame.getContentPane().add(btnProcurar);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Arial", Font.PLAIN, 14));
-		textField.setBounds(129, 70, 211, 25);
+		textField.setBounds(129, 90, 211, 25);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JRadioButton rdbtnIntegral = new JRadioButton("Integral");
 		rdbtnIntegral.setFont(new Font("Arial", Font.PLAIN, 14));
-		rdbtnIntegral.setBounds(39, 128, 75, 25);
+		rdbtnIntegral.setBounds(39, 156, 75, 25);
 		frame.getContentPane().add(rdbtnIntegral);
 
 		JRadioButton rdbtnManh = new JRadioButton("Manh\u00E3");
 		rdbtnManh.setFont(new Font("Arial", Font.PLAIN, 14));
-		rdbtnManh.setBounds(144, 128, 75, 25);
+		rdbtnManh.setBounds(144, 156, 75, 25);
 		frame.getContentPane().add(rdbtnManh);
 		
 		JRadioButton rdbtnTarde = new JRadioButton("Tarde");
 		rdbtnTarde.setFont(new Font("Arial", Font.PLAIN, 14));
-		rdbtnTarde.setBounds(249, 128, 75, 25);
+		rdbtnTarde.setBounds(249, 156, 75, 25);
 		frame.getContentPane().add(rdbtnTarde);
 		
 		JRadioButton rdbtnNoite = new JRadioButton("Noite");
 		rdbtnNoite.setFont(new Font("Arial", Font.PLAIN, 14));
-		rdbtnNoite.setBounds(354, 128, 75, 25);
+		rdbtnNoite.setBounds(354, 156, 75, 25);
 		frame.getContentPane().add(rdbtnNoite);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnVoltar.setBounds(10, 11, 75, 40);
+		btnVoltar.setBounds(10, 22, 75, 40);
 		OuvinteJanelaPerfil ouvinteJanelaPerfil=new OuvinteJanelaPerfil(frame, id);
 		btnVoltar.addActionListener(ouvinteJanelaPerfil);
 		frame.getContentPane().add(btnVoltar);
 		
 		panel = new JPanel();
 		panel.setBackground(Color.GRAY);
-		panel.setBounds(39, 173, 478, 194);
+		panel.setBounds(39, 203, 478, 194);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnEditar.setBounds(428, 113, 89, 40);
+		btnEditar.setBounds(428, 141, 89, 40);
 		frame.getContentPane().add(btnEditar);
 		
-	}
-
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
-
-	public JTextField getTextField() {
-		return textField;
-	}
-
-	public void setTextField(JTextField textField) {
-		this.textField = textField;
 	}
 	
 	public void addPainel() {
@@ -181,7 +180,7 @@ public class JanelaGerenciarTurma {
 		label.setBounds(22, 23, 48, 19);
 		panel.add(label);
 		
-		JComboBox comboBox = new JComboBox(new Object[]{});
+		JComboBox comboBox = new JComboBox(serie);
 		comboBox.setFont(new Font("Arial", Font.PLAIN, 14));
 		comboBox.setBounds(66, 22, 65, 20);
 		panel.add(comboBox);
@@ -227,12 +226,50 @@ public class JanelaGerenciarTurma {
 		JButton button = new JButton("Salvar");
 		button.setFont(new Font("Arial", Font.PLAIN, 14));
 		button.setBounds(366, 142, 89, 23);
+		OuvinteSalvaTurma ouvinteSalvaTurma=new OuvinteSalvaTurma(id, this);
+		button.addActionListener(ouvinteSalvaTurma);
 		panel.add(button);
 	}
 	
-	public void listaSeries() {
+	public void listaTurma() {
+		table = new JTable();
+		table.setBounds(10, 11, 458, 172);
+		panel.add(table);
+		
+		frame.getContentPane().setLayout(null);
+		modelo = new DefaultTableModel();
+
+		modelo.addColumn("Escolas");
+
+//		List<Escola> list=Facade.getFacade().listar();
+		Escola o=Facade.getFacade().procurarEscolaPorCnpj(id);
+		List<Turma> list=o.getTurmas();
+				
+		for (Turma e : list) {
+			Object[] array = new Object[1];
+			array[0] = e.toString();
+			modelo.addRow(array);
+		}
+
+		table = new JTable(modelo);
+
+		JScrollPane painelTabela = new JScrollPane(table);
+		painelTabela.setBounds(50, 150, 450, 250);
+		frame.getContentPane().add(painelTabela);
+		
 		
 	}
+	
+	public void addBotaoLista() {
+		btnListaTurma=new JButton("Lista Turmas");
+		btnListaTurma.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnListaTurma.setBounds(190, 22, 150, 40);
+		OuvinteListaTurma ouvinteListaTurma=new OuvinteListaTurma(this, id);
+		btnListaTurma.addActionListener(ouvinteListaTurma);
+		frame.getContentPane().add(btnListaTurma);
+		
+	}
+	
 
 	public JButton getBtnCadastrarTurma() {
 		return btnCadastrarTurma;
@@ -242,5 +279,28 @@ public class JanelaGerenciarTurma {
 		this.btnCadastrarTurma = btnCadastrarTurma;
 	}
 	
+	public JButton getBtnListaTurma() {
+		return btnListaTurma;
+	}
+
+	public void setBtnListaTurma(JButton btnListaTurma) {
+		this.btnListaTurma = btnListaTurma;
+	}
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
 }
 

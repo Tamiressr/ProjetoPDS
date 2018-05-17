@@ -19,7 +19,7 @@ public class OuvinteSalvaTurma implements ActionListener{
 	
 
 	public void actionPerformed(ActionEvent e) {
-//		Facade.getFacade().salvarTurma(id, janela.retornaValores());
+//		Facade.getFacade().salvarTurma(id, );
 		
 	}
 
