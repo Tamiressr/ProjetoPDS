@@ -6,17 +6,12 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import java.awt.Cursor;
 
-<<<<<<< HEAD
 import com.jtattoo.plaf.aero.AeroLookAndFeel;
 import com.jtattoo.plaf.aluminium.AluminiumLookAndFeel;
 import com.jtattoo.plaf.bernstein.BernsteinButtonUI;
 import com.jtattoo.plaf.bernstein.BernsteinCheckBoxUI;
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
-=======
-//import com.jtattoo.plaf.aero.AeroLookAndFeel;
-//import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
->>>>>>> 29a105e0d6022cf2129e839c94d2fa99868ea409
 
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
@@ -30,6 +25,7 @@ import javax.swing.UIManager;
 import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
 import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelCross;
 import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelWin;
+import org.jvnet.substance.colorscheme.AquaColorScheme;
 
 public class JanelaPrincipal{
 
@@ -43,12 +39,9 @@ public class JanelaPrincipal{
 			public void run() {
 				try {
 //					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
-<<<<<<< HEAD
 					UIManager.setLookAndFeel(new AeroLookAndFeel());
 //					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
-					UIManager.setLookAndFeel(new AluminiumLookAndFeel());
-=======
->>>>>>> 29a105e0d6022cf2129e839c94d2fa99868ea409
+
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
