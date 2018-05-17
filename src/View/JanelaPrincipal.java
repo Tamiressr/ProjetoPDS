@@ -18,8 +18,8 @@ import java.awt.Cursor;
 import java.awt.Window.Type;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import com.jtattoo.plaf.aero.AeroLookAndFeel;
-import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
+//import com.jtattoo.plaf.aero.AeroLookAndFeel;
+//import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
 
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
@@ -40,7 +40,7 @@ public class JanelaPrincipal{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+//					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -72,31 +72,13 @@ public class JanelaPrincipal{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
+		frame.setJMenuBar(Janela.setMenuBar(frame));
+		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
 		
 
-		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
+//		Janela.setMenuBar();
 		
-		JMenu mnreaDaEscola = new JMenu("Escola");
-		menuBar.add(mnreaDaEscola);
-
-		JMenuItem mntmLogin = new JMenuItem("Login");
-		OuvinteJanelaLogin ouvinteJanelaLogin=new OuvinteJanelaLogin(frame);
-		mntmLogin.addActionListener(ouvinteJanelaLogin);
-		mnreaDaEscola.add(mntmLogin);
-
-		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteJanelaCadastro ouvinteJanelaCadatro= new OuvinteJanelaCadastro(frame);
-		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
-		mnreaDaEscola.add(mntmCadastrar);
-		
-		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
-		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
-		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
-		mnreaDaEscola.add(mntmListaEscolas);
-		
-		frame.getContentPane().setLayout(null);
 		
 		
 		

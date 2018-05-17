@@ -12,7 +12,7 @@ public class Turma {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nome;
-	private String turno;
+	private Turno turno;
 	private int numeroDeVagas;
 	private int numeroDeVagasDiponiveis;
 
@@ -44,11 +44,11 @@ public class Turma {
 		this.nome = nome;
 	}
 
-	public String getTurno() {
+	public Turno getTurno() {
 		return turno;
 	}
 
-	public void setTurno(String turno) {
+	public void setTurno(Turno turno) {
 		this.turno = turno;
 	}
 

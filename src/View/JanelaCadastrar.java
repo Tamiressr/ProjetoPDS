@@ -82,31 +82,9 @@ public class JanelaCadastrar{
 		frame.setLocation(400, 100);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setResizable(false);
-		frame.setVisible(true);
-		
-		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
-		
-		JMenu mnreaDaEscola = new JMenu("Escola");
-		menuBar.add(mnreaDaEscola);
-
-		JMenuItem mntmLogin = new JMenuItem("Login");
-		OuvinteJanelaLogin ouvinteJanelaLogin=new OuvinteJanelaLogin(frame);
-		mntmLogin.addActionListener(ouvinteJanelaLogin);
-		mnreaDaEscola.add(mntmLogin);
-
-		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteJanelaCadastro ouvinteJanelaCadatro= new OuvinteJanelaCadastro(frame);
-		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
-		mnreaDaEscola.add(mntmCadastrar);
-		frame.getContentPane().setLayout(null);
-		
-		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
-		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
-		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
-		mnreaDaEscola.add(mntmListaEscolas);
-		
+		frame.setVisible(true);	
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		

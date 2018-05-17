@@ -30,6 +30,7 @@ public class EscolaController {
 	}
 
 	public void salvar(Escola escola) {
+//		CentralDeInformacoes.getCentralDeInformacoes().adicionarEscola(escola);
 		
 		em.getTransaction().begin();
 		em.merge(escola);
@@ -61,6 +62,7 @@ public class EscolaController {
 	public void remover(int id) {
 		em.getTransaction().begin();
 		Escola escola = em.find(Escola.class, id);
+//		CentralDeInformacoes.getCentralDeInformacoes().remover(escola);
 		if (escola != null)
 			em.remove(escola);
 		else
@@ -79,6 +81,7 @@ public class EscolaController {
 		emf.close();
 
 		return resultados;
+//		return CentralDeInformacoes.getCentralDeInformacoes().getArray();
 	}
 
 	public void atualizar(Escola escola,int id, ArrayList<String> array) {
@@ -110,7 +113,10 @@ public class EscolaController {
 			em.getTransaction().commit();
 			emf.close();
 		} else {
-			JOptionPane.showMessageDialog(null,"escola inexistente");
+			System.out.println("escola inexistente");
 		}
+//		CentralDeInformacoes.getCentralDeInformacoes().remover(escola);
+//		CentralDeInformacoes.getCentralDeInformacoes().adicionarEscola(novaEscola);
+		
 	}
 }
