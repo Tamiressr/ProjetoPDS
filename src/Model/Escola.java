@@ -40,13 +40,6 @@ public class Escola {
 	public Escola() {
 	}
 
-	
-	@Override
-	public String toString() {
-		return "Escola "+nivelDeGoverno+" Ensino Fundamental "+nome;
-	}
-
-
 	public int getId() {
 		return id;
 	}

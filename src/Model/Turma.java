@@ -24,8 +24,8 @@ public class Turma {
 	}
 
 	public String toString() {
-		return "Nome=" + nome + ", Turno=" + turno + ", Numero de Vagas=" + numeroDeVagas
-				+ ", Vagas Disponiveis=" + numeroDeVagasDiponiveis;
+		return "Turma [Nome=" + nome + ", Turno=" + turno + ", Numero de Vagas=" + numeroDeVagas
+				+ ", Vagas Disponiveis=" + numeroDeVagasDiponiveis + ",]";
 	}
 
 	public int getId() {

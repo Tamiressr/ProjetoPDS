@@ -85,7 +85,7 @@ public class JanelaListaEscolas {
 		table = new JTable(modelo);
 
 		JScrollPane painelTabela = new JScrollPane(table);
-		painelTabela.setBounds(50, 80, 450, 380);
+		painelTabela.setBounds(50, 150, 450, 250);
 		frame.getContentPane().add(painelTabela);
 		
 		JButton btnVoltar = new JButton("Voltar");
