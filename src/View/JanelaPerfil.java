@@ -87,7 +87,7 @@ public class JanelaPerfil {
 
 		JButton btnExcluirConta = new JButton("Excluir Conta");
 		btnExcluirConta.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnExcluirConta.setBackground(Color.red);
+		btnExcluirConta.setBackground(new Color(255,65,65));
 		btnExcluirConta.setBounds(411, 449, 123, 40);
 		OuvinteExcluirConta ouvinteExcluirConta=new OuvinteExcluirConta(frame,id);
 		btnExcluirConta.addActionListener(ouvinteExcluirConta);
