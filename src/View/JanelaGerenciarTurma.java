@@ -3,12 +3,14 @@ package View;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import Ouvintes.OuvinteCadastrarTurma;
 import Ouvintes.OuvinteJanelaCadastro;
@@ -19,6 +21,7 @@ import Ouvintes.OuvinteListaTurma;
 import Ouvintes.OuvinteSalvaTurma;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.GroupLayout.Group;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -49,7 +52,16 @@ public class JanelaGerenciarTurma {
 	private JTable table;
 	private DefaultTableModel modelo;
 	private String[] serie= {"  1º","  2º","  3º","  4º","  5º","  6º","  7º","  8º","  9º"};
-
+	private JComboBox comboBox;
+	private ButtonGroup grupo;
+	private JRadioButton radioButtonManha;
+	private JRadioButton radioButtonTarde; 
+	private JRadioButton radioButtonNoite;
+	private JRadioButton radioButtonIntegral;
+	 
+	
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -142,12 +154,6 @@ public class JanelaGerenciarTurma {
 		btnVoltar.addActionListener(ouvinteJanelaPerfil);
 		frame.getContentPane().add(btnVoltar);
 		
-		panel = new JPanel();
-		panel.setBackground(Color.GRAY);
-		panel.setBounds(39, 203, 478, 194);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-		
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnEditar.setBounds(428, 141, 89, 40);
@@ -156,38 +162,44 @@ public class JanelaGerenciarTurma {
 	}
 	
 	public void addPainel() {
+		panel = new JPanel();
+		panel.setBackground(Color.GRAY);
+		panel.setBounds(39, 203, 478, 194);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
 		JLabel label = new JLabel("S\u00E9rie");
 		label.setFont(new Font("Arial", Font.PLAIN, 14));
 		label.setBounds(22, 23, 48, 19);
 		panel.add(label);
 		
-		JComboBox comboBox = new JComboBox(serie);
+		comboBox= new JComboBox(serie);
 		comboBox.setFont(new Font("Arial", Font.PLAIN, 14));
 		comboBox.setBounds(66, 22, 65, 20);
 		panel.add(comboBox);
 		
-		ButtonGroup grupo=new ButtonGroup();
+		grupo=new ButtonGroup();
 		
 		
-		JRadioButton radioButton = new JRadioButton("Manh\u00E3");
-		radioButton.setBounds(22, 52, 109, 23);
-		grupo.add(radioButton);
-		panel.add(radioButton);
+		radioButtonManha = new JRadioButton("Manh\u00E3");
+		radioButtonManha.setBounds(22, 52, 109, 23);
+		grupo.add(radioButtonManha);
+		panel.add(radioButtonManha);
 		
-		JRadioButton radioButton_1 = new JRadioButton("Tarde");
-		radioButton_1.setBounds(22, 82, 109, 23);
-		grupo.add(radioButton_1);
-		panel.add(radioButton_1);
+		radioButtonTarde= new JRadioButton("Tarde");
+		radioButtonTarde.setBounds(22, 82, 109, 23);
+		grupo.add(radioButtonTarde);
+		panel.add(radioButtonTarde);
 		
-		JRadioButton radioButton_2 = new JRadioButton("Noite");
-		radioButton_2.setBounds(22, 112, 109, 23);
-		grupo.add(radioButton_2);
-		panel.add(radioButton_2);
+		radioButtonNoite= new JRadioButton("Noite");
+		radioButtonNoite.setBounds(22, 112, 109, 23);
+		grupo.add(radioButtonNoite);
+		panel.add(radioButtonNoite);
 		
-		JRadioButton radioButton_3 = new JRadioButton("Integral");
-		radioButton_3.setBounds(22, 142, 109, 23);
-		grupo.add(radioButton_3);
-		panel.add(radioButton_3);
+		radioButtonIntegral = new JRadioButton("Integral");
+		radioButtonIntegral.setBounds(22, 142, 109, 23);
+		grupo.add(radioButtonIntegral);
+		panel.add(radioButtonIntegral);
 		
 		
 		textField_1 = new JTextField();
@@ -220,10 +232,46 @@ public class JanelaGerenciarTurma {
 		panel.add(button);
 	}
 	
+	public ArrayList<String> retornaValoresTurma(){
+		int disponivel=Integer.parseInt(textField_2.getText());
+		int vagas=Integer.parseInt(textField_1.getText());
+		
+		if(vagas<=disponivel) {
+			ArrayList<String> array=new ArrayList<>();
+			array.add(textField_2.getText());
+			array.add(textField_1.getText());
+			array.add(serie[comboBox.getSelectedIndex()]);
+			array.add(qualButton());			
+
+			return array;
+		}else {
+			JOptionPane.showMessageDialog(null,"Número de Vagas Disponivel deve ser menor que o Total De Vagas");
+			return null;
+		}	
+	}
+	
+	private String qualButton() {
+		if(radioButtonManha.isSelected()) {
+			return "Manha";
+		}else if(radioButtonTarde.isSelected()) {
+			return "Tarde";
+		}else if(radioButtonNoite.isSelected()) {
+			return "Noite";
+		}else if(radioButtonIntegral.isSelected()) {
+			return "Integral";
+		}
+		return "";
+	}
+	
 	public void listaTurma() {
+//		JPanel jpanel = new JPanel();
+//		jpanel.setBackground(Color.GRAY);
+//		jpanel.setBounds(39, 203, 478, 194);
+//		frame.getContentPane().add(jpanel);
+//		jpanel.setLayout(null);
+		
 		table = new JTable();
-		table.setBounds(10, 11, 458, 172);
-		panel.add(table);
+		table.setBounds(39, 250,478, 194);
 		
 		frame.getContentPane().setLayout(null);
 		modelo = new DefaultTableModel();
@@ -243,9 +291,8 @@ public class JanelaGerenciarTurma {
 		table = new JTable(modelo);
 
 		JScrollPane painelTabela = new JScrollPane(table);
-		painelTabela.setBounds(50, 150, 450, 250);
-		frame.getContentPane().add(painelTabela);
-		
+		painelTabela.setBounds(39, 203, 478, 194);
+		frame.add(painelTabela);
 		
 	}
 	
@@ -291,5 +338,14 @@ public class JanelaGerenciarTurma {
 	public void setTextField(JTextField textField) {
 		this.textField = textField;
 	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+	
 }
 

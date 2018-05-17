@@ -68,14 +68,14 @@ public class EscolaConcreto extends BuilderEscola{
 
 	@Override
 	public BuilderEscola enderecoBuilder(String rua, String numero, String bairro, String CEP, String cidade) {
-		super.escola.getEndereco().setBairro(bairro);
-		super.escola.getEndereco().setCep(CEP);
-		super.escola.getEndereco().setCidade(cidade);
+		super.escola.setBairro(bairro);
+		super.escola.setCep(CEP);
+		super.escola.setCidade(cidade);
 		if(numero!=null || !numero.equals("")) {
 			short nu=(short) Integer.parseInt(numero);
-			super.escola.getEndereco().setNumero(nu);			
+			super.escola.setNumeroCasa(nu);			
 		}
-		super.escola.getEndereco().setRua(rua);
+		super.escola.setRua(rua);
 		return this;
 	}
 	

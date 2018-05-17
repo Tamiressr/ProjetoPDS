@@ -43,8 +43,6 @@ public class Facade {
 
 	public void excluirConta(int id) {
 		EscolaController.getEscolaController().remover(id);
-		///
-//		asfsfsdf
 		
 	}
 
@@ -106,8 +104,15 @@ public class Facade {
 	
 	public void salvarTurma(int id, ArrayList<String> array) {
 		Escola escola = EscolaController.getEscolaController().procurarEscola(id);
+				
 		Turma turma=new Turma();
+		turma.setNumeroDeVagas(Integer.parseInt(array.get(0)));
+		turma.setNumeroDeVagasDiponiveis(Integer.parseInt(array.get(1)));
+		turma.setNome(array.get(2));
+		turma.setTurno(array.get(3));
+		
 		escola.getTurmas().add(turma);
+		turma.setEscola(escola);
 	}
 
 }
