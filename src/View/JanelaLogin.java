@@ -69,6 +69,7 @@ public class JanelaLogin{
 		frame.setResizable(false);
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setVisible(true);
+<<<<<<< HEAD
 
 
 		
@@ -101,6 +102,8 @@ public class JanelaLogin{
 		frame.getContentPane().add(painel);
 		
 		frame.getContentPane().setLayout(null);		
+=======
+>>>>>>> 14dd706e425c9b9b78bdec40dce69416ff8e4beb
 		frame.getContentPane().setLayout(null);		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
