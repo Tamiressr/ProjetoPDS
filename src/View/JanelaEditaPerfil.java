@@ -381,13 +381,13 @@ public class JanelaEditaPerfil{
 		txtSenha.setText(list.get(5));
 		txtCnpj.setText(list.get(6));
 
+<<<<<<< HEAD
+=======
 		String nome=list.get(0);
 
-<<<<<<< HEAD
 		
+>>>>>>> 3215ddc566b5d7af0aebe2c3aef885946a1bee3e
 		txtRua.setText(list.get(7));
-=======
->>>>>>> 4f6080fcd496f3896d5708a5244da6ff76cbc0d6
 		txtNumero.setText(list.get(8));
 		txtCidade.setText(list.get(9));
 		txtCep.setText(list.get(10));

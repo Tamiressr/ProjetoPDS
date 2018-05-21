@@ -58,6 +58,7 @@ public class JanelaGerenciarTurma {
 	private JRadioButton radioButtonTarde; 
 	private JRadioButton radioButtonNoite;
 	private JRadioButton radioButtonIntegral;
+	private JScrollPane painelTabela;
 	 
 	
 	
@@ -264,12 +265,7 @@ public class JanelaGerenciarTurma {
 	}
 	
 	public void listaTurma() {
-//		JPanel jpanel = new JPanel();
-//		jpanel.setBackground(Color.GRAY);
-//		jpanel.setBounds(39, 203, 478, 194);
-//		frame.getContentPane().add(jpanel);
-//		jpanel.setLayout(null);
-		
+	
 		table = new JTable();
 		table.setBounds(39, 250,478, 194);
 		
@@ -290,7 +286,7 @@ public class JanelaGerenciarTurma {
 
 		table = new JTable(modelo);
 
-		JScrollPane painelTabela = new JScrollPane(table);
+		painelTabela = new JScrollPane(table);
 		painelTabela.setBounds(39, 203, 478, 194);
 		frame.add(painelTabela);
 		
@@ -303,6 +299,15 @@ public class JanelaGerenciarTurma {
 		OuvinteListaTurma ouvinteListaTurma=new OuvinteListaTurma(this, id);
 		btnListaTurma.addActionListener(ouvinteListaTurma);
 		frame.getContentPane().add(btnListaTurma);
+		
+	}
+	public void addBotaoCadastrar() {
+		btnCadastrarTurma = new JButton("Cadastrar Turma");
+		btnCadastrarTurma.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnCadastrarTurma.setBounds(190, 22, 150, 40);
+		OuvinteCadastrarTurma ouvinteCadastrarTurma=new OuvinteCadastrarTurma(this, id);
+		btnCadastrarTurma.addActionListener(ouvinteCadastrarTurma);
+		frame.getContentPane().add(btnCadastrarTurma);
 		
 	}
 	
@@ -345,6 +350,30 @@ public class JanelaGerenciarTurma {
 
 	public void setPanel(JPanel panel) {
 		this.panel = panel;
+	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
+
+	public DefaultTableModel getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(DefaultTableModel modelo) {
+		this.modelo = modelo;
+	}
+
+	public JScrollPane getPainelTabela() {
+		return painelTabela;
+	}
+
+	public void setPainelTabela(JScrollPane painelTabela) {
+		this.painelTabela = painelTabela;
 	}
 	
 }
