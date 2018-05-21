@@ -31,6 +31,37 @@ public class JanelaLogin {
 
 	private JFrame frame;
 	private JPanel painel;
+	public JPanel getPainel() {
+		return painel;
+	}
+
+	public void setPainel(JPanel painel) {
+		this.painel = painel;
+	}
+
+	public JTextField getTextFieldLogin() {
+		return textFieldLogin;
+	}
+
+	public void setTextFieldLogin(JTextField textFieldLogin) {
+		this.textFieldLogin = textFieldLogin;
+	}
+
+	public JPasswordField getPasswordFieldSenha() {
+		return passwordFieldSenha;
+	}
+
+	public void setPasswordFieldSenha(JPasswordField passwordFieldSenha) {
+		this.passwordFieldSenha = passwordFieldSenha;
+	}
+
+	public JButton getBtnEntrar() {
+		return btnEntrar;
+	}
+
+	public void setBtnEntrar(JButton btnEntrar) {
+		this.btnEntrar = btnEntrar;
+	}
 	private JTextField textFieldLogin;
 	private JPasswordField passwordFieldSenha;
 	JButton btnEntrar = new JButton("ENTRAR");
@@ -198,10 +229,21 @@ public class JanelaLogin {
 		}
 
 		public void actionPerformed(ActionEvent arg0) {
+<<<<<<< HEAD
+			int valor=this.janela.retornarValores();
+			
+			if(janela.passwordFieldSenha.getText().equals("")||janela.textFieldLogin.getText().equals("")) {
+				JOptionPane.showMessageDialog(null,"Campos vazios");
+			}
+			else if(valor==0) {
+				JOptionPane.showMessageDialog(null,"Escola não encontrada");
+			}else {
+=======
 			int valor = this.janela.retornarValores();
 			if (valor == 0) {
 				JOptionPane.showMessageDialog(null, "jndjqwj");
 			} else {
+>>>>>>> f564e910b75b0f12147e99a499edc926df8b28e3
 				janela.getFrame().dispose();
 				JanelaPerfil jp = new JanelaPerfil(valor);
 				jp.getFrame().setVisible(true);
@@ -209,6 +251,20 @@ public class JanelaLogin {
 			}
 		}
 
+<<<<<<< HEAD
+
+		public JanelaLogin getJanela() {
+			return janela;
+		}
+
+
+		public void setJanela(JanelaLogin janela) {
+			this.janela = janela;
+		}
+
+
+=======
+>>>>>>> f564e910b75b0f12147e99a499edc926df8b28e3
 	}
 
 }

@@ -6,12 +6,6 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import java.awt.Cursor;
 
-import com.jtattoo.plaf.aero.AeroLookAndFeel;
-import com.jtattoo.plaf.aluminium.AluminiumLookAndFeel;
-import com.jtattoo.plaf.bernstein.BernsteinButtonUI;
-import com.jtattoo.plaf.bernstein.BernsteinCheckBoxUI;
-import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
-import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
 
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
@@ -22,10 +16,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 
-import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
-import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelCross;
-import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelWin;
-import org.jvnet.substance.colorscheme.AquaColorScheme;
 
 public class JanelaPrincipal {
 
@@ -38,9 +28,26 @@ public class JanelaPrincipal {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+<<<<<<< HEAD
+
+
+//					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+//					UIManager.setLookAndFeel(new AeroLookAndFeel());
+
+			//UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+			//	UIManager.setLookAndFeel(new AeroLookAndFeel());
+
+//					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+				//	UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+
+=======
 					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
 					// UIManager.setLookAndFeel(new AeroLookAndFeel());
 					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+>>>>>>> f564e910b75b0f12147e99a499edc926df8b28e3
 
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);

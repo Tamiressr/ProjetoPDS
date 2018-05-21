@@ -50,7 +50,11 @@ public class JanelaEditaPerfil{
 	private String[] niveis={ "Municipal", "Estadual", "Federal" };
 	private JFormattedTextField txtCnpj;
 	
+<<<<<<< HEAD
+	private static  int id;
+=======
 	private static int id;
+>>>>>>> f564e910b75b0f12147e99a499edc926df8b28e3
 
 	/**
 	 * Launch the application.
@@ -71,8 +75,8 @@ public class JanelaEditaPerfil{
 	/**
 	 * Create the application.
 	 */
-	public JanelaEditaPerfil(int id) {
-		this.id=id;
+	public JanelaEditaPerfil(int ids) {
+		id=ids;
 		initialize();
 		colocarDados();
 	}
@@ -97,7 +101,7 @@ public class JanelaEditaPerfil{
 		
 		
 		
-		JLabel lblCadastrar = new JLabel("Edita Perfil");
+		JLabel lblCadastrar = new JLabel("Editar Perfil");
 		lblCadastrar.setBounds(10, 32, 514, 37);
 		lblCadastrar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCadastrar.setFont(new Font("Times New Roman", Font.PLAIN, 36));
@@ -312,8 +316,9 @@ public class JanelaEditaPerfil{
 
 	}
 	
-
 	public ArrayList<String> returnValores(){
+		
+		
 		ArrayList<String> array=new ArrayList<>();
 		array.add(textFielNome.getText());
 		array.add(formattedTextFieldTelefoneCelular.getText());
@@ -379,6 +384,12 @@ public class JanelaEditaPerfil{
 		txtEmail.setText(list.get(4));
 		txtSenha.setText(list.get(5));
 		txtCnpj.setText(list.get(6));
+<<<<<<< HEAD
+
+		String nome=list.get(0);
+
+=======
+>>>>>>> f564e910b75b0f12147e99a499edc926df8b28e3
 		
 		txtRua.setText(list.get(7));
 		txtNumero.setText(list.get(8));
