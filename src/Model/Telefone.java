@@ -22,7 +22,7 @@ public class Telefone {
 	
 	
 	public String toString() {
-		return ddd+numero;
+		return "("+ddd+")"+numero;
 	}
 
 	public short getDdd() {

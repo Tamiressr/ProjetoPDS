@@ -73,17 +73,17 @@ public class Facade {
 		for (Escola e : lista) {
 			if (e.getId() == id) {
 				list.add(e.getNome());
-//				list.add(e.getTelefone().get(0).toString());
-//				list.add(e.getTelefone().get(1).toString());
+				list.add(e.getTelefone().get(0).toString());
+				list.add(e.getTelefone().get(1).toString());
 				list.add(e.getLink());
 				list.add(e.getEmail());
 				list.add(e.getSenha());
 				list.add(e.getCnpj());
-//				list.add(e.getEndereco().getRua());
-//				list.add(e.getEndereco().getNumero()+"");
-//				list.add(e.getEndereco().getCidade());
-//				list.add(e.getEndereco().getCep());
-//				list.add(e.getEndereco().getBairro());
+				list.add(e.getRua());
+				list.add(e.getNumeroCasa()+"");
+				list.add(e.getCidade());
+				list.add(e.getCep());
+				list.add(e.getBairro());
 	
 				return list;
 			}

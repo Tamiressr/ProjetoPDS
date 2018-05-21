@@ -11,13 +11,15 @@ public class EscolaConcreto extends BuilderEscola{
 	@Override
 	public BuilderEscola telefoneFixoBuilder(String telefoneFixo) {
 		Telefone telefone=new Telefone();
-		int a=telefoneFixo.charAt(0)+telefoneFixo.charAt(1);
-		telefone.setDdd((short) a);
+		String a=telefoneFixo.charAt(1)+""+telefoneFixo.charAt(2);
+		int x=Integer.parseInt(a);
+		telefone.setDdd((short)x);
 		String b = null;
-		for(int i=2;i<telefoneFixo.length();i++) {
-			b=""+telefoneFixo.charAt(i);
+		for(int i=4;i<telefoneFixo.length();i++) {
+			b=b+telefoneFixo.charAt(i);
 		}
 		telefone.setNumero(b);
+		System.out.println(a+"B:"+b);
 		super.escola.getTelefone().add(telefone);
 		return this;
 	}
@@ -25,13 +27,16 @@ public class EscolaConcreto extends BuilderEscola{
 	@Override
 	public BuilderEscola telefoneCelularBuilder(String telefoneCelular) {
 		Telefone telefone=new Telefone();
-		int a=telefoneCelular.charAt(0)+telefoneCelular.charAt(1);
-		telefone.setDdd((short) a);
+		
+		String a=telefoneCelular.charAt(1)+""+telefoneCelular.charAt(2);
+		int x=Integer.parseInt(a);
+		telefone.setDdd((short)x);
 		String b = null;
-		for(int i=2;i<telefoneCelular.length();i++) {
-			b=""+telefoneCelular.charAt(i);
+		for(int i=4;i<telefoneCelular.length();i++) {
+			b=b+telefoneCelular.charAt(i);
 		}
 		telefone.setNumero(b);
+		System.out.println(a+"B:"+b);
 		super.escola.getTelefone().add(telefone);
 		return this;
 	}

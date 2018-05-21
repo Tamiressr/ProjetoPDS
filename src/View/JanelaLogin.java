@@ -69,8 +69,6 @@ public class JanelaLogin{
 		frame.setResizable(false);
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setVisible(true);
-<<<<<<< HEAD
-
 
 		
 		JMenuBar menuBar = new JMenuBar();

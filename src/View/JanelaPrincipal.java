@@ -39,8 +39,8 @@ public class JanelaPrincipal{
 			public void run() {
 				try {
 //					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
-					UIManager.setLookAndFeel(new AeroLookAndFeel());
-//					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+//					UIManager.setLookAndFeel(new AeroLookAndFeel());
+					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);

@@ -14,16 +14,17 @@ import View.JanelaPerfil;
 import View.PainelLogin;
 
 public class OuvinteLogin implements ActionListener {
-	private PainelLogin painel;
+	private PainelLogin janela;
 	
-	public OuvinteLogin(PainelLogin painel) {
-		this.painel = painel;
+	public OuvinteLogin(PainelLogin janela) {
+		this.janela = janela;
 	
 	}
 
 
 	public void actionPerformed(ActionEvent arg0) {
-		int valor=this.painel.retornarValores();
+		
+		int valor=this.janela.retornarValores();
 		if(valor==0) {
 			JOptionPane.showMessageDialog(null,"jndjqwj");
 		}else {
@@ -32,11 +33,11 @@ public class OuvinteLogin implements ActionListener {
 	}
 
 	public JPanel getPainel() {
-		return painel;
+		return janela;
 	}
 
 	public void setPainel(PainelLogin painel) {
-		this.painel = painel;
+		this.janela = painel;
 	}
 
 }
