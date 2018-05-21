@@ -39,7 +39,7 @@ public class EscolaController {
 	public int procurarID(Escola escola) {
 		List<Escola> list = listar();
 		for (Escola p : list) {
-			if (p.getEmail().equals(escola.getEmail())) {
+			if (p.getEmail().equals(escola.getEmail()) && p.getSenha().equals(escola.getSenha()) && p.getCnpj().equals(escola.getCnpj())) {
 				return p.getId();
 			}
 		}
