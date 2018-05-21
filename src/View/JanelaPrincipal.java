@@ -30,6 +30,7 @@ public class JanelaPrincipal {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+<<<<<<< HEAD
 
 //					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
@@ -40,6 +41,11 @@ public class JanelaPrincipal {
 					// UIManager.setLookAndFeel(new AeroLookAndFeel());
 				//	UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 
+=======
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+>>>>>>> dad53d536946d7b9b120327e00e50147a41d2213
 
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);

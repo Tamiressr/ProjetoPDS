@@ -15,6 +15,7 @@ public class EscolaController {
 	private EntityManagerFactory emf;
 	private EntityManager em;
 	private static EscolaController escolaController;
+	private static List<Escola> list;
 
 	public static EscolaController getEscolaController() {
 		if (escolaController == null) {
@@ -37,20 +38,21 @@ public class EscolaController {
 	}
 
 	public int procurarID(Escola escola) {
-		List<Escola> list = listar();
+		list = listar();
 		for (Escola p : list) {
-			if (p.getEmail().equals(escola.getEmail()) && p.getSenha().equals(escola.getSenha()) && p.getCnpj().equals(escola.getCnpj())) {
+			if (p.getEmail().equals(escola.getEmail()) && p.getSenha().equals(escola.getSenha())
+					&& p.getCnpj().equals(escola.getCnpj())) {
 				return p.getId();
 			}
 		}
 		return 0;
 	}
-	
+
 	public Escola procurarEscola(int id) {
-		List<Escola> list = listar();
+		list = listar();
 
 		for (Escola p : list) {
-			if (p.getId()==id) {
+			if (p.getId() == id) {
 				return p;
 			}
 		}
@@ -67,8 +69,12 @@ public class EscolaController {
 		em.getTransaction().commit();
 	}
 
+	public List<Escola> listar(){
+		return this.listar();
+	}
+	
 	@SuppressWarnings("unchecked")
-	public List<Escola> listar() {
+	public List<Escola> atualizar() {
 		em.getTransaction().begin();
 		Query consulta = em.createQuery("select escola from Escola escola ");
 
@@ -76,38 +82,41 @@ public class EscolaController {
 
 		em.getTransaction().commit();
 		emf.close();
-
 		return resultados;
 	}
 
+<<<<<<< HEAD
 	public void atualizar(Escola escola,int id, ArrayList<String> array) {
+=======
+	public void atualizar(Escola escola, int id, ArrayList<String> array) {
+>>>>>>> dad53d536946d7b9b120327e00e50147a41d2213
 		em.getTransaction().begin();
 		Escola novaEscola = em.find(Escola.class, id);
 
 		if (novaEscola != null) {
 			novaEscola.setNome(array.get(0));
 			novaEscola.setNivelDeGoverno(array.get(1));
-//			novaEscola.setTelefone(array.get(2));
-//			novaEscola.setTelefone(array.get(3));
+			// novaEscola.setTelefone(array.get(2));
+			// novaEscola.setTelefone(array.get(3));
 			novaEscola.setLink(array.get(4));
 			novaEscola.setEmail(array.get(5));
 			novaEscola.setSenha(array.get(6));
-			novaEscola.setCnpj(array.get(7));	
-			
+			novaEscola.setCnpj(array.get(7));
+
 			novaEscola.setRua(array.get(8));
 			novaEscola.setNumeroCasa(Integer.parseInt(array.get(9)));
 			novaEscola.setCidade(array.get(10));
 			novaEscola.setCep(array.get(11));
 			novaEscola.setBairro(array.get(12));
-			
-			
-			
+
 			novaEscola = em.merge(novaEscola);
 			em.getTransaction().commit();
 			emf.close();
+			
+			atualizar();
 		} else {
 			System.out.println("escola inexistente");
 		}
-		
+
 	}
 }
