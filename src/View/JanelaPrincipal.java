@@ -27,7 +27,7 @@ import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelCross;
 import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelWin;
 import org.jvnet.substance.colorscheme.AquaColorScheme;
 
-public class JanelaPrincipal{
+public class JanelaPrincipal {
 
 	private JFrame frame;
 
@@ -38,13 +38,8 @@ public class JanelaPrincipal{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-<<<<<<< HEAD
-//					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
-//					UIManager.setLookAndFeel(new AeroLookAndFeel());
-=======
-			//UIManager.setLookAndFeel(new GraphiteLookAndFeel());
-	//				UIManager.setLookAndFeel(new AeroLookAndFeel());
->>>>>>> 83af550e67a2077289af145e03e54b9bc3a5301e
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
 					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 
 					JanelaPrincipal window = new JanelaPrincipal();
@@ -61,14 +56,14 @@ public class JanelaPrincipal{
 	 */
 	public JanelaPrincipal() {
 		initialize();
-		
+
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame=new JFrame();
+		frame = new JFrame();
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -81,10 +76,8 @@ public class JanelaPrincipal{
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
-		
-		
-	}
 
+	}
 
 	public JFrame getFrame() {
 		return frame;
@@ -94,5 +87,4 @@ public class JanelaPrincipal{
 		this.frame = frame;
 	}
 
-	
 }
