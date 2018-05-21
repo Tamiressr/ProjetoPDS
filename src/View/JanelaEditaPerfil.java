@@ -371,6 +371,7 @@ public class JanelaEditaPerfil{
 	public void colocarDados() {
 		List<String> list=Facade.getFacade().procurarEscolaPorCNPJ(id);
 		
+<<<<<<< HEAD
 		textFielNome.setText(list.get(0));
 		formattedTextFieldTelefoneCelular.setText(list.get(1));
 		frmtdtxtfldTelefonefixo.setText(list.get(2));
@@ -378,6 +379,9 @@ public class JanelaEditaPerfil{
 		txtEmail.setText(list.get(4));
 		txtSenha.setText(list.get(5));
 		txtCnpj.setText(list.get(6));
+=======
+		String nome=list.get(0);
+>>>>>>> 83af550e67a2077289af145e03e54b9bc3a5301e
 		
 		txtRua.setText(list.get(7));
 		txtNumero.setText(list.get(8));

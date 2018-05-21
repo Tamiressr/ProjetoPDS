@@ -24,7 +24,7 @@ import javax.swing.JButton;
 public class JanelaPerfil {
 
 	private JFrame frame;
-	private int id;
+	private static int id;
 
 	/**
 	 * Launch the application.
@@ -33,7 +33,7 @@ public class JanelaPerfil {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JanelaPerfil window = new JanelaPerfil(1);
+					JanelaPerfil window = new JanelaPerfil(id);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,6 +45,7 @@ public class JanelaPerfil {
 	/**
 	 * Create the application.
 	 */
+	
 	public JanelaPerfil(int id) {
 		this.id=id;
 		initialize();

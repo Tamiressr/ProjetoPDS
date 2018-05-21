@@ -38,8 +38,13 @@ public class JanelaPrincipal{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+<<<<<<< HEAD
 //					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
 //					UIManager.setLookAndFeel(new AeroLookAndFeel());
+=======
+			//UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+	//				UIManager.setLookAndFeel(new AeroLookAndFeel());
+>>>>>>> 83af550e67a2077289af145e03e54b9bc3a5301e
 					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 
 					JanelaPrincipal window = new JanelaPrincipal();
@@ -76,11 +81,6 @@ public class JanelaPrincipal{
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
-		
-
-//		Janela.setMenuBar();
-		
-		
 		
 		
 	}

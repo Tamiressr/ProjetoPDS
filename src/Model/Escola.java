@@ -27,15 +27,21 @@ public class Escola {
 	private String rua;
 	private int numeroCasa;
 	private String bairro;
+
+	@Override
+	public String toString() {
+		return "Escola " + nome + ", nivelDeGoverno=" + nivelDeGoverno + ", rua=" + rua + ", numeroCasa=" + numeroCasa
+				+ ", bairro=" + bairro;
+	}
+
 	private String cep;
 	private String cidade;
-	
-	@OneToMany(mappedBy="escola", cascade=CascadeType.ALL)
+
+	@OneToMany(mappedBy = "escola", cascade = CascadeType.ALL)
 	private List<Telefone> telefone = new ArrayList<>();
-	
-	@OneToMany(mappedBy="escola", cascade= CascadeType.ALL)
+
+	@OneToMany(mappedBy = "escola", cascade = CascadeType.ALL)
 	private List<Turma> turmas = new ArrayList<>();
-	
 
 	public Escola() {
 	}
@@ -44,9 +50,6 @@ public class Escola {
 		return id;
 	}
 
-	private void setId(int id) {
-		this.id = id;
-	}
 
 	public String getNome() {
 		return nome;
@@ -95,6 +98,7 @@ public class Escola {
 	public void setNivelDeGoverno(String nivelDeGoverno) {
 		this.nivelDeGoverno = nivelDeGoverno;
 	}
+
 	public List<Turma> getTurmas() {
 		return turmas;
 	}
@@ -150,6 +154,5 @@ public class Escola {
 	public void setNumeroCasa(int numeroCasa) {
 		this.numeroCasa = numeroCasa;
 	}
-	
 
 }
