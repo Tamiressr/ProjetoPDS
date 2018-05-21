@@ -50,7 +50,7 @@ public class JanelaEditaPerfil{
 	private String[] niveis={ "Municipal", "Estadual", "Federal" };
 	private JFormattedTextField txtCnpj;
 	
-	private int id;
+	private static int id;
 
 	/**
 	 * Launch the application.
@@ -59,7 +59,7 @@ public class JanelaEditaPerfil{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JanelaEditaPerfil window = new JanelaEditaPerfil(0);
+					JanelaEditaPerfil window = new JanelaEditaPerfil(id);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -369,9 +369,9 @@ public class JanelaEditaPerfil{
 	}
 	
 	public void colocarDados() {
-		List<String> list=Facade.getFacade().procurarEscolaPorCNPJ(id);
+		List<String> list=Facade.getFacade().retornaValoresEscolaPorID(id);
 		
-<<<<<<< HEAD
+
 		textFielNome.setText(list.get(0));
 		formattedTextFieldTelefoneCelular.setText(list.get(1));
 		frmtdtxtfldTelefonefixo.setText(list.get(2));
@@ -379,9 +379,6 @@ public class JanelaEditaPerfil{
 		txtEmail.setText(list.get(4));
 		txtSenha.setText(list.get(5));
 		txtCnpj.setText(list.get(6));
-=======
-		String nome=list.get(0);
->>>>>>> 83af550e67a2077289af145e03e54b9bc3a5301e
 		
 		txtRua.setText(list.get(7));
 		txtNumero.setText(list.get(8));

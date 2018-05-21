@@ -279,7 +279,7 @@ public class JanelaGerenciarTurma {
 		modelo.addColumn("Escolas");
 
 //		List<Escola> list=Facade.getFacade().listar();
-		Escola o=Facade.getFacade().procurarEscolaPorCnpj(id);
+		Escola o=Facade.getFacade().procurarEscolaPorID(id);
 		List<Turma> list=o.getTurmas();
 				
 		for (Turma e : list) {

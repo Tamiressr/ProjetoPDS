@@ -14,13 +14,13 @@ public class EscolaConcreto extends BuilderEscola{
 		String a=telefoneFixo.charAt(1)+""+telefoneFixo.charAt(2);
 		int x=Integer.parseInt(a);
 		telefone.setDdd((short)x);
-		String b = null;
+		String b = "";
 		for(int i=4;i<telefoneFixo.length();i++) {
 			b=b+telefoneFixo.charAt(i);
 		}
 		telefone.setNumero(b);
-		System.out.println(a+"B:"+b);
-		super.escola.getTelefone().add(telefone);
+		telefone.setEscola(escola);
+		super.escola.addTelefone(telefone);
 		return this;
 	}
 
@@ -31,13 +31,13 @@ public class EscolaConcreto extends BuilderEscola{
 		String a=telefoneCelular.charAt(1)+""+telefoneCelular.charAt(2);
 		int x=Integer.parseInt(a);
 		telefone.setDdd((short)x);
-		String b = null;
-		for(int i=4;i<telefoneCelular.length();i++) {
+		String b="";
+		for(int i=5;i<telefoneCelular.length();i++) {
 			b=b+telefoneCelular.charAt(i);
 		}
 		telefone.setNumero(b);
-		System.out.println(a+"B:"+b);
-		super.escola.getTelefone().add(telefone);
+		telefone.setEscola(escola);
+		super.escola.addTelefone(telefone);
 		return this;
 	}
 

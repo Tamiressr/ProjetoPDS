@@ -56,7 +56,7 @@ public class Facade {
 		return null;
 	}
 
-	public Escola procurarEscolaPorCnpj(int id) {
+	public Escola procurarEscolaPorID(int id) {
 		List<Escola> list = EscolaController.getEscolaController().listar();
 		for (Escola e : list) {
 			if (e.getId() == id) {
@@ -66,7 +66,7 @@ public class Facade {
 		return null;
 	}
 
-	public List<String> procurarEscolaPorCNPJ(int id) {
+	public List<String> retornaValoresEscolaPorID(int id) {
 		List<Escola> lista = EscolaController.getEscolaController().listar();
 		ArrayList<String> list = new ArrayList<String>();
 		
@@ -74,7 +74,9 @@ public class Facade {
 			if (e.getId() == id) {
 				list.add(e.getNome());
 				list.add(e.getTelefone().get(0).toString());
-				list.add(e.getTelefone().get(1).toString());
+//				list.add(e.getTelefone().get(1).toString());
+//				list.add("");
+				list.add("");
 				list.add(e.getLink());
 				list.add(e.getEmail());
 				list.add(e.getSenha());

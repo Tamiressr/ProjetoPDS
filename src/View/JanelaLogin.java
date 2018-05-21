@@ -27,7 +27,7 @@ import Ouvintes.OuvinteListaEscolas;
 
 import java.awt.Color;
 
-public class JanelaLogin{
+public class JanelaLogin {
 
 	private JFrame frame;
 	private JPanel painel;
@@ -35,7 +35,6 @@ public class JanelaLogin{
 	private JPasswordField passwordFieldSenha;
 	JButton btnEntrar = new JButton("ENTRAR");
 
-	
 	/**
 	 * Launch the application.
 	 */
@@ -45,7 +44,7 @@ public class JanelaLogin{
 				try {
 					JanelaLogin window = new JanelaLogin();
 					window.frame.setVisible(true);
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -59,15 +58,14 @@ public class JanelaLogin{
 	 */
 	public JanelaLogin() {
 		initialize();
-		
-		
+
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame=new JFrame();
+		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(102, 51, 0));
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
@@ -81,43 +79,42 @@ public class JanelaLogin{
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setVisible(true);
 
-		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
-		
+
 		JMenu mnreaDaEscola = new JMenu("Escola");
 		menuBar.add(mnreaDaEscola);
 
 		JMenuItem mntmLogin = new JMenuItem("Login");
-		OuvinteJanelaLogin ouvinteJanelaLogin=new OuvinteJanelaLogin(frame);
+		OuvinteJanelaLogin ouvinteJanelaLogin = new OuvinteJanelaLogin(frame);
 		mntmLogin.addActionListener(ouvinteJanelaLogin);
 		mnreaDaEscola.add(mntmLogin);
 
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
-		OuvinteJanelaCadastro ouvinteJanelaCadatro= new OuvinteJanelaCadastro(frame);
+		OuvinteJanelaCadastro ouvinteJanelaCadatro = new OuvinteJanelaCadastro(frame);
 		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
 		frame.getContentPane().setLayout(null);
-		
+
 		JMenuItem mntmListaEscolas = new JMenuItem("Lista Escolas");
-	
-		OuvinteListaEscolas ouvinteListaEscolas=new OuvinteListaEscolas(frame);
+
+		OuvinteListaEscolas ouvinteListaEscolas = new OuvinteListaEscolas(frame);
 		mntmListaEscolas.addActionListener(ouvinteListaEscolas);
 		mnreaDaEscola.add(mntmListaEscolas);
 
 		OuvinteLogin ouvinteDeLogin = new OuvinteLogin(this);
 		btnEntrar.addActionListener(ouvinteDeLogin);
-		
+
 		frame.getContentPane().add(this.adcionarPainel());
-		
-		frame.getContentPane().setLayout(null);		
 
-		frame.getContentPane().setLayout(null);		
+		frame.getContentPane().setLayout(null);
+
+		frame.getContentPane().setLayout(null);
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 	}
 
 	public JFrame getFrame() {
@@ -127,11 +124,12 @@ public class JanelaLogin{
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
+
 	public JPanel adcionarPainel() {
-		painel= new JPanel();
+		painel = new JPanel();
 		painel.setBounds(50, 80, 450, 296);
 		painel.setBackground(new Color(255, 255, 255));
-		
+
 		textFieldLogin = new JTextField();
 		textFieldLogin.setBounds(126, 113, 205, 20);
 		painel.add(textFieldLogin);
@@ -167,15 +165,15 @@ public class JanelaLogin{
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(JanelaLogin.class.getResource("/bart-lavagna.gif")));
 		lblNewLabel.setBounds(-54, -143, 814, 535);
-		
+
 		painel.setLayout(null);
 		painel.add(lblNewLabel);
 		painel.setVisible(true);
 		return painel;
 	}
-	
+
 	public int retornarValores() {
-		
+
 		ArrayList<Escola> e = (ArrayList<Escola>) EscolaController.getEscolaController().listar();
 
 		String login = this.textFieldLogin.getText();
@@ -186,31 +184,30 @@ public class JanelaLogin{
 			}
 		}
 		return 0;
-	
-}
-	public class OuvinteLogin implements ActionListener {
-		
-		private JanelaLogin janela;
-		
-		public OuvinteLogin(JanelaLogin janela) {
-			
-			this.janela=janela;
-		
-		}
 
+	}
+
+	public class OuvinteLogin implements ActionListener {
+
+		private JanelaLogin janela;
+
+		public OuvinteLogin(JanelaLogin janela) {
+
+			this.janela = janela;
+
+		}
 
 		public void actionPerformed(ActionEvent arg0) {
-			int valor=this.janela.retornarValores();
-			if(valor==0) {
-				JOptionPane.showMessageDialog(null,"jndjqwj");
-			}else {
+			int valor = this.janela.retornarValores();
+			if (valor == 0) {
+				JOptionPane.showMessageDialog(null, "jndjqwj");
+			} else {
 				janela.getFrame().dispose();
-				JanelaPerfil jp= new JanelaPerfil(valor);
+				JanelaPerfil jp = new JanelaPerfil(valor);
 				jp.getFrame().setVisible(true);
-			
+
 			}
 		}
-
 
 	}
 

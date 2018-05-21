@@ -13,8 +13,6 @@ public class Telefone {
 	private int id;
 	private short ddd;
 	private String numero;
-	
-	
 
 	@ManyToOne
 	private Escola escola;
@@ -22,7 +20,7 @@ public class Telefone {
 	
 	
 	public String toString() {
-		return "("+ddd+")"+numero;
+		return ddd+numero;
 	}
 
 	public short getDdd() {
