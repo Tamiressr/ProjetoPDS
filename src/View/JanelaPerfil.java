@@ -94,12 +94,12 @@ public class JanelaPerfil {
 		btnExcluirConta.addActionListener(ouvinteExcluirConta);
 		frame.getContentPane().add(btnExcluirConta);
 		
-		JButton btnGerenciarSeries = new JButton("Gerenciar Séries");
-		btnGerenciarSeries.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnGerenciarSeries.setBounds(10, 22, 150, 40);
+		JButton btnGerenciarTurmas = new JButton("Gerenciar Turmas");
+		btnGerenciarTurmas.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnGerenciarTurmas.setBounds(10, 22, 150, 40);
 		OuvinteGerenciarTurma ouvinteGerenciarTurma=new OuvinteGerenciarTurma(frame, id);
-		btnGerenciarSeries.addActionListener(ouvinteGerenciarTurma);
-		frame.getContentPane().add(btnGerenciarSeries);
+		btnGerenciarTurmas.addActionListener(ouvinteGerenciarTurma);
+		frame.getContentPane().add(btnGerenciarTurmas);
 
 	}
 

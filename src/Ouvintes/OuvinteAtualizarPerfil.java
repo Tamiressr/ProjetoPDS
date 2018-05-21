@@ -22,6 +22,7 @@ public class OuvinteAtualizarPerfil implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		int confirm=JOptionPane.showConfirmDialog(null, "Tem Certeza?");
 		if(confirm==0) {
+			janela.getFrame().dispose();
 			ArrayList<String> array=new ArrayList<>();
 			array=janela.returnValores();
 			Facade.getFacade().atualizar(id,array);

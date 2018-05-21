@@ -6,9 +6,7 @@ public abstract class BuilderEscola {
 	
 	public abstract BuilderEscola nomeBuilder(String nome);
 	
-	public abstract BuilderEscola telefoneFixoBuilder(String telefoneFixo);
-	
-	public abstract BuilderEscola telefoneCelularBuilder(String telefoneCelular);
+	public abstract BuilderEscola telefoneBuilder(String telefoneFixo);
 	
 	public abstract BuilderEscola nivelBuilder(String nivel);
 	
