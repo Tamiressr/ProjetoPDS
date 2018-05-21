@@ -46,16 +46,6 @@ public class Facade {
 		
 	}
 
-	public Escola procurarEscolaPorCnpj(String cnpj) {
-		List<Escola> list = EscolaController.getEscolaController().listar();
-		for (Escola e : list) {
-			if (e.getCnpj().equals(cnpj)) {
-				return e;
-			}
-		}
-		return null;
-	}
-
 	public Escola procurarEscolaPorID(int id) {
 		List<Escola> list = EscolaController.getEscolaController().listar();
 		for (Escola e : list) {
