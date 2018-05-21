@@ -16,6 +16,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 
+//import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 
 
 
@@ -30,7 +31,6 @@ public class JanelaPrincipal {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-<<<<<<< HEAD
 
 //					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
@@ -41,11 +41,10 @@ public class JanelaPrincipal {
 					// UIManager.setLookAndFeel(new AeroLookAndFeel());
 				//	UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 
-=======
 					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
 					// UIManager.setLookAndFeel(new AeroLookAndFeel());
-					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
->>>>>>> dad53d536946d7b9b120327e00e50147a41d2213
+				//	UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+				//	UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);

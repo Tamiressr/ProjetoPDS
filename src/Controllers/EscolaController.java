@@ -85,11 +85,23 @@ public class EscolaController {
 		return resultados;
 	}
 
-<<<<<<< HEAD
 	public void atualizar(Escola escola,int id, ArrayList<String> array) {
-=======
-	public void atualizar(Escola escola, int id, ArrayList<String> array) {
->>>>>>> dad53d536946d7b9b120327e00e50147a41d2213
+//		0 array.add(textFielNome.getText());
+//		1 array.add(formattedTextFieldTelefoneCelular.getText());
+//		String nivel=niveis[comboBoxNivies.getSelectedIndex()];
+//		2 array.add(nivel);
+//		3 array.add(frmtdtxtfldTelefonefixo.getText());
+//		4 array.add(txtLinkdosite.getText());
+//		5 array.add(txtEmail.getText());
+//		6 array.add(txtSenha.getText());
+//		7 array.add(txtCnpj.getText());
+//		
+//		8 array.add(txtRua.getText());
+//		9 array.add(txtNumero.getText());
+//		10 array.add(txtCidade.getText());
+//		11 array.add(txtCep.getText());
+//		12 array.add(txtBairro.getText());
+		
 		em.getTransaction().begin();
 		Escola novaEscola = em.find(Escola.class, id);
 
