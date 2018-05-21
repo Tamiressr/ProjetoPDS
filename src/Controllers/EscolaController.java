@@ -102,9 +102,22 @@ public class EscolaController {
 
 		if (novaEscola != null) {
 			novaEscola.setNome(array.get(0));
+			novaEscola.setNivelDeGoverno(array.get(1));
+//			novaEscola.setTelefone(array.get(2));
+//			novaEscola.setTelefone(array.get(3));
 			novaEscola.setLink(array.get(4));
 			novaEscola.setEmail(array.get(5));
 			novaEscola.setSenha(array.get(6));
+			novaEscola.setCnpj(array.get(7));	
+			
+			novaEscola.setRua(array.get(8));
+			novaEscola.setNumeroCasa(Integer.parseInt(array.get(9)));
+			novaEscola.setCidade(array.get(10));
+			novaEscola.setCep(array.get(11));
+			novaEscola.setBairro(array.get(12));
+			
+			
+			
 			novaEscola = em.merge(novaEscola);
 			em.getTransaction().commit();
 			emf.close();

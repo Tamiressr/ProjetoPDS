@@ -50,11 +50,7 @@ public class JanelaEditaPerfil{
 	private String[] niveis={ "Municipal", "Estadual", "Federal" };
 	private JFormattedTextField txtCnpj;
 	
-<<<<<<< HEAD
 	private static  int id;
-=======
-	private static int id;
->>>>>>> f564e910b75b0f12147e99a499edc926df8b28e3
 
 	/**
 	 * Launch the application.
@@ -63,7 +59,7 @@ public class JanelaEditaPerfil{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JanelaEditaPerfil window = new JanelaEditaPerfil(id);
+					JanelaEditaPerfil window = new JanelaEditaPerfil(0);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -75,8 +71,8 @@ public class JanelaEditaPerfil{
 	/**
 	 * Create the application.
 	 */
-	public JanelaEditaPerfil(int ids) {
-		id=ids;
+	public JanelaEditaPerfil(int id) {
+		this.id=id;
 		initialize();
 		colocarDados();
 	}
@@ -101,7 +97,7 @@ public class JanelaEditaPerfil{
 		
 		
 		
-		JLabel lblCadastrar = new JLabel("Editar Perfil");
+		JLabel lblCadastrar = new JLabel("Edita Perfil");
 		lblCadastrar.setBounds(10, 32, 514, 37);
 		lblCadastrar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCadastrar.setFont(new Font("Times New Roman", Font.PLAIN, 36));
@@ -374,7 +370,7 @@ public class JanelaEditaPerfil{
 	}
 	
 	public void colocarDados() {
-		List<String> list=Facade.getFacade().retornaValoresEscolaPorID(id);
+		List<String> list=Facade.getFacade().procurarEscolaPorCNPJ(id);
 		
 
 		textFielNome.setText(list.get(0));
@@ -384,12 +380,9 @@ public class JanelaEditaPerfil{
 		txtEmail.setText(list.get(4));
 		txtSenha.setText(list.get(5));
 		txtCnpj.setText(list.get(6));
-<<<<<<< HEAD
 
 		String nome=list.get(0);
 
-=======
->>>>>>> f564e910b75b0f12147e99a499edc926df8b28e3
 		
 		txtRua.setText(list.get(7));
 		txtNumero.setText(list.get(8));
