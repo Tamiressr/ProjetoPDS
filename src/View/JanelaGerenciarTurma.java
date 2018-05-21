@@ -43,7 +43,7 @@ public class JanelaGerenciarTurma {
 
 	private JFrame frame;
 	private JTextField textField;
-	private int id;
+	private static int id;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JPanel panel;
@@ -69,7 +69,7 @@ public class JanelaGerenciarTurma {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JanelaGerenciarTurma window = new JanelaGerenciarTurma(1);
+					JanelaGerenciarTurma window = new JanelaGerenciarTurma(id);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -279,7 +279,7 @@ public class JanelaGerenciarTurma {
 		modelo.addColumn("Escolas");
 
 //		List<Escola> list=Facade.getFacade().listar();
-		Escola o=Facade.getFacade().procurarEscolaPorCnpj(id);
+		Escola o=Facade.getFacade().procurarEscolaPorID(id);
 		List<Turma> list=o.getTurmas();
 				
 		for (Turma e : list) {

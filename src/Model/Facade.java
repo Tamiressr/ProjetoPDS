@@ -46,17 +46,7 @@ public class Facade {
 		
 	}
 
-	public Escola procurarEscolaPorCnpj(String cnpj) {
-		List<Escola> list = EscolaController.getEscolaController().listar();
-		for (Escola e : list) {
-			if (e.getCnpj().equals(cnpj)) {
-				return e;
-			}
-		}
-		return null;
-	}
-
-	public Escola procurarEscolaPorCnpj(int id) {
+	public Escola procurarEscolaPorID(int id) {
 		List<Escola> list = EscolaController.getEscolaController().listar();
 		for (Escola e : list) {
 			if (e.getId() == id) {
@@ -66,15 +56,22 @@ public class Facade {
 		return null;
 	}
 
-	public List<String> procurarEscolaPorCNPJ(int id) {
+	public List<String> retornaValoresEscolaPorID(int id) {
 		List<Escola> lista = EscolaController.getEscolaController().listar();
 		ArrayList<String> list = new ArrayList<String>();
 		
 		for (Escola e : lista) {
 			if (e.getId() == id) {
 				list.add(e.getNome());
+<<<<<<< HEAD
 //				list.add(e.getTelefone().get(0).toString());
 //				list.add(e.getTelefone().get(1).toString());
+=======
+				list.add(e.getTelefone().get(0).toString());
+//				list.add(e.getTelefone().get(1).toString());
+//				list.add("");
+				list.add("");
+>>>>>>> f564e910b75b0f12147e99a499edc926df8b28e3
 				list.add(e.getLink());
 				list.add(e.getEmail());
 				list.add(e.getSenha());
