@@ -50,11 +50,7 @@ public class JanelaEditaPerfil{
 	private String[] niveis={ "Municipal", "Estadual", "Federal" };
 	private JFormattedTextField txtCnpj;
 	
-<<<<<<< HEAD
 	private static  int id;
-=======
-	private static int id;
->>>>>>> f564e910b75b0f12147e99a499edc926df8b28e3
 
 	/**
 	 * Launch the application.
@@ -384,14 +380,9 @@ public class JanelaEditaPerfil{
 		txtEmail.setText(list.get(4));
 		txtSenha.setText(list.get(5));
 		txtCnpj.setText(list.get(6));
-<<<<<<< HEAD
 
 		String nome=list.get(0);
 
-=======
->>>>>>> f564e910b75b0f12147e99a499edc926df8b28e3
-		
-		txtRua.setText(list.get(7));
 		txtNumero.setText(list.get(8));
 		txtCidade.setText(list.get(9));
 		txtCep.setText(list.get(10));
