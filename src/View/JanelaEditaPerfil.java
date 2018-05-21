@@ -371,8 +371,6 @@ public class JanelaEditaPerfil{
 	public void colocarDados() {
 		List<String> list=Facade.getFacade().procurarEscolaPorCNPJ(id);
 		
-		System.out.println(list.get(0));
-		System.out.println(list.size());
 		String nome=list.get(0);
 		
 		textFielNome.setText(nome);
