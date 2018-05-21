@@ -113,6 +113,7 @@ public class JanelaLogin{
 		frame.getContentPane().setLayout(null);		
 
 		frame.getContentPane().setLayout(null);		
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
