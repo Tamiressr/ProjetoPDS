@@ -25,7 +25,8 @@ public class OuvinteAtualizarPerfil implements ActionListener {
 		if(confirm==0) {
 			ArrayList<String> array=new ArrayList<>();
 			array=janela.returnValores();
-			Facade.getFacade().atualizar(id,array);			
+			Facade.getFacade().atualizar(id,array);
+			new JanelaPerfil(id);
 		}else if(confirm==1) {
 			
 		}else {
