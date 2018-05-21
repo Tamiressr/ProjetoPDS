@@ -383,11 +383,8 @@ public class JanelaEditaPerfil{
 
 		String nome=list.get(0);
 
-<<<<<<< HEAD
 		
 		txtRua.setText(list.get(7));
-=======
->>>>>>> 4f6080fcd496f3896d5708a5244da6ff76cbc0d6
 		txtNumero.setText(list.get(8));
 		txtCidade.setText(list.get(9));
 		txtCep.setText(list.get(10));
