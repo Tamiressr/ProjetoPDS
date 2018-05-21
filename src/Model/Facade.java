@@ -64,10 +64,7 @@ public class Facade {
 			if (e.getId() == id) {
 				list.add(e.getNome());
 				list.add(e.getTelefone().get(0).toString());
-				System.out.println(e.getTelefone().get(1).getDdd()+e.getTelefone().get(1).getNumero());
-				list.add(e.getTelefone().get(1).getDdd()+e.getTelefone().get(1).getNumero());
-//				list.add("");
-//				list.add("");
+				list.add(e.getTelefone().get(1).toString());
 				list.add(e.getLink());
 				list.add(e.getEmail());
 				list.add(e.getSenha());

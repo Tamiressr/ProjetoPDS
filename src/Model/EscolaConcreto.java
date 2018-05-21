@@ -35,7 +35,7 @@ public class EscolaConcreto extends BuilderEscola{
 		telefone.setDdd((short)x);
 		String b="";
 		for(int i=4;i<telefoneCelular.length();i++) {
-			if(telefoneCelular.charAt(i)!='-') {
+			if(telefoneCelular.charAt(i)!='-' && telefoneCelular.charAt(i)!=' ') {
 				b=b+telefoneCelular.charAt(i);				
 			}
 		}
