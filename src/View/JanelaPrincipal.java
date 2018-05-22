@@ -19,7 +19,11 @@ import javax.swing.UIManager;
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
+=======
+import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
+>>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
 =======
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 >>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
@@ -38,8 +42,13 @@ public class JanelaPrincipal {
 			public void run() {
 				try {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+>>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
 =======
 					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
 					// UIManager.setLookAndFeel(new AeroLookAndFeel());

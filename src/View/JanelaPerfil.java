@@ -100,6 +100,7 @@ public class JanelaPerfil {
 		frame.getContentPane().add(btnExcluirConta);
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		JButton btnGerenciarSeries = new JButton("Gerenciar Turmas");
 		btnGerenciarSeries.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnGerenciarSeries.setBounds(10, 22, 150, 40);
@@ -211,6 +212,14 @@ public class JanelaPerfil {
 		JLabel lblMtelefonec = new JLabel(" Celular "+e.getTelefone().get(0));
 		lblMtelefonec.setBounds(375, 204, 146, 14);
 		frame.getContentPane().add(lblMtelefonec);
+=======
+		JButton btnGerenciarTurmas = new JButton("Gerenciar Turmas");
+		btnGerenciarTurmas.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnGerenciarTurmas.setBounds(10, 22, 150, 40);
+		OuvinteGerenciarTurma ouvinteGerenciarTurma=new OuvinteGerenciarTurma(frame, id);
+		btnGerenciarTurmas.addActionListener(ouvinteGerenciarTurma);
+		frame.getContentPane().add(btnGerenciarTurmas);
+>>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
 =======
 		JButton btnGerenciarTurmas = new JButton("Gerenciar Turmas");
 		btnGerenciarTurmas.setFont(new Font("Arial", Font.PLAIN, 14));

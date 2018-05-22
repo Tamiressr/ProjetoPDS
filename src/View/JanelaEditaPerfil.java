@@ -382,9 +382,12 @@ public class JanelaEditaPerfil{
 		txtCnpj.setText(list.get(6));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		String nome=list.get(0);
 
 		
+=======
+>>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
 =======
 >>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
 		txtRua.setText(list.get(7));
