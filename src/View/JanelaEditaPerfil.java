@@ -318,9 +318,9 @@ public class JanelaEditaPerfil{
 		ArrayList<String> array=new ArrayList<>();
 		array.add(textFielNome.getText());
 		array.add(formattedTextFieldTelefoneCelular.getText());
+		array.add(frmtdtxtfldTelefonefixo.getText());
 		String nivel=niveis[comboBoxNivies.getSelectedIndex()];
 		array.add(nivel);
-		array.add(frmtdtxtfldTelefonefixo.getText());
 		array.add(txtLinkdosite.getText());
 		array.add(txtEmail.getText());
 		array.add(txtSenha.getText());
@@ -370,7 +370,7 @@ public class JanelaEditaPerfil{
 	}
 	
 	public void colocarDados() {
-		List<String> list=Facade.getFacade().procurarEscolaPorCNPJ(id);
+		List<String> list=Facade.getFacade().retornaValoresEscolaPorID(id);
 		
 
 		textFielNome.setText(list.get(0));
@@ -382,16 +382,33 @@ public class JanelaEditaPerfil{
 		txtCnpj.setText(list.get(6));
 
 <<<<<<< HEAD
-=======
 		String nome=list.get(0);
 
 		
->>>>>>> 3215ddc566b5d7af0aebe2c3aef885946a1bee3e
+=======
+>>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
 		txtRua.setText(list.get(7));
 		txtNumero.setText(list.get(8));
 		txtCidade.setText(list.get(9));
 		txtCep.setText(list.get(10));
 		txtBairro.setText(list.get(11));
 
+		
+		comboBoxNivies.setSelectedIndex(qualNivel(list.get(12)));
+//		comboBoxNivies.
+	}
+	
+	private int qualNivel(String nivel) {
+		if(nivel.equals("Municipal")) {
+			System.out.println("0");
+			return 0;
+		}else if(nivel.equals("Estadual")) {
+			System.out.println("01");
+			return 1;
+		}else if(nivel.equals("Federal")){
+			System.out.println("2");
+			return 2;
+		}
+		return 99;
 	}
 }

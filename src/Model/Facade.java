@@ -57,7 +57,7 @@ public class Facade {
 		return null;
 	}
 
-	public List<String> procurarEscolaPorCNPJ(int id) {
+	public List<String> retornaValoresEscolaPorID(int id) {
 		List<Escola> lista = EscolaController.getEscolaController().listar();
 		ArrayList<String> list = new ArrayList<String>();
 		
@@ -75,6 +75,8 @@ public class Facade {
 				list.add(e.getCidade());
 				list.add(e.getCep());
 				list.add(e.getBairro());
+				
+				list.add(e.getNivelDeGoverno());
 	
 				return list;
 			}

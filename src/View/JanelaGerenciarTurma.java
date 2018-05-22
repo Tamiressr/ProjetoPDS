@@ -13,6 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import Ouvintes.OuvinteCadastrarTurma;
+import Ouvintes.OuvinteExcluirTurma;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteJanelaPerfil;
@@ -58,7 +59,7 @@ public class JanelaGerenciarTurma {
 	private JRadioButton radioButtonTarde; 
 	private JRadioButton radioButtonNoite;
 	private JRadioButton radioButtonIntegral;
-	private JScrollPane painelTabela;
+	private JScrollPane painelTabela=new JScrollPane();
 	 
 	
 	
@@ -115,6 +116,8 @@ public class JanelaGerenciarTurma {
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnExcluir.setBounds(367, 22, 150, 40);
+		OuvinteExcluirTurma ouvinteExcluirTurma=new OuvinteExcluirTurma(frame, id);
+		btnExcluir.addActionListener(ouvinteExcluirTurma);
 		frame.getContentPane().add(btnExcluir);
 		
 		JButton btnProcurar = new JButton("Procurar");
@@ -130,22 +133,22 @@ public class JanelaGerenciarTurma {
 		
 		JRadioButton rdbtnIntegral = new JRadioButton("Integral");
 		rdbtnIntegral.setFont(new Font("Arial", Font.PLAIN, 14));
-		rdbtnIntegral.setBounds(39, 156, 75, 25);
+		rdbtnIntegral.setBounds(39, 156, 103, 25);
 		frame.getContentPane().add(rdbtnIntegral);
 
 		JRadioButton rdbtnManh = new JRadioButton("Manh\u00E3");
 		rdbtnManh.setFont(new Font("Arial", Font.PLAIN, 14));
-		rdbtnManh.setBounds(144, 156, 75, 25);
+		rdbtnManh.setBounds(144, 156, 103, 25);
 		frame.getContentPane().add(rdbtnManh);
 		
 		JRadioButton rdbtnTarde = new JRadioButton("Tarde");
 		rdbtnTarde.setFont(new Font("Arial", Font.PLAIN, 14));
-		rdbtnTarde.setBounds(249, 156, 75, 25);
+		rdbtnTarde.setBounds(249, 156, 89, 25);
 		frame.getContentPane().add(rdbtnTarde);
 		
 		JRadioButton rdbtnNoite = new JRadioButton("Noite");
 		rdbtnNoite.setFont(new Font("Arial", Font.PLAIN, 14));
-		rdbtnNoite.setBounds(354, 156, 75, 25);
+		rdbtnNoite.setBounds(342, 156, 75, 25);
 		frame.getContentPane().add(rdbtnNoite);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -288,7 +291,7 @@ public class JanelaGerenciarTurma {
 
 		painelTabela = new JScrollPane(table);
 		painelTabela.setBounds(39, 203, 478, 194);
-		frame.add(painelTabela);
+		frame.getContentPane().add(painelTabela);
 		
 	}
 	

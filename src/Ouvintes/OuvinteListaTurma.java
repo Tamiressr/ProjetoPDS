@@ -22,7 +22,6 @@ public class OuvinteListaTurma implements ActionListener{
 		janela.getFrame().repaint();
 		janela.listaTurma();
 		janela.getFrame().repaint();
-//		janela.getFrame();
 	}
 
 }

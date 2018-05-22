@@ -37,8 +37,8 @@ public class Diretor {
 			String cidade) {
 		
 		builderEscola.nomeBuilder(nome);
-		builderEscola.telefoneFixoBuilder(telefoneFixo);
-		builderEscola.telefoneCelularBuilder(telefoneCelular);
+		builderEscola.telefoneBuilder(telefoneFixo);
+		builderEscola.telefoneBuilder(telefoneCelular);
 		builderEscola.senhaBuilder(senha);
 		builderEscola.emailBuilder(email);
 		builderEscola.linkBuilder(link);

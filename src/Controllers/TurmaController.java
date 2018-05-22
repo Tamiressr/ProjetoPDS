@@ -6,16 +6,25 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+
+import Model.Escola;
 import Model.Turma;
 
 
 public class TurmaController {
-	EntityManagerFactory emf;
-	EntityManager em;
+	private EntityManagerFactory emf;
+	private EntityManager em;
+	private static TurmaController turma;
 	
-	public TurmaController() {
+	private TurmaController() {
 		emf = Persistence.createEntityManagerFactory("escola");
 		em = emf.createEntityManager();	
+	}
+	public static TurmaController getTurmaController() {
+		if(turma==null) {
+			turma=new TurmaController();
+		}
+		return turma;
 	}
 	
 	public void salvar(Turma turma) {
@@ -66,4 +75,14 @@ public class TurmaController {
 		
 		return resultados;
 	}	
+	
+	public int procurarID(Turma turma) {
+		List<Turma> list = listar();
+		for (Turma p : list) {
+			if (p.getEscola().getId()== turma.getEscola().getId() && p.getNome().equals(turma.getNome())) {
+				return p.getId();
+			}
+		}
+		return 0;
+	}
 }
