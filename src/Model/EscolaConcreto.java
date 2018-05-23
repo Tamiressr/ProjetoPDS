@@ -1,6 +1,6 @@
 package Model;
 
-public class EscolaConcreto extends BuilderEscola{
+public class EscolaConcreto extends BuilderEscola {
 
 	@Override
 	public BuilderEscola nomeBuilder(String nome) {
@@ -9,30 +9,22 @@ public class EscolaConcreto extends BuilderEscola{
 	}
 
 	@Override
-	public BuilderEscola telefoneFixoBuilder(String telefoneFixo) {
-		Telefone telefone=new Telefone();
-		int a=telefoneFixo.charAt(0)+telefoneFixo.charAt(1);
-		telefone.setDdd((short) a);
-		String b = null;
-		for(int i=2;i<telefoneFixo.length();i++) {
-			b=""+telefoneFixo.charAt(i);
+	public BuilderEscola telefoneBuilder(String telefoneFixo) {
+		if (!telefoneFixo.equals("") && !telefoneFixo.equals(" ")) {
+			Telefone telefone = new Telefone();
+			String a = telefoneFixo.charAt(1) + "" + telefoneFixo.charAt(2);
+			int x = Integer.parseInt(a);
+			telefone.setDdd((short) x);
+			String b = "";
+			for (int i = 4; i < telefoneFixo.length(); i++) {
+				if (telefoneFixo.charAt(i) != '-') {
+					b = b + telefoneFixo.charAt(i);
+				}
+			}
+			telefone.setNumero(b);
+			telefone.setEscola(escola);
+			super.escola.addTelefone(telefone);
 		}
-		telefone.setNumero(b);
-		super.escola.getTelefone().add(telefone);
-		return this;
-	}
-
-	@Override
-	public BuilderEscola telefoneCelularBuilder(String telefoneCelular) {
-		Telefone telefone=new Telefone();
-		int a=telefoneCelular.charAt(0)+telefoneCelular.charAt(1);
-		telefone.setDdd((short) a);
-		String b = null;
-		for(int i=2;i<telefoneCelular.length();i++) {
-			b=""+telefoneCelular.charAt(i);
-		}
-		telefone.setNumero(b);
-		super.escola.getTelefone().add(telefone);
 		return this;
 	}
 
@@ -68,17 +60,15 @@ public class EscolaConcreto extends BuilderEscola{
 
 	@Override
 	public BuilderEscola enderecoBuilder(String rua, String numero, String bairro, String CEP, String cidade) {
-		super.escola.getEndereco().setBairro(bairro);
-		super.escola.getEndereco().setCep(CEP);
-		super.escola.getEndereco().setCidade(cidade);
-		if(numero!=null || !numero.equals("")) {
-			short nu=(short) Integer.parseInt(numero);
-			super.escola.getEndereco().setNumero(nu);			
+		super.escola.setBairro(bairro);
+		super.escola.setCep(CEP);
+		super.escola.setCidade(cidade);
+		if (numero != null || !numero.equals("")) {
+			short nu = (short) Integer.parseInt(numero);
+			super.escola.setNumeroCasa(nu);
 		}
-		super.escola.getEndereco().setRua(rua);
+		super.escola.setRua(rua);
 		return this;
 	}
-	
-	
 
 }

@@ -2,6 +2,7 @@ package Ouvintes;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -19,8 +20,13 @@ public class OuvinteSalvaTurma implements ActionListener{
 	
 
 	public void actionPerformed(ActionEvent e) {
-//		Facade.getFacade().salvarTurma(id, );
-		
+		ArrayList<String> array=new ArrayList<>();
+		array=janela.retornaValoresTurma();
+		if(array==null) {
+			
+		}else {
+			Facade.getFacade().salvarTurma(id,array);	
+		}
 	}
 
 }

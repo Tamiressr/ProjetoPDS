@@ -6,12 +6,6 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import java.awt.Cursor;
 
-import com.jtattoo.plaf.aero.AeroLookAndFeel;
-import com.jtattoo.plaf.aluminium.AluminiumLookAndFeel;
-import com.jtattoo.plaf.bernstein.BernsteinButtonUI;
-import com.jtattoo.plaf.bernstein.BernsteinCheckBoxUI;
-import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
-import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
 
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
@@ -22,12 +16,27 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 
-import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
-import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelCross;
-import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelWin;
-import org.jvnet.substance.colorscheme.AquaColorScheme;
+<<<<<<< HEAD
+//import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 
-public class JanelaPrincipal{
+//import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
+=======
+import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+//import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
+=======
+import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
+>>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
+=======
+import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
+>>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
+
+
+>>>>>>> 5061d9e471ab85b86c6add4206d9014f7330a12f
+
+public class JanelaPrincipal {
 
 	private JFrame frame;
 
@@ -38,9 +47,32 @@ public class JanelaPrincipal{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+<<<<<<< HEAD
 //					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
-					UIManager.setLookAndFeel(new AeroLookAndFeel());
+//					UIManager.setLookAndFeel(new AeroLookAndFeel());
 //					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+
+
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+//					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+
+=======
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+>>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
+=======
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+>>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
+					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+>>>>>>> 5061d9e471ab85b86c6add4206d9014f7330a12f
 
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);
@@ -56,14 +88,14 @@ public class JanelaPrincipal{
 	 */
 	public JanelaPrincipal() {
 		initialize();
-		
+
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame=new JFrame();
+		frame = new JFrame();
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -76,15 +108,8 @@ public class JanelaPrincipal{
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
-		
 
-//		Janela.setMenuBar();
-		
-		
-		
-		
 	}
-
 
 	public JFrame getFrame() {
 		return frame;
@@ -94,5 +119,4 @@ public class JanelaPrincipal{
 		this.frame = frame;
 	}
 
-	
 }

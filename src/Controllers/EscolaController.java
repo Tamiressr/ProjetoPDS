@@ -10,11 +10,13 @@ import javax.persistence.Query;
 import javax.swing.JOptionPane;
 
 import Model.Escola;
+import Model.Telefone;
 
 public class EscolaController {
 	private EntityManagerFactory emf;
 	private EntityManager em;
 	private static EscolaController escolaController;
+	private static List<Escola> list;
 
 	public static EscolaController getEscolaController() {
 		if (escolaController == null) {
@@ -30,8 +32,6 @@ public class EscolaController {
 	}
 
 	public void salvar(Escola escola) {
-//		CentralDeInformacoes.getCentralDeInformacoes().adicionarEscola(escola);
-		
 		em.getTransaction().begin();
 		em.merge(escola);
 		em.getTransaction().commit();
@@ -39,20 +39,21 @@ public class EscolaController {
 	}
 
 	public int procurarID(Escola escola) {
-		List<Escola> list = listar();
+		list = listar();
 		for (Escola p : list) {
-			if (p.getEmail().equals(escola.getEmail())) {
+			if (p.getEmail().equals(escola.getEmail()) && p.getSenha().equals(escola.getSenha())
+					&& p.getCnpj().equals(escola.getCnpj())) {
 				return p.getId();
 			}
 		}
 		return 0;
 	}
-	
+
 	public Escola procurarEscola(int id) {
-		List<Escola> list = listar();
+		list = listar();
 
 		for (Escola p : list) {
-			if (p.getId()==id) {
+			if (p.getId() == id) {
 				return p;
 			}
 		}
@@ -62,61 +63,67 @@ public class EscolaController {
 	public void remover(int id) {
 		em.getTransaction().begin();
 		Escola escola = em.find(Escola.class, id);
-//		CentralDeInformacoes.getCentralDeInformacoes().remover(escola);
 		if (escola != null)
 			em.remove(escola);
 		else
 			JOptionPane.showMessageDialog(null, "Conta Não Encontrada");
 		em.getTransaction().commit();
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	public List<Escola> listar() {
 		em.getTransaction().begin();
 		Query consulta = em.createQuery("select escola from Escola escola ");
 
-		List<Escola> resultados = consulta.getResultList();
+		list = consulta.getResultList();
 
 		em.getTransaction().commit();
 		emf.close();
-
-		return resultados;
-//		return CentralDeInformacoes.getCentralDeInformacoes().getArray();
+		return list;
 	}
 
 	public void atualizar(Escola escola,int id, ArrayList<String> array) {
-//		0 array.add(textFielNome.getText());
-//		1 array.add(formattedTextFieldTelefoneCelular.getText());
-//		String nivel=niveis[comboBoxNivies.getSelectedIndex()];
-//		2 array.add(nivel);
-//		3 array.add(frmtdtxtfldTelefonefixo.getText());
-//		4 array.add(txtLinkdosite.getText());
-//		5 array.add(txtEmail.getText());
-//		6 array.add(txtSenha.getText());
-//		7 array.add(txtCnpj.getText());
-//		
-//		8 array.add(txtRua.getText());
-//		9 array.add(txtNumero.getText());
-//		10 array.add(txtCidade.getText());
-//		11 array.add(txtCep.getText());
-//		12 array.add(txtBairro.getText());
 		
 		em.getTransaction().begin();
 		Escola novaEscola = em.find(Escola.class, id);
 
-		if (novaEscola != null) {
+		if (novaEscola != null) {			
 			novaEscola.setNome(array.get(0));
+			novaEscola.addTelefone(atualizarTelefone(novaEscola.getTelefone().get(0),array.get(1)));
+			novaEscola.addTelefone(atualizarTelefone(novaEscola.getTelefone().get(0),array.get(2)));
+			novaEscola.setNivelDeGoverno(array.get(3));
 			novaEscola.setLink(array.get(4));
 			novaEscola.setEmail(array.get(5));
 			novaEscola.setSenha(array.get(6));
+			novaEscola.setCnpj(array.get(7));
+
+			novaEscola.setRua(array.get(8));
+			novaEscola.setNumeroCasa(Integer.parseInt(array.get(9)));
+			novaEscola.setCidade(array.get(10));
+			novaEscola.setCep(array.get(11));
+			novaEscola.setBairro(array.get(12));
+
 			novaEscola = em.merge(novaEscola);
 			em.getTransaction().commit();
 			emf.close();
+			
 		} else {
 			System.out.println("escola inexistente");
 		}
-//		CentralDeInformacoes.getCentralDeInformacoes().remover(escola);
-//		CentralDeInformacoes.getCentralDeInformacoes().adicionarEscola(novaEscola);
-		
+	}
+	public Telefone atualizarTelefone(Telefone telefone,String telefoneNovo) {
+		if(!telefoneNovo.equals("") && !telefoneNovo.equals(" ")) {
+			String a=telefoneNovo.charAt(1)+""+telefoneNovo.charAt(2);
+			int x=Integer.parseInt(a);
+			String b = "";
+			for(int i=4;i<telefoneNovo.length();i++) {
+				if(telefoneNovo.charAt(i)!='-') {
+					b=b+telefoneNovo.charAt(i);				
+				}
+			}
+			telefone.setDdd((short)x);
+			telefone.setNumero(b);
+		}
+		return telefone;
 	}
 }

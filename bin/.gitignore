@@ -1,7 +1,7 @@
-/.gitattributes
+/View/
+<<<<<<< HEAD
 /Controllers/
-/META-INF/
 /Model/
 /Ouvintes/
-/README.md
-/View/
+=======
+>>>>>>> 5061d9e471ab85b86c6add4206d9014f7330a12f

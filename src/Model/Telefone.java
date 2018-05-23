@@ -13,8 +13,6 @@ public class Telefone {
 	private int id;
 	private short ddd;
 	private String numero;
-	
-	
 
 	@ManyToOne
 	private Escola escola;

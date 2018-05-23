@@ -43,22 +43,11 @@ public class Facade {
 
 	public void excluirConta(int id) {
 		EscolaController.getEscolaController().remover(id);
-		///
-//		asfsfsdf
 		
 	}
 
-	public Escola procurarEscolaPorCnpj(String cnpj) {
-		List<Escola> list = EscolaController.getEscolaController().listar();
-		for (Escola e : list) {
-			if (e.getCnpj().equals(cnpj)) {
-				return e;
-			}
-		}
-		return null;
-	}
 
-	public Escola procurarEscolaPorCnpj(int id) {
+	public Escola procurarEscolaPorID(int id) {
 		List<Escola> list = EscolaController.getEscolaController().listar();
 		for (Escola e : list) {
 			if (e.getId() == id) {
@@ -68,24 +57,26 @@ public class Facade {
 		return null;
 	}
 
-	public List<String> procurarEscolaPorCNPJ(int id) {
+	public List<String> retornaValoresEscolaPorID(int id) {
 		List<Escola> lista = EscolaController.getEscolaController().listar();
 		ArrayList<String> list = new ArrayList<String>();
 		
 		for (Escola e : lista) {
 			if (e.getId() == id) {
 				list.add(e.getNome());
-//				list.add(e.getTelefone().get(0).toString());
-//				list.add(e.getTelefone().get(1).toString());
+				list.add(e.getTelefone().get(0).toString());
+				list.add(e.getTelefone().get(1).toString());
 				list.add(e.getLink());
 				list.add(e.getEmail());
 				list.add(e.getSenha());
 				list.add(e.getCnpj());
-//				list.add(e.getEndereco().getRua());
-//				list.add(e.getEndereco().getNumero()+"");
-//				list.add(e.getEndereco().getCidade());
-//				list.add(e.getEndereco().getCep());
-//				list.add(e.getEndereco().getBairro());
+				list.add(e.getRua());
+				list.add(e.getNumeroCasa()+"");
+				list.add(e.getCidade());
+				list.add(e.getCep());
+				list.add(e.getBairro());
+				
+				list.add(e.getNivelDeGoverno());
 	
 				return list;
 			}
@@ -106,8 +97,15 @@ public class Facade {
 	
 	public void salvarTurma(int id, ArrayList<String> array) {
 		Escola escola = EscolaController.getEscolaController().procurarEscola(id);
+				
 		Turma turma=new Turma();
+		turma.setNumeroDeVagas(Integer.parseInt(array.get(0)));
+		turma.setNumeroDeVagasDiponiveis(Integer.parseInt(array.get(1)));
+		turma.setNome(array.get(2));
+		turma.setTurno(array.get(3));
+		
 		escola.getTurmas().add(turma);
+		turma.setEscola(escola);
 	}
 
 }

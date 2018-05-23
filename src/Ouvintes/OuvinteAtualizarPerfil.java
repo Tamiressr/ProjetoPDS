@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import Model.Facade;
@@ -23,8 +22,12 @@ public class OuvinteAtualizarPerfil implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		int confirm=JOptionPane.showConfirmDialog(null, "Tem Certeza?");
 		if(confirm==0) {
+			janela.getFrame().dispose();
 			ArrayList<String> array=new ArrayList<>();
 			array=janela.returnValores();
+			Facade.getFacade().atualizar(id,array);
+			new JanelaPerfil(id);
+			JOptionPane.showMessageDialog(null,"Salvo com Sucesso");
 			Facade.getFacade().atualizar(id,array);			
 		}else if(confirm==1) {
 			
