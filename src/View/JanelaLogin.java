@@ -194,13 +194,13 @@ public class JanelaLogin{
 		btnEntrar.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		btnEntrar.setBounds(211, 218, 120, 31);
 		painel.add(btnEntrar);
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(JanelaLogin.class.getResource("/bart-lavagna.gif")));
-		lblNewLabel.setBounds(-54, -143, 814, 535);
+//
+//		JLabel lblNewLabel = new JLabel("");
+//		lblNewLabel.setIcon(new ImageIcon(JanelaLogin.class.getResource("/bart-lavagna.gif")));
+//		lblNewLabel.setBounds(-54, -143, 814, 535);
 		
 		painel.setLayout(null);
-		painel.add(lblNewLabel);
+//		painel.add(lblNewLabel);
 		painel.setVisible(true);
 		return painel;
 	}
@@ -219,44 +219,6 @@ public class JanelaLogin{
 		return 0;
 	
 }
-	public class OuvinteLogin implements ActionListener {
-		
-		private JanelaLogin janela;
-		
-		public OuvinteLogin(JanelaLogin janela) {
-			
-			this.janela=janela;
-		
-		}
 
-
-		public void actionPerformed(ActionEvent arg0) {
-			int valor=this.janela.retornarValores();
-			
-			if(janela.passwordFieldSenha.getText().equals("")||janela.textFieldLogin.getText().equals("")) {
-				JOptionPane.showMessageDialog(null,"Campos vazios");
-			}
-			else if(valor==0) {
-				JOptionPane.showMessageDialog(null,"Escola não encontrada");
-			}else {
-				janela.getFrame().dispose();
-				JanelaPerfil jp= new JanelaPerfil(valor);
-				jp.getFrame().setVisible(true);
-			
-			}
-		}
-
-
-		public JanelaLogin getJanela() {
-			return janela;
-		}
-
-
-		public void setJanela(JanelaLogin janela) {
-			this.janela = janela;
-		}
-
-
-	}
 
 }

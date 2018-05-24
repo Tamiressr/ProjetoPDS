@@ -10,6 +10,7 @@ import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
 
 import Controllers.EscolaController;
+import Controllers.TurmaController;
 import View.JanelaCadastrar;
 
 public class Facade {
@@ -87,8 +88,10 @@ public class Facade {
 	}
 
 	public void atualizar(int id, ArrayList<String> array) {
-		Escola escola = EscolaController.getEscolaController().procurarEscola(id);
-		EscolaController.getEscolaController().atualizar(escola, id,array);
+		EscolaController.getEscolaController().atualizar(id,array);
+	}
+	public void atualizarTurma(int id, ArrayList<String> array) {
+		TurmaController.getTurmaController().atualizar(id, array);
 	}
 
 	public List<Escola> listar() {
@@ -107,5 +110,10 @@ public class Facade {
 		escola.getTurmas().add(turma);
 		turma.setEscola(escola);
 	}
+	public void excluirTurma(int id) {
+		TurmaController.getTurmaController().remover(id);
+	}
+	
+//	public int procurarTurma()
 
 }

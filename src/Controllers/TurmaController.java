@@ -1,5 +1,6 @@
 package Controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -45,14 +46,14 @@ public class TurmaController {
 		em.getTransaction().commit();
 	}
 	
-	public void atualizar(Turma turma,int id){
+	public void atualizar(int id, ArrayList<String> array){
 		em.getTransaction().begin();
 		Turma t=em.find(Turma.class, id);
 		if(t!=null){
-			t.setNome(turma.getNome());
-			t.setTurno(turma.getTurno());
-			t.setNumeroDeVagas(turma.getNumeroDeVagas());
-			t.setNumeroDeVagasDiponiveis(turma.getNumeroDeVagasDiponiveis());
+			t.setNumeroDeVagasDiponiveis(Integer.parseInt(array.get(0)));
+			t.setNumeroDeVagas(Integer.parseInt(array.get(1)));
+			t.setNome(array.get(2));
+			t.setTurno(array.get(3));
 			t=em.merge(t);
 		}else{
 			System.out.println("escola inexistente");
@@ -85,4 +86,5 @@ public class TurmaController {
 		}
 		return 0;
 	}
+	
 }

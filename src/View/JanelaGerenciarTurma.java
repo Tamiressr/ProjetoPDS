@@ -13,6 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import Ouvintes.OuvinteCadastrarTurma;
+import Ouvintes.OuvinteEditaTurma;
 import Ouvintes.OuvinteExcluirTurma;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
@@ -45,8 +46,8 @@ public class JanelaGerenciarTurma {
 	private JFrame frame;
 	private JTextField textField;
 	private static int id;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textField_TotalDeVagas;
+	private JTextField textField_VagasDisponiveis;
 	private JPanel panel;
 	private JButton btnCadastrarTurma;
 	private JButton btnListaTurma;
@@ -60,6 +61,7 @@ public class JanelaGerenciarTurma {
 	private JRadioButton radioButtonNoite;
 	private JRadioButton radioButtonIntegral;
 	private JScrollPane painelTabela=new JScrollPane();
+	private List<Turma> list;
 	 
 	
 	
@@ -116,7 +118,7 @@ public class JanelaGerenciarTurma {
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnExcluir.setBounds(367, 22, 150, 40);
-		OuvinteExcluirTurma ouvinteExcluirTurma=new OuvinteExcluirTurma(frame, id);
+		OuvinteExcluirTurma ouvinteExcluirTurma=new OuvinteExcluirTurma(this, id);
 		btnExcluir.addActionListener(ouvinteExcluirTurma);
 		frame.getContentPane().add(btnExcluir);
 		
@@ -161,13 +163,24 @@ public class JanelaGerenciarTurma {
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnEditar.setBounds(428, 141, 89, 40);
+		OuvinteEditaTurma ouvinteEditaTurma=new OuvinteEditaTurma(id, this);
+		btnEditar.addActionListener(ouvinteEditaTurma);
 		frame.getContentPane().add(btnEditar);
 		
+	}
+	public Turma linhaSelecionada() {
+		int linhaSelecionada=table.getSelectedRow();
+		modelo.removeRow(linhaSelecionada);
+		frame.repaint();
+		
+		Turma turma=list.get(linhaSelecionada);
+		
+		return turma;
 	}
 	
 	public void addPainel() {
 		panel = new JPanel();
-		panel.setBackground(Color.GRAY);
+		panel.setBackground(new Color(255,127,39));
 		panel.setBounds(39, 203, 478, 194);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -206,22 +219,22 @@ public class JanelaGerenciarTurma {
 		panel.add(radioButtonIntegral);
 		
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		textField_1.setColumns(10);
-		textField_1.setBounds(185, 108, 118, 23);
-		panel.add(textField_1);
+		textField_TotalDeVagas = new JTextField();
+		textField_TotalDeVagas.setFont(new Font("Arial", Font.PLAIN, 14));
+		textField_TotalDeVagas.setColumns(10);
+		textField_TotalDeVagas.setBounds(185, 108, 118, 23);
+		panel.add(textField_TotalDeVagas);
 		
 		JLabel label_1 = new JLabel("Quantidade Disponivel de Vagas na Turma");
 		label_1.setFont(new Font("Arial", Font.PLAIN, 14));
 		label_1.setBounds(175, 82, 280, 14);
 		panel.add(label_1);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Arial", Font.PLAIN, 14));
-		textField_2.setColumns(10);
-		textField_2.setBounds(185, 49, 118, 23);
-		panel.add(textField_2);
+		textField_VagasDisponiveis = new JTextField();
+		textField_VagasDisponiveis.setFont(new Font("Arial", Font.PLAIN, 14));
+		textField_VagasDisponiveis.setColumns(10);
+		textField_VagasDisponiveis.setBounds(185, 49, 118, 23);
+		panel.add(textField_VagasDisponiveis);
 		
 		JLabel label_2 = new JLabel("Quantidade Total de Vagas na Turma");
 		label_2.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -237,21 +250,24 @@ public class JanelaGerenciarTurma {
 	}
 	
 	public ArrayList<String> retornaValoresTurma(){
-		int disponivel=Integer.parseInt(textField_2.getText());
-		int vagas=Integer.parseInt(textField_1.getText());
+		int disponivel=Integer.parseInt(textField_VagasDisponiveis.getText());
+		int vagas=Integer.parseInt(textField_TotalDeVagas.getText());
 		
 		if(vagas<=disponivel) {
 			ArrayList<String> array=new ArrayList<>();
-			array.add(textField_2.getText());
-			array.add(textField_1.getText());
+			array.add(textField_VagasDisponiveis.getText());
+			array.add(textField_TotalDeVagas.getText());
 			array.add(serie[comboBox.getSelectedIndex()]);
-			array.add(qualButton());			
+			array.add(qualButton());
 
 			return array;
 		}else {
 			JOptionPane.showMessageDialog(null,"Número de Vagas Disponivel deve ser menor que o Total De Vagas");
 			return null;
 		}	
+	}
+	public void adicionarValores() {
+		
 	}
 	
 	private String qualButton() {
@@ -279,7 +295,7 @@ public class JanelaGerenciarTurma {
 
 //		List<Escola> list=Facade.getFacade().listar();
 		Escola o=Facade.getFacade().procurarEscolaPorID(id);
-		List<Turma> list=o.getTurmas();
+		list=o.getTurmas();
 				
 		for (Turma e : list) {
 			Object[] array = new Object[1];

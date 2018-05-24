@@ -1,13 +1,10 @@
 package Controllers;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.swing.JOptionPane;
 
 import Model.Escola;
 import Model.Telefone;
@@ -16,7 +13,6 @@ public class EscolaController {
 	private EntityManagerFactory emf;
 	private EntityManager em;
 	private static EscolaController escolaController;
-	private static List<Escola> list;
 
 	public static EscolaController getEscolaController() {
 		if (escolaController == null) {
@@ -39,7 +35,7 @@ public class EscolaController {
 	}
 
 	public int procurarID(Escola escola) {
-		list = listar();
+		List<Escola> list = listar();
 		for (Escola p : list) {
 			if (p.getEmail().equals(escola.getEmail()) && p.getSenha().equals(escola.getSenha())
 					&& p.getCnpj().equals(escola.getCnpj())) {
@@ -50,7 +46,7 @@ public class EscolaController {
 	}
 
 	public Escola procurarEscola(int id) {
-		list = listar();
+		List<Escola> list= listar();
 
 		for (Escola p : list) {
 			if (p.getId() == id) {
@@ -75,14 +71,14 @@ public class EscolaController {
 		em.getTransaction().begin();
 		Query consulta = em.createQuery("select escola from Escola escola ");
 
-		list = consulta.getResultList();
+		List<Escola> list = consulta.getResultList();
 
 		em.getTransaction().commit();
 		emf.close();
 		return list;
 	}
 
-	public void atualizar(Escola escola,int id, ArrayList<String> array) {
+	public void atualizar(int id, ArrayList<String> array) {
 		
 		em.getTransaction().begin();
 		Escola novaEscola = em.find(Escola.class, id);
