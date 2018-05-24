@@ -17,12 +17,15 @@ import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 
 
+=======
+>>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
 =======
 >>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
 
@@ -38,9 +41,17 @@ public class JanelaPrincipal {
 			public void run() {
 				try {
 <<<<<<< HEAD
+<<<<<<< HEAD
 					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
 					// UIManager.setLookAndFeel(new AeroLookAndFeel());
 					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+=======
+
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+
+//					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+>>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
 =======
 
 					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());

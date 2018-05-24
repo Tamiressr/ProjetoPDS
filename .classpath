@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySql"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Imagem"/>
@@ -53,6 +54,8 @@
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/image.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Antonio Justino/Documents/image.jar"/>
 =======
+=======
+>>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
 	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/mysql-connector-java-5.1.5-bin.jar"/>
 	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/antlr-2.7.6.jar"/>
 	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/c3p0-0.9.1.2.jar"/>
@@ -72,6 +75,9 @@
 	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/log4j-1.2.11.jar"/>
 	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/image.jar"/>
 	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/imagemmm.jar"/>
+<<<<<<< HEAD
+>>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
+=======
 >>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
 	<classpathentry kind="output" path="bin"/>
 </classpath>
