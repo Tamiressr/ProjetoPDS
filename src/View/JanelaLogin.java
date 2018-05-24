@@ -219,6 +219,44 @@ public class JanelaLogin{
 		return 0;
 	
 }
+	public class OuvinteLogin implements ActionListener {
+		
+		private JanelaLogin janela;
+		
+		public OuvinteLogin(JanelaLogin janela) {
+			
+			this.janela=janela;
+		
+		}
 
+
+		public void actionPerformed(ActionEvent arg0) {
+			int valor=this.janela.retornarValores();
+			
+			if(janela.passwordFieldSenha.getText().equals("")||janela.textFieldLogin.getText().equals("")) {
+				JOptionPane.showMessageDialog(null,"Campos vazios");
+			}
+			else if(valor==0) {
+				JOptionPane.showMessageDialog(null,"Escola não encontrada");
+			}else {
+				janela.getFrame().dispose();
+				JanelaPerfil jp= new JanelaPerfil(valor);
+				jp.getFrame().setVisible(true);
+			
+			}
+		}
+
+
+		public JanelaLogin getJanela() {
+			return janela;
+		}
+
+
+		public void setJanela(JanelaLogin janela) {
+			this.janela = janela;
+		}
+
+
+	}
 
 }
