@@ -64,7 +64,7 @@ public class JanelaGerenciarTurma {
 	private List<Turma> list;
 	private int linhaSelecionada;
 	private boolean retiraPainel;
-	
+	private boolean retiraTabela;
 	
 	
 	/**
@@ -277,7 +277,8 @@ public class JanelaGerenciarTurma {
 			return null;
 		}	
 	}
-	public void adicionarValores() {
+	public void adicionarValores(Turma turma) {
+		
 		
 	}
 	
@@ -299,6 +300,7 @@ public class JanelaGerenciarTurma {
 		table = new JTable();
 		table.setBounds(39, 250,478, 194);
 		retiraPainel=false;
+		retiraTabela=true;
 		
 		frame.getContentPane().setLayout(null);
 		modelo = new DefaultTableModel();
@@ -394,6 +396,14 @@ public class JanelaGerenciarTurma {
 
 	public void setRetiraPainel(boolean retiraPainel) {
 		this.retiraPainel = retiraPainel;
+	}
+
+	public boolean isRetirarTabela() {
+		return retiraTabela;
+	}
+
+	public void setRetirarTabela(boolean retirarTabela) {
+		this.retiraTabela = retirarTabela;
 	}
 	
 }

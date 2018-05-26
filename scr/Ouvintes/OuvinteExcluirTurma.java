@@ -31,6 +31,8 @@ public class OuvinteExcluirTurma implements ActionListener {
 			} else {
 
 			}
+		}else {
+			JOptionPane.showMessageDialog(null,"Turma não selecionada");
 		}
 	}
 
