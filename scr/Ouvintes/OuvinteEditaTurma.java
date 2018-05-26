@@ -4,7 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import Model.Facade;
+import Model.Turma;
 import View.JanelaGerenciarTurma;
 
 public class OuvinteEditaTurma implements ActionListener {
@@ -17,15 +20,17 @@ public class OuvinteEditaTurma implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-//		if (janela.isRetiraPainel() == true) {
+		Turma turmaSelecionada = janela.linhaSelecionada();
+		if (janela.isRetiraPainel()) {
 			janela.getFrame().remove(janela.getPanel());
-			janela.getFrame().remove(janela.getPainelTabela());
-			janela.getFrame().repaint();
-			janela.addPainel();
-			janela.adicionarValores();
-			janela.getFrame().repaint();
-//		}
-		
+		}
+		if(janela.isRetirarTabela()) {
+			janela.getFrame().remove(janela.getPainelTabela());			
+		}
+		janela.getFrame().repaint();
+		janela.addPainel();
+		janela.adicionarValores(turmaSelecionada);
+		janela.getFrame().repaint();
 	}
 
 }
