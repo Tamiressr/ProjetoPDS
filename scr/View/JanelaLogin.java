@@ -200,11 +200,7 @@ public class JanelaLogin{
 		lblNewLabel.setBounds(-54, -143, 814, 535);
 		
 		painel.setLayout(null);
-<<<<<<< HEAD:src/View/JanelaLogin.java
-	painel.add(lblNewLabel);
-=======
 		painel.add(lblNewLabel);
->>>>>>> d9e516eb4c9627880d4014817c6bbde0d9a2a650:scr/View/JanelaLogin.java
 		painel.setVisible(true);
 		return painel;
 	}
