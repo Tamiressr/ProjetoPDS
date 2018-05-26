@@ -13,11 +13,27 @@ import View.Janela;
 
 import javax.swing.UIManager;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+//import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
+
+//import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
+=======
+>>>>>>> parent of 5b4ff95... Merge branch 'master' of https://github.com/Tamiressr/ProjetoPDS
+import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
+
+import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
+>>>>>>> d9e516eb4c9627880d4014817c6bbde0d9a2a650
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 
 import Controllers.EscolaController;
 import Model.Escola;
 
+<<<<<<< HEAD
 import javax.swing.JTabbedPane;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
@@ -26,6 +42,16 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.Color;
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
+=======
+>>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
+=======
+>>>>>>> 5061d9e471ab85b86c6add4206d9014f7330a12f
+>>>>>>> parent of 5b4ff95... Merge branch 'master' of https://github.com/Tamiressr/ProjetoPDS
+>>>>>>> d9e516eb4c9627880d4014817c6bbde0d9a2a650
 
 public class JanelaPrincipal {
 
@@ -38,8 +64,52 @@ public class JanelaPrincipal {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+<<<<<<< HEAD
 
 					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+=======
+=======
+//					UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+//					UIManager.setLookAndFeel(new AeroLookAndFeel());
+//					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+
+
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+//					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 5b4ff95... Merge branch 'master' of https://github.com/Tamiressr/ProjetoPDS
+
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+
+//					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+>>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
+=======
+
+					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
+					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+<<<<<<< HEAD
+
+//					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+>>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
+=======
+>>>>>>> 7f5d2d5979776d77f11147240e7675f1e1b25556
+					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+>>>>>>> 5061d9e471ab85b86c6add4206d9014f7330a12f
+>>>>>>> parent of 5b4ff95... Merge branch 'master' of https://github.com/Tamiressr/ProjetoPDS
+>>>>>>> d9e516eb4c9627880d4014817c6bbde0d9a2a650
 
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);
