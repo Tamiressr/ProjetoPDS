@@ -8,21 +8,10 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 import java.awt.Color;
 import java.awt.Cursor;
-=======
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
-=======
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
-=======
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
 
-import java.awt.Color;
-import java.awt.Cursor;
 
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
@@ -33,26 +22,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 
 import Controllers.EscolaController;
 import Model.Escola;
 
-=======
-import Controllers.EscolaController;
-import Model.Escola;
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
-=======
-import Controllers.EscolaController;
-import Model.Escola;
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
-=======
-import Controllers.EscolaController;
-import Model.Escola;
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
 
 
 public class JanelaPrincipal {
@@ -68,14 +42,8 @@ public class JanelaPrincipal {
 				try {
 					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
 					// UIManager.setLookAndFeel(new AeroLookAndFeel());
-<<<<<<< HEAD
 				UIManager.setLookAndFeel(new BernsteinLookAndFeel());
-=======
-					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
-<<<<<<< HEAD
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
-=======
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
+
 
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);
@@ -103,6 +71,11 @@ public class JanelaPrincipal {
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
+		frame.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		frame.setBounds(100, 100, 550, 550);
+		frame.setLocation(400, 100);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.getContentPane().setLayout(null);
@@ -126,23 +99,8 @@ public class JanelaPrincipal {
 		for (Escola e : escolas) {
 			EscolacomboBox.addItem(e.getNome());
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		String[] arrayturmas = { "1� ano", "2� ano", "3� ano", "4� ano", "5� ano", " 6� ano", "7� ano", "8� ano",
-				"9� ano" };
-=======
-		String[] arrayturmas = { "1º ano", "2º ano", "3º ano", "4º ano", "5º ano", " 6º ano", "7º ano", "8º ano",
-				"9º ano" };
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
-=======
-		String[] arrayturmas = { "1º ano", "2º ano", "3º ano", "4º ano", "5º ano", " 6º ano", "7º ano", "8º ano",
-				"9º ano" };
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
-=======
-		String[] arrayturmas = { "1º ano", "2º ano", "3º ano", "4º ano", "5º ano", " 6º ano", "7º ano", "8º ano",
-				"9º ano" };
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
+		String[] arrayturmas = { "1° ano", "2° ano", "3° ano", "4° ano", "5° ano", " 6° ano", "7° ano", "8° ano",
+				"9° ano" };
 		JComboBox TurmacomboBox = new JComboBox(arrayturmas);
 
 		TurmacomboBox.setBounds(65, 72, 129, 20);
@@ -152,19 +110,7 @@ public class JanelaPrincipal {
 		lblTurno.setFont(new Font("Arial", Font.BOLD, 14));
 		lblTurno.setBounds(204, 74, 46, 14);
 		frame.getContentPane().add(lblTurno);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		String[]turnos= {"MANH�","TARDE","INTEGRAL","NOITE"};
-=======
 		String[]turnos= {"MANHÃ","TARDE","INTEGRAL","NOITE"};
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
-=======
-		String[]turnos= {"MANHÃ","TARDE","INTEGRAL","NOITE"};
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
-=======
-		String[]turnos= {"MANHÃ","TARDE","INTEGRAL","NOITE"};
->>>>>>> c6074e61fc6b6dbb001932f8ecf256fa0a3daf34
 		JComboBox TurnocomboBox = new JComboBox(turnos);
 		TurnocomboBox.setBounds(262, 72, 84, 20);
 		frame.getContentPane().add(TurnocomboBox);
