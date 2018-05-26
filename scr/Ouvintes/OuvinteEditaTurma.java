@@ -17,8 +17,15 @@ public class OuvinteEditaTurma implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		janela.addPainel();
-		janela.adicionarValores();
+//		if (janela.isRetiraPainel() == true) {
+			janela.getFrame().remove(janela.getPanel());
+			janela.getFrame().remove(janela.getPainelTabela());
+			janela.getFrame().repaint();
+			janela.addPainel();
+			janela.adicionarValores();
+			janela.getFrame().repaint();
+//		}
+		
 	}
 
 }

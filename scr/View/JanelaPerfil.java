@@ -98,15 +98,7 @@ public class JanelaPerfil {
 		OuvinteExcluirConta ouvinteExcluirConta=new OuvinteExcluirConta(frame,id);
 		btnExcluirConta.addActionListener(ouvinteExcluirConta);
 		frame.getContentPane().add(btnExcluirConta);
-<<<<<<< HEAD
-<<<<<<< HEAD
-		
-=======
 
->>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
-=======
-
->>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
 		JButton btnGerenciarSeries = new JButton("Gerenciar Turmas");
 		btnGerenciarSeries.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnGerenciarSeries.setBounds(10, 22, 150, 40);
@@ -218,15 +210,6 @@ public class JanelaPerfil {
 		JLabel lblMtelefonec = new JLabel(" Celular "+e.getTelefone().get(0));
 		lblMtelefonec.setBounds(375, 204, 146, 14);
 		frame.getContentPane().add(lblMtelefonec);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
-=======
-
->>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
-
 	}
 
 	public JFrame getFrame() {

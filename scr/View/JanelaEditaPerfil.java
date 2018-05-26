@@ -15,23 +15,14 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
 
-import Model.Escola;
 import Model.Facade;
 import Ouvintes.OuvinteAtualizarPerfil;
-import Ouvintes.OuvinteJanelaCadastro;
-import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteJanelaPerfil;
-import Ouvintes.OuvinteListaEscolas;
-import Ouvintes.OuvinteSalvar;
-import Ouvintes.OuvinteJanelaLogin;
 
 public class JanelaEditaPerfil{
 	private JFrame frame;
