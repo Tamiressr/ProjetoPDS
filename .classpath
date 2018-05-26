@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySql"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Imagem"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Temas"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mysql"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/beautyeye_lnf.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/JTattoo-1.6.11.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/substance.jar"/>
@@ -29,55 +26,7 @@
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaSimple2D.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaSkyMetallic.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaWhiteVision.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/beautyeye_lnf.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/JTattoo-1.6.11.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/substance.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/substance-swingx.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/substance-watermark-pack.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/swingx.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/synthetica.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBatik.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlackEye.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlackMoon.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlackStar.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlueIce.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlueMoon.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaBlueSteel.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaClassy.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaGreenDream.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaMauveMetallic.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaOrangeMetallic.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaSilverMoon.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaSimple2D.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaSkyMetallic.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 2/lib/syntheticaWhiteVision.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/image.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Antonio Justino/Documents/image.jar"/>
-=======
-=======
->>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/mysql-connector-java-5.1.5-bin.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/antlr-2.7.6.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/c3p0-0.9.1.2.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/cglib-nodep-2.1_3.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/commons-collections-2.1.1.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/commons-logging-1.0.4.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/ejb3-persistence.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/hibernate3.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/hibernate-annotations.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/hibernate-commons-annotations.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/hibernate-entitymanager.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/hibernate-validator.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/javassist.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/jboss-archive-browsing.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/jta.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/arquivos/hibernate/log4j-1.2.11.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/image.jar"/>
-	<classpathentry kind="lib" path="D:/faculdade/4º periodo/PD/imagemmm.jar"/>
-<<<<<<< HEAD
->>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
-=======
->>>>>>> cbdc1eab8dc5de6aeb94dd5842d24d710bbf64cd
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/PDS/image.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/imagemmm.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
