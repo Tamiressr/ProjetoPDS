@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import Model.Facade;
 import View.JanelaGerenciarTurma;
@@ -25,7 +26,8 @@ public class OuvinteSalvaTurma implements ActionListener{
 		if(array==null) {
 			
 		}else {
-			Facade.getFacade().salvarTurma(id,array);	
+			Facade.getFacade().salvarTurma(id,array);
+			JOptionPane.showMessageDialog(null, "Salvo Turma");
 		}
 	}
 

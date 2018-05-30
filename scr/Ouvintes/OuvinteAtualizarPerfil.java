@@ -28,7 +28,6 @@ public class OuvinteAtualizarPerfil implements ActionListener {
 			Facade.getFacade().atualizar(id,array);
 			new JanelaPerfil(id);
 			JOptionPane.showMessageDialog(null,"Salvo com Sucesso");
-			Facade.getFacade().atualizar(id,array);			
 		}else if(confirm==1) {
 			
 		}else {

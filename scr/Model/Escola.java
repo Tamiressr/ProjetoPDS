@@ -44,6 +44,8 @@ public class Escola {
 		return "Escola " + nome + ", nivelDeGoverno=" + nivelDeGoverno + ", rua=" + rua + ", numeroCasa=" + numeroCasa
 				+ ", bairro=" + bairro;
 	}
+	
+	
 
 
 	public Escola() {
