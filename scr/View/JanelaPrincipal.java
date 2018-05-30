@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Cursor;
 
+
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteListaEscolas;
@@ -25,7 +26,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
+<<<<<<< HEAD
 import javax.swing.table.DefaultTableModel;
+=======
+>>>>>>> 68d62452ec5efd5aec2a63989072d31d80bb09d9
 
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 
@@ -34,6 +38,7 @@ import Controllers.TurmaController;
 import Model.Escola;
 import Model.Facade;
 import Model.Turma;
+
 
 public class JanelaPrincipal {
 
@@ -58,7 +63,12 @@ public class JanelaPrincipal {
 				try {
 					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
 					// UIManager.setLookAndFeel(new AeroLookAndFeel());
+<<<<<<< HEAD
 					 UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+=======
+				UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+
+>>>>>>> 68d62452ec5efd5aec2a63989072d31d80bb09d9
 
 					JanelaPrincipal window = new JanelaPrincipal();
 					window.frame.setVisible(true);
@@ -114,7 +124,13 @@ public class JanelaPrincipal {
 		for (Escola e : escolas) {
 			escolaComboBox.addItem(e.getNome());
 		}
+<<<<<<< HEAD
 		TurmacomboBox = new JComboBox(arrayturmas);
+=======
+		String[] arrayturmas = { "1° ano", "2° ano", "3° ano", "4° ano", "5° ano", " 6° ano", "7° ano", "8° ano",
+				"9° ano" };
+		JComboBox TurmacomboBox = new JComboBox(arrayturmas);
+>>>>>>> 68d62452ec5efd5aec2a63989072d31d80bb09d9
 
 		TurmacomboBox.setBounds(65, 72, 129, 20);
 		frame.getContentPane().add(TurmacomboBox);
@@ -135,6 +151,7 @@ public class JanelaPrincipal {
 		frame.getContentPane().add(btnPesquisar);
 		frame.setVisible(true);
 
+<<<<<<< HEAD
 		modelo = new DefaultTableModel();
 
 		modelo.addColumn("Turmas");
@@ -194,6 +211,9 @@ public class JanelaPrincipal {
 
 	public void setArrayturmas(String[] arrayturmas) {
 		this.arrayturmas = arrayturmas;
+=======
+
+>>>>>>> 68d62452ec5efd5aec2a63989072d31d80bb09d9
 	}
 
 	public JFrame getFrame() {

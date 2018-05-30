@@ -30,6 +30,9 @@
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaSimple2D.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaSkyMetallic.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaWhiteVision.jar"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/Antonio Justino/Documents/image.jar"/>
+=======
+>>>>>>> 68d62452ec5efd5aec2a63989072d31d80bb09d9
 	<classpathentry kind="output" path="bin"/>
 </classpath>
