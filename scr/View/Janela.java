@@ -9,6 +9,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import Ouvintes.OuvinteJanelaCadastro;
+import Ouvintes.OuvinteJanelaFeedback;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteListaEscolas;
 
@@ -39,7 +40,11 @@ public class Janela {
 
 		JMenu mnreaDaEscola = new JMenu("Iniciar");
 		menuBar.add(mnreaDaEscola);
-
+		
+		JMenuItem menufeedback = new JMenuItem("Feedback");
+		menuBar.add(menufeedback);
+		OuvinteJanelaFeedback jf= new OuvinteJanelaFeedback(frame);
+		menufeedback.addActionListener(jf);
 		JMenuItem mntmLogin = new JMenuItem("Login");
 		OuvinteJanelaLogin ouvinteJanelaLogin = new OuvinteJanelaLogin(frame);
 		mntmLogin.addActionListener(ouvinteJanelaLogin);

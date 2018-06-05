@@ -53,7 +53,7 @@ public class JanelaGerenciarTurma {
 	private JButton btnListaTurma;
 	private JTable table;
 	private DefaultTableModel modelo;
-	private String[] serie= {"  1º","  2º","  3º","  4º","  5º","  6º","  7º","  8º","  9º"};
+	private String[] serie= {"1° ano","2° ano","3° ano","4° ano","5° ano","6° ano","7° ano","8° ano","9° ano"};
 	private JComboBox comboBox;
 	private ButtonGroup grupo;
 	private JRadioButton radioButtonManha;
@@ -284,7 +284,7 @@ public class JanelaGerenciarTurma {
 	
 	private String qualButton() {
 		if(radioButtonManha.isSelected()) {
-			return "Manha";
+			return "Manhã";
 		}else if(radioButtonTarde.isSelected()) {
 			return "Tarde";
 		}else if(radioButtonNoite.isSelected()) {
