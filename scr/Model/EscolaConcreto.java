@@ -10,14 +10,13 @@ public class EscolaConcreto extends BuilderEscola {
 
 	@Override
 	public BuilderEscola telefoneBuilder(String telefoneFixo) {
-		Telefone telefone = new Telefone();
-		String a = telefoneFixo.charAt(1) + "" + telefoneFixo.charAt(2);
-		if (!a.equals("  ")) {
+		if (!telefoneFixo.equals("") && !telefoneFixo.equals(" ")) {
+			Telefone telefone = new Telefone();
+			String a = telefoneFixo.charAt(1) + "" + telefoneFixo.charAt(2);
 			int x = Integer.parseInt(a);
 			telefone.setDdd((short) x);
 			String b = "";
 			for (int i = 4; i < telefoneFixo.length(); i++) {
-
 				if (telefoneFixo.charAt(i) != '-') {
 					b = b + telefoneFixo.charAt(i);
 				}

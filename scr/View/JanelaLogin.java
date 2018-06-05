@@ -99,7 +99,7 @@ public class JanelaLogin{
 	 */
 	private void initialize() {
 		frame=new JFrame();
-		frame.getContentPane().setBackground(new Color(255, 153, 51));
+		frame.getContentPane().setBackground(new Color(102, 51, 0));
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -112,10 +112,6 @@ public class JanelaLogin{
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setVisible(true);
 
-<<<<<<< HEAD
-	
-=======
->>>>>>> 6ddd454b6369ed1f64299b0da425c1c54c088e85
 		OuvinteLogin ouvinteDeLogin = new OuvinteLogin(this);
 		btnEntrar.addActionListener(ouvinteDeLogin);
 		

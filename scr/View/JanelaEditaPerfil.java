@@ -365,8 +365,8 @@ public class JanelaEditaPerfil{
 		
 
 		textFielNome.setText(list.get(0));
-		frmtdtxtfldTelefonefixo.setText(list.get(1));
-		formattedTextFieldTelefoneCelular.setText(list.get(2));
+		formattedTextFieldTelefoneCelular.setText(list.get(1));
+		frmtdtxtfldTelefonefixo.setText(list.get(2));
 		txtLinkdosite.setText(list.get(3));
 		txtEmail.setText(list.get(4));
 		txtSenha.setText(list.get(5));

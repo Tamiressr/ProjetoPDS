@@ -90,7 +90,7 @@ public class EscolaController {
 		if (novaEscola != null) {			
 			novaEscola.setNome(array.get(0));
 			novaEscola.addTelefone(atualizarTelefone(novaEscola.getTelefone().get(0),array.get(1)));
-			novaEscola.addTelefone(atualizarTelefone(novaEscola.getTelefone().get(1),array.get(2)));
+			novaEscola.addTelefone(atualizarTelefone(novaEscola.getTelefone().get(0),array.get(2)));
 			novaEscola.setNivelDeGoverno(array.get(3));
 			novaEscola.setLink(array.get(4));
 			novaEscola.setEmail(array.get(5));
