@@ -53,11 +53,7 @@ public class JanelaGerenciarTurma {
 	private JButton btnListaTurma;
 	private JTable table;
 	private DefaultTableModel modelo;
-<<<<<<< HEAD
-	private String[] serie= {"1° ano","2° ano","3° ano","4° ano","5° ano","6° ano","7° ano","8° ano","9° ano"};
-=======
 	private String[] serie = { "  1º", "  2º", "  3º", "  4º", "  5º", "  6º", "  7º", "  8º", "  9º" };
->>>>>>> 6ddd454b6369ed1f64299b0da425c1c54c088e85
 	private JComboBox comboBox;
 	private ButtonGroup grupo;
 	private JRadioButton radioButtonManha;
@@ -299,15 +295,9 @@ public class JanelaGerenciarTurma {
 	}
 
 	private String qualButton() {
-<<<<<<< HEAD
-		if(radioButtonManha.isSelected()) {
-			return "Manhã";
-		}else if(radioButtonTarde.isSelected()) {
-=======
 		if (radioButtonManha.isSelected()) {
 			return "Manha";
 		} else if (radioButtonTarde.isSelected()) {
->>>>>>> 6ddd454b6369ed1f64299b0da425c1c54c088e85
 			return "Tarde";
 		} else if (radioButtonNoite.isSelected()) {
 			return "Noite";
