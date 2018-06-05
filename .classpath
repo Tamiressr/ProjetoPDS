@@ -30,6 +30,7 @@
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaSimple2D.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaSkyMetallic.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaWhiteVision.jar"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/PDS/image.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/PDS/logo.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/Jar/commons-email-1.3.2.jar"/>
@@ -40,5 +41,11 @@
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/javamail-1.4.7/lib/imap.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/javamail-1.4.7/lib/smtp.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/javamail-1.4.7/mail.jar"/>
+=======
+<<<<<<< HEAD
+	<classpathentry kind="lib" path="C:/Users/Antonio Justino/Documents/image.jar"/>
+=======
+>>>>>>> 68d62452ec5efd5aec2a63989072d31d80bb09d9
+>>>>>>> 6ddd454b6369ed1f64299b0da425c1c54c088e85
 	<classpathentry kind="output" path="bin"/>
 </classpath>

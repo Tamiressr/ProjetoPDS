@@ -112,17 +112,16 @@ public class JanelaLogin{
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setVisible(true);
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 6ddd454b6369ed1f64299b0da425c1c54c088e85
 		OuvinteLogin ouvinteDeLogin = new OuvinteLogin(this);
 		btnEntrar.addActionListener(ouvinteDeLogin);
 		
 		frame.getContentPane().add(this.adcionarPainel());
 		
 		frame.getContentPane().setLayout(null);		
-
-		frame.getContentPane().setLayout(null);		
-
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

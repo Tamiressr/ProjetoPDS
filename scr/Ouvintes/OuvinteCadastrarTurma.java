@@ -17,7 +17,7 @@ public class OuvinteCadastrarTurma implements ActionListener{
 	
 
 	public void actionPerformed(ActionEvent e) {
-		janela.addPainel();
+		janela.addPainel("Salvar");
 		janela.getFrame().remove(janela.getPainelTabela());
 		janela.getFrame().repaint();
 	}

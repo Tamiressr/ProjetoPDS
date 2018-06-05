@@ -27,6 +27,11 @@ public class Turma {
 		return "Turma" + nome + ", Turno=" + turno + ", Numero de Vagas=" + numeroDeVagas
 				+ ", Vagas Disponiveis=" + numeroDeVagasDiponiveis ;
 	}
+	
+	public String toStringPrincipal() {
+		return "[Nome=" + escola.getNome() +" Nome=" + nome + ", Turno=" + turno + ", Numero de Vagas=" + numeroDeVagas
+				+ ", Vagas Disponiveis=" + numeroDeVagasDiponiveis + ",]";
+	}
 
 	public int getId() {
 		return id;

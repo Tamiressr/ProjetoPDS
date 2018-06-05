@@ -102,18 +102,21 @@ public class Facade {
 		Escola escola = EscolaController.getEscolaController().procurarEscola(id);
 				
 		Turma turma=new Turma();
-		turma.setNumeroDeVagas(Integer.parseInt(array.get(0)));
-		turma.setNumeroDeVagasDiponiveis(Integer.parseInt(array.get(1)));
+		turma.setNumeroDeVagasDiponiveis(Integer.parseInt(array.get(0)));
+		turma.setNumeroDeVagas(Integer.parseInt(array.get(1)));
 		turma.setNome(array.get(2));
 		turma.setTurno(array.get(3));
 		
 		escola.getTurmas().add(turma);
 		turma.setEscola(escola);
+		
 	}
 	public void excluirTurma(int id) {
 		TurmaController.getTurmaController().remover(id);
 	}
 	
-//	public int procurarTurma()
+	public int procurarTurma(ArrayList<String> array) {
+		return TurmaController.getTurmaController().procurarID(array);
+	}
 
 }
