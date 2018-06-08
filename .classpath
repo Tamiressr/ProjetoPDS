@@ -1,43 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="scr"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Imagem"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySql"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Temas"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mysql"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/beautyeye_lnf.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/JTattoo-1.6.11.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/substance.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/substance-swingx.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/substance-watermark-pack.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/swingx.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/synthetica.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaBatik.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaBlackEye.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaBlackMoon.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaBlackStar.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaBlueIce.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaBlueMoon.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaBlueSteel.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaClassy.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaGreenDream.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaMauveMetallic.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaOrangeMetallic.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaSilverMoon.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaSimple2D.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaSkyMetallic.jar"/>
-	<classpathentry kind="lib" path="C:/Users/tamir/Desktop/IFPB/IFPB.2°Período/Programação II/ProjetoTeste/Temas 1/lib/syntheticaWhiteVision.jar"/>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="C:/Users/Antonio Justino/Documents/image.jar"/>
-=======
->>>>>>> 68d62452ec5efd5aec2a63989072d31d80bb09d9
-<<<<<<< HEAD
->>>>>>> 6ddd454b6369ed1f64299b0da425c1c54c088e85
->>>>>>> 251578a537b14d71b8b1e0af61cc826babf70a42
-=======
->>>>>>> parent of 72a2b3c... 15:47
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Email"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

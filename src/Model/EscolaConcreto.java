@@ -10,9 +10,9 @@ public class EscolaConcreto extends BuilderEscola {
 
 	@Override
 	public BuilderEscola telefoneBuilder(String telefoneFixo) {
-		if (!telefoneFixo.equals("") && !telefoneFixo.equals(" ")) {
-			Telefone telefone = new Telefone();
-			String a = telefoneFixo.charAt(1) + "" + telefoneFixo.charAt(2);
+		Telefone telefone = new Telefone();
+		String a = telefoneFixo.charAt(1) + "" + telefoneFixo.charAt(2);
+		if (a.equals("  ")==false) {
 			int x = Integer.parseInt(a);
 			telefone.setDdd((short) x);
 			String b = "";
@@ -63,7 +63,7 @@ public class EscolaConcreto extends BuilderEscola {
 		super.escola.setBairro(bairro);
 		super.escola.setCep(CEP);
 		super.escola.setCidade(cidade);
-		if (numero != null || !numero.equals("")) {
+		if (numero.equals("")==false) {
 			short nu = (short) Integer.parseInt(numero);
 			super.escola.setNumeroCasa(nu);
 		}

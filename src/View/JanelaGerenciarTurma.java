@@ -53,7 +53,7 @@ public class JanelaGerenciarTurma {
 	private JButton btnListaTurma;
 	private JTable table;
 	private DefaultTableModel modelo;
-	private String[] serie = { "  1º", "  2º", "  3º", "  4º", "  5º", "  6º", "  7º", "  8º", "  9º" };
+	private String[] serie = { "1° ano","2° ano","3° ano","4° ano","5° ano","6° ano","7° ano","8° ano","9° ano"};
 	private JComboBox comboBox;
 	private ButtonGroup grupo;
 	private JRadioButton radioButtonManha;
@@ -179,7 +179,7 @@ public class JanelaGerenciarTurma {
 
 	public void addPainel(String tipo) {
 		panel = new JPanel();
-		panel.setBackground(new Color(255, 127, 39));
+		panel.setBackground(new Color(255, 153, 51));
 		panel.setBounds(39, 150, 478, 210);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -282,7 +282,7 @@ public class JanelaGerenciarTurma {
 	}
 
 	private JRadioButton selecionaBotao(String turno) {
-		if (turno.equals("Manha")) {
+		if (turno.equals("Manhã")) {
 			return radioButtonManha;
 		} else if (turno.equals("Tarde")) {
 			return radioButtonTarde;

@@ -8,7 +8,7 @@
     	 <!-- CLASSES PERSISTENTES -->
        		<class>Model.Turma</class> 
        		<class>Model.Escola</class>
-       		<class>Model.Endereco</class>
+       		<class>Model.Documentacao</class>
        		<class>Model.Telefone</class>
     	  
         <properties>

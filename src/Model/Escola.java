@@ -38,10 +38,12 @@ public class Escola {
 	@OneToMany(mappedBy = "escola", cascade = CascadeType.ALL)
 	private List<Turma> turmas = new ArrayList<>();
 
+	@OneToMany(mappedBy = "escola", cascade = CascadeType.ALL)
+	private List<Documentacao> documentacao = new ArrayList<>();
 	
 	@Override
 	public String toString() {
-		return "Escola " + nome + ", nivelDeGoverno=" + nivelDeGoverno + ", rua=" + rua + ", numeroCasa=" + numeroCasa
+		return "Escola " + nome + ", nivelDeGoverno=" + nivelDeGoverno + ", rua=" + rua + ", numero=" + numeroCasa
 				+ ", bairro=" + bairro;
 	}
 	

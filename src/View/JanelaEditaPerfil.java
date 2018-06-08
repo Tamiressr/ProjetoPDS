@@ -1,6 +1,5 @@
 package View;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.EventQueue;
@@ -9,27 +8,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
 
-import Ouvintes.OuvinteJanelaCadastro;
-import Ouvintes.OuvinteJanelaLogin;
-import Ouvintes.OuvinteListaEscolas;
-import Ouvintes.OuvinteSalvar;
-import Ouvintes.OuvinteVoltarInicio;
+import Model.Facade;
+import Ouvintes.OuvinteAtualizarPerfil;
+import Ouvintes.OuvinteJanelaPerfil;
 
-public class JanelaCadastrar{
+public class JanelaEditaPerfil{
 	private JFrame frame;
 	private JTextField textFielNome;
 	private JTextField txtLinkdosite;
@@ -45,6 +40,8 @@ public class JanelaCadastrar{
 	private JComboBox comboBoxNivies;
 	private String[] niveis={ "Municipal", "Estadual", "Federal" };
 	private JFormattedTextField txtCnpj;
+	
+	private static  int id;
 
 	/**
 	 * Launch the application.
@@ -53,7 +50,7 @@ public class JanelaCadastrar{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JanelaCadastrar window = new JanelaCadastrar();
+					JanelaEditaPerfil window = new JanelaEditaPerfil(0);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -65,8 +62,10 @@ public class JanelaCadastrar{
 	/**
 	 * Create the application.
 	 */
-	public JanelaCadastrar() {
+	public JanelaEditaPerfil(int id) {
+		this.id=id;
 		initialize();
+		colocarDados();
 	}
 
 	/**
@@ -84,18 +83,18 @@ public class JanelaCadastrar{
 		frame.getContentPane().setLayout(null);
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setResizable(false);
-		frame.setVisible(true);	
+		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
 		
-		JLabel lblCadastrar = new JLabel("Cadastro de Escola");
+		JLabel lblCadastrar = new JLabel("Edita Escola");
 		lblCadastrar.setBounds(10, 32, 514, 37);
 		lblCadastrar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCadastrar.setFont(new Font("Times New Roman", Font.PLAIN, 36));
 		frame.getContentPane().add(lblCadastrar);
 
-		JLabel lblNome = new JLabel("Nome*");
+		JLabel lblNome = new JLabel("Nome");
 		lblNome.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNome.setBounds(10, 113, 103, 20);
 		frame.getContentPane().add(lblNome);
@@ -107,7 +106,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(textFielNome);
 		textFielNome.setColumns(10);
 
-		JLabel lblNvelDeEnsino = new JLabel("N\u00EDvel de Governo*");
+		JLabel lblNvelDeEnsino = new JLabel("N\u00EDvel de Governo");
 		lblNvelDeEnsino.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNvelDeEnsino.setBounds(10, 153, 117, 20);
 		frame.getContentPane().add(lblNvelDeEnsino);
@@ -115,7 +114,7 @@ public class JanelaCadastrar{
 		comboBoxNivies= new JComboBox(niveis);
 		comboBoxNivies.setAlignmentX(Component.LEFT_ALIGNMENT);
 		comboBoxNivies.setFont(new Font("Arial", Font.PLAIN, 14));
-		comboBoxNivies.setBounds(134, 150, 133, 25);
+		comboBoxNivies.setBounds(121, 150, 146, 25);
 		frame.getContentPane().add(comboBoxNivies);
 
 		JLabel lblTelefoneCelular = new JLabel("Telefone Celular");
@@ -157,13 +156,6 @@ public class JanelaCadastrar{
 			e.printStackTrace();
 		}
 
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnVoltar.setBounds(20, 410, 150, 40);
-		OuvinteVoltarInicio ouvinteVoltarInicio=new OuvinteVoltarInicio(frame);
-		btnVoltar.addActionListener(ouvinteVoltarInicio);
-		frame.getContentPane().add(btnVoltar);
-
 		JLabel lblLinkDoSite = new JLabel("Link do Site");
 		lblLinkDoSite.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblLinkDoSite.setBounds(10, 193, 103, 20);
@@ -176,7 +168,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtLinkdosite);
 		txtLinkdosite.setColumns(10);
 
-		JLabel lblEmail = new JLabel("Email*");
+		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblEmail.setBounds(294, 193, 92, 20);
 		frame.getContentPane().add(lblEmail);
@@ -188,7 +180,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtEmail);
 		txtEmail.setColumns(10);
 
-		JLabel lblSenha = new JLabel("Senha*");
+		JLabel lblSenha = new JLabel("Senha");
 		lblSenha.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblSenha.setBounds(10, 233, 92, 20);
 		frame.getContentPane().add(lblSenha);
@@ -200,7 +192,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtSenha);
 		txtSenha.setColumns(10);
 
-		JLabel lblRua = new JLabel("Rua*");
+		JLabel lblRua = new JLabel("Rua");
 		lblRua.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblRua.setBounds(10, 273, 46, 20);
 		frame.getContentPane().add(lblRua);
@@ -212,7 +204,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtRua);
 		txtRua.setColumns(10);
 
-		JLabel lblNumero = new JLabel("Numero*");
+		JLabel lblNumero = new JLabel("Numero");
 		lblNumero.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNumero.setBounds(294, 273, 92, 20);
 		frame.getContentPane().add(lblNumero);
@@ -224,9 +216,9 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtNumero);
 		txtNumero.setColumns(10);
 
-		JLabel lblCidade = new JLabel("Cidade*");
+		JLabel lblCidade = new JLabel("Cidade");
 		lblCidade.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblCidade.setBounds(10, 313, 61, 20);
+		lblCidade.setBounds(10, 313, 46, 20);
 		frame.getContentPane().add(lblCidade);
 
 		txtCidade = new JTextField();
@@ -236,7 +228,7 @@ public class JanelaCadastrar{
 		frame.getContentPane().add(txtCidade);
 		txtCidade.setColumns(10);
 
-		JLabel lblCep = new JLabel("CEP*");
+		JLabel lblCep = new JLabel("CEP");
 		lblCep.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblCep.setBounds(294, 313, 46, 20);
 		frame.getContentPane().add(lblCep);
@@ -255,7 +247,7 @@ public class JanelaCadastrar{
 		
 		txtCep.setColumns(10);
 
-		JLabel lblBairro = new JLabel("Bairro*");
+		JLabel lblBairro = new JLabel("Bairro");
 		lblBairro.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblBairro.setBounds(10, 353, 46, 20);
 		frame.getContentPane().add(lblBairro);
@@ -270,19 +262,18 @@ public class JanelaCadastrar{
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnSalvar.setBounds(360, 410, 150, 40);
-		btnSalvar.setBackground(new Color(164, 255, 72));
-		OuvinteSalvar ouvinteSalvar=new OuvinteSalvar(this);
-		btnSalvar.addActionListener(ouvinteSalvar);
+		OuvinteAtualizarPerfil ouvinteAtualizarPerfil=new OuvinteAtualizarPerfil(this,id);
+		btnSalvar.addActionListener(ouvinteAtualizarPerfil);
 		frame.getContentPane().add(btnSalvar);
 		
-		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnLimpar.setBounds(190, 410, 150, 40);
-		OuvinteLimpaCampos ouvinteLimpaCampos=new OuvinteLimpaCampos(frame);
-		btnLimpar.addActionListener(ouvinteLimpaCampos);
-		frame.getContentPane().add(btnLimpar);
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnVoltar.setBounds(20, 410, 150, 40);
+		OuvinteJanelaPerfil ouvinteJanelaPerfil=new OuvinteJanelaPerfil(frame, id);
+		btnVoltar.addActionListener(ouvinteJanelaPerfil);
+		frame.getContentPane().add(btnVoltar);
 		
-		JLabel lblCnpj = new JLabel("CNPJ*");
+		JLabel lblCnpj = new JLabel("CNPJ");
 		lblCnpj.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblCnpj.setBounds(294, 233, 46, 20);
 		frame.getContentPane().add(lblCnpj);
@@ -297,10 +288,6 @@ public class JanelaCadastrar{
 			txtCnpj.setColumns(10);
 
 			txtCnpj.setText("TelefoneFixo");
-			
-			JLabel lblCamposObrigatorios = new JLabel("*Campos Obrigatorios");
-			lblCamposObrigatorios.setBounds(396, 80, 128, 14);
-			frame.getContentPane().add(lblCamposObrigatorios);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -309,14 +296,15 @@ public class JanelaCadastrar{
 
 	}
 	
-
 	public ArrayList<String> returnValores(){
+		
+		
 		ArrayList<String> array=new ArrayList<>();
 		array.add(textFielNome.getText());
 		array.add(formattedTextFieldTelefoneCelular.getText());
+		array.add(frmtdtxtfldTelefonefixo.getText());
 		String nivel=niveis[comboBoxNivies.getSelectedIndex()];
 		array.add(nivel);
-		array.add(frmtdtxtfldTelefonefixo.getText());
 		array.add(txtLinkdosite.getText());
 		array.add(txtEmail.getText());
 		array.add(txtSenha.getText());
@@ -339,29 +327,39 @@ public class JanelaCadastrar{
 		this.frame = frame;
 	}
 	
-	
-	public class OuvinteLimpaCampos implements ActionListener {
-		private JFrame frame;
+	public void colocarDados() {
+		List<String> list=Facade.getFacade().retornaValoresEscolaPorID(id);
 		
-		public OuvinteLimpaCampos(JFrame frame) {
-			this.frame=frame;
-		}
 
-		public void actionPerformed(ActionEvent arg0) {
-			textFielNome.setText("");
-			txtLinkdosite.setText("");
-			txtEmail.setText("");
-			txtSenha.setText("");
-			txtRua.setText("");
-			txtNumero.setText("");
-			txtCidade.setText("");
-			txtCep.setText("");
-			txtBairro.setText("");
-			frmtdtxtfldTelefonefixo.setText("");
-			formattedTextFieldTelefoneCelular.setText("");
-			txtCnpj.setText("");
-			
-			frame.repaint();
+		textFielNome.setText(list.get(0));
+		formattedTextFieldTelefoneCelular.setText(list.get(1));
+		frmtdtxtfldTelefonefixo.setText(list.get(2));
+		txtLinkdosite.setText(list.get(3));
+		txtEmail.setText(list.get(4));
+		txtSenha.setText(list.get(5));
+		txtCnpj.setText(list.get(6));
+
+		txtRua.setText(list.get(7));
+		txtNumero.setText(list.get(8));
+		txtCidade.setText(list.get(9));
+		txtCep.setText(list.get(10));
+		txtBairro.setText(list.get(11));
+
+		
+		comboBoxNivies.setSelectedIndex(qualNivel(list.get(12)));
+	}
+	
+	private int qualNivel(String nivel) {
+		if(nivel.equals("Municipal")) {
+			System.out.println("0");
+			return 0;
+		}else if(nivel.equals("Estadual")) {
+			System.out.println("01");
+			return 1;
+		}else if(nivel.equals("Federal")){
+			System.out.println("2");
+			return 2;
 		}
+		return 99;
 	}
 }

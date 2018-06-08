@@ -1,6 +1,5 @@
 package Controllers;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +49,7 @@ public class EscolaController {
 	}
 
 	public Escola procurarEscola(int id) {
-		List<Escola> list= listar();
+		List<Escola> list = listar();
 
 		for (Escola p : list) {
 			if (p.getId() == id) {
@@ -69,7 +68,7 @@ public class EscolaController {
 			JOptionPane.showMessageDialog(null, "Conta Não Encontrada");
 		em.getTransaction().commit();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Escola> listar() {
 		em.getTransaction().begin();
@@ -83,14 +82,14 @@ public class EscolaController {
 	}
 
 	public void atualizar(int id, ArrayList<String> array) {
-		
+
 		em.getTransaction().begin();
 		Escola novaEscola = em.find(Escola.class, id);
 
-		if (novaEscola != null) {			
+		if (novaEscola != null) {
 			novaEscola.setNome(array.get(0));
-			novaEscola.addTelefone(atualizarTelefone(novaEscola.getTelefone().get(0),array.get(1)));
-			novaEscola.addTelefone(atualizarTelefone(novaEscola.getTelefone().get(0),array.get(2)));
+			novaEscola.addTelefone(atualizarTelefone(novaEscola.getTelefone().get(0), array.get(1)));
+			novaEscola.addTelefone(atualizarTelefone(novaEscola.getTelefone().get(0), array.get(2)));
 			novaEscola.setNivelDeGoverno(array.get(3));
 			novaEscola.setLink(array.get(4));
 			novaEscola.setEmail(array.get(5));
@@ -106,22 +105,23 @@ public class EscolaController {
 			novaEscola = em.merge(novaEscola);
 			em.getTransaction().commit();
 			emf.close();
-			
+
 		} else {
 			System.out.println("escola inexistente");
 		}
 	}
-	public Telefone atualizarTelefone(Telefone telefone,String telefoneNovo) {
-		if(!telefoneNovo.equals("") && !telefoneNovo.equals(" ")) {
-			String a=telefoneNovo.charAt(1)+""+telefoneNovo.charAt(2);
-			int x=Integer.parseInt(a);
+
+	public Telefone atualizarTelefone(Telefone telefone, String telefoneNovo) {
+		String a = telefoneNovo.charAt(1) + "" + telefoneNovo.charAt(2);
+		if (a.equals("  ") == false) {
+			int x = Integer.parseInt(a);
 			String b = "";
-			for(int i=4;i<telefoneNovo.length();i++) {
-				if(telefoneNovo.charAt(i)!='-') {
-					b=b+telefoneNovo.charAt(i);				
+			for (int i = 4; i < telefoneNovo.length(); i++) {
+				if (telefoneNovo.charAt(i) != '-') {
+					b = b + telefoneNovo.charAt(i);
 				}
 			}
-			telefone.setDdd((short)x);
+			telefone.setDdd((short) x);
 			telefone.setNumero(b);
 		}
 		return telefone;
