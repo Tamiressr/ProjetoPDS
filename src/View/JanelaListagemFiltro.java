@@ -1,5 +1,7 @@
 package View;
 
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,17 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import java.awt.Color;
-import java.awt.Cursor;
-
-import Ouvintes.OuvinteJanelaCadastro;
-import Ouvintes.OuvinteJanelaLogin;
-import Ouvintes.OuvinteListaEscolas;
-
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
@@ -32,13 +24,9 @@ import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 import Controllers.EscolaController;
 import Controllers.TurmaController;
 import Model.Escola;
-import Model.Facade;
 import Model.Turma;
-import javax.swing.ImageIcon;
-import javax.swing.JSeparator;
 
-public class JanelaPrincipal {
-
+public class JanelaListagemFiltro {
 	private JFrame frame;
 	private JTable table;
 	private DefaultTableModel modelo;
@@ -47,22 +35,17 @@ public class JanelaPrincipal {
 	private JComboBox TurnocomboBox = null;
 	private String[] turnos = { "", "MANHÃ", "TARDE", "INTEGRAL", "NOITE" };
 	private List<Escola> escolas;
-	private String[] arrayturmas = { "1° ano", "2° ano", "3° ano", "4° ano", "5° ano", " 6° ano", "7° ano", "8° ano",
-			"9° ano" };
+	private String[] arrayturmas = { "1° ANO", "2° ANO", "3° ANO", "4° ANO", "5° ANO", " 6° ANO", "7° ANO", "8° ANO",
+			"9° ANO" };
 	private List<Turma> turma;
-
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					// UIManager.setLookAndFeel(new GraphiteLookAndFeel());
-					// UIManager.setLookAndFeel(new AeroLookAndFeel());
 					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 
-					JanelaPrincipal window = new JanelaPrincipal();
+					JanelaListagemFiltro window = new JanelaListagemFiltro();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -74,7 +57,7 @@ public class JanelaPrincipal {
 	/**
 	 * Create the application.
 	 */
-	public JanelaPrincipal() {
+	public JanelaListagemFiltro() {
 		initialize();
 
 	}
@@ -84,7 +67,6 @@ public class JanelaPrincipal {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(255, 153, 51));
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -97,80 +79,71 @@ public class JanelaPrincipal {
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.getContentPane().setLayout(null);
 
+	
+		
 		JLabel lblEscola = new JLabel("Escola:");
 		lblEscola.setFont(new Font("Arial", Font.BOLD, 14));
-		lblEscola.setBounds(10, 177, 77, 14);
+		lblEscola.setBounds(10, 64, 77, 14);
 		frame.getContentPane().add(lblEscola);
 
 		JLabel lblTurma = new JLabel("Turma:");
 		lblTurma.setFont(new Font("Arial", Font.BOLD, 14));
-		lblTurma.setBounds(10, 214, 60, 14);
+		lblTurma.setBounds(10, 89, 60, 14);
 		frame.getContentPane().add(lblTurma);
 
 		escolaComboBox = new JComboBox<>();
 		escolaComboBox.setToolTipText("Selecione o nome da escola desejada");
-		escolaComboBox.setBounds(72, 175, 301, 20);
+		escolaComboBox.setBounds(70, 64, 301, 20);
 		frame.getContentPane().add(escolaComboBox);
 
+		modelo = new DefaultTableModel();
+		table = new JTable(modelo);
+		modelo.addColumn("Turma");
+		modelo.addColumn("Turno");
+		modelo.addColumn("N° Total de Vagas");
+		modelo.addColumn("Vagas Disponíveis");
+		
+		frame.getContentPane().add(table);
 		escolas = EscolaController.getEscolaController().listar();
 
 		for (Escola e : escolas) {
-			escolaComboBox.addItem(e.getNome());
+			escolaComboBox.addItem(e.getNome().toUpperCase());
 		}
 		TurmacomboBox = new JComboBox(arrayturmas);
 		TurmacomboBox.setBackground(Color.WHITE);
 
-		TurmacomboBox.setBounds(72, 208, 129, 20);
+		TurmacomboBox.setBounds(70, 89, 129, 20);
 		frame.getContentPane().add(TurmacomboBox);
 
 		JLabel lblTurno = new JLabel("Turno:");
 		lblTurno.setFont(new Font("Arial", Font.BOLD, 14));
-		lblTurno.setBounds(232, 214, 46, 14);
+		lblTurno.setBounds(212, 89, 46, 14);
 		frame.getContentPane().add(lblTurno);
 		TurnocomboBox = new JComboBox(turnos);
-		TurnocomboBox.setBounds(289, 212, 84, 20);
+		TurnocomboBox.setBounds(268, 87, 103, 20);
 		frame.getContentPane().add(TurnocomboBox);
 
 		JButton btnPesquisar = new JButton("Pesquisar");
 		btnPesquisar.setFont(new Font("Arial", Font.BOLD, 12));
-		btnPesquisar.setBounds(394, 174, 109, 42);
-		OuvintePesquisar1 pesquisar = new OuvintePesquisar1(this.frame);
+		btnPesquisar.setBounds(395, 64, 109, 42);
+		OuvinteListagemFiltro pesquisar = new OuvinteListagemFiltro(this.frame);
 		btnPesquisar.addActionListener(pesquisar);
 		frame.getContentPane().add(btnPesquisar);
 		frame.setVisible(true);
 
-		// OuvintePesquisar1 pesquisar = new OuvintePesquisar1(this.frame);
-		// btnPesquisar.addActionListener(pesquisar);
 		frame.getContentPane().add(btnPesquisar);
 		frame.setVisible(true);
 
-		modelo = new DefaultTableModel();
 
-		modelo.addColumn("Turmas");
-
-		// List<Turma> list = TurmaController.getTurmaController().listar();
-		// for (Turma e : list) {
-		// Object[] array = new Object[1];
-		// array[0] = e.toStringPrincipal();
-		// modelo.addRow(array);
-		// }
-
-		table = new JTable(modelo);
 
 		JScrollPane painelTabela = new JScrollPane(table);
-		painelTabela.setBounds(10, 239, 524, 250);
+		painelTabela.setBounds(10, 131, 524, 231);
 		frame.getContentPane().add(painelTabela);
-
-		JLabel lblBemVindo = new JLabel("BEM- VINDO!");
-		lblBemVindo.setFont(new Font("Calibri", Font.PLAIN, 26));
-		lblBemVindo.setBackground(Color.BLACK);
-		lblBemVindo.setBounds(170, 58, 233, 35);
-		frame.getContentPane().add(lblBemVindo);
-
-		JLabel lblSistemaDeAcompanhamento = new JLabel("Sistema de Acompanhamento de Vagas nas Escolas");
-		lblSistemaDeAcompanhamento.setFont(new Font("Calibri", Font.PLAIN, 24));
-		lblSistemaDeAcompanhamento.setBounds(10, 0, 524, 66);
-		frame.getContentPane().add(lblSistemaDeAcompanhamento);
+		
+		JLabel lblListagemDeVagas = new JLabel("Filtragem de Vagas");
+		lblListagemDeVagas.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblListagemDeVagas.setBounds(115, 11, 283, 55);
+		frame.getContentPane().add(lblListagemDeVagas);
 
 	}
 
@@ -263,41 +236,58 @@ public class JanelaPrincipal {
 		TurnocomboBox = turnocomboBox;
 	}
 
-	public class OuvintePesquisar1 implements ActionListener {
+
+
+	
+	
+	public class OuvinteListagemFiltro implements ActionListener {
 		private JFrame janela;
 
-		public OuvintePesquisar1(JFrame janela) {
+		public OuvinteListagemFiltro(JFrame janela) {
 			this.janela = janela;
 		}
 
 		public void actionPerformed(ActionEvent e) {
-
+			
+		
 			List<Turma> list = TurmaController.getTurmaController().listar();
 			ArrayList<String> resul = retornaValores();
-
-			// System.out.println(resul.get(1));
-			// System.out.println(resul.get(2));
-
+	
+			Object[] array = new Object[5];
+		
+			
+			
 			for (Turma es : list) {
-				// System.out.println(es.getTurno());
+				
 
-				// System.out.println(es.getEscola().getNome());
-				if (resul.get(2).equals(es.getEscola().getNome())) {
-					if (resul.get(1).equals("") && resul.get(0).equals("")) {
-						Object[] array = new Object[1];
-						array[0] = es.toStringPrincipal();
-						modelo.addRow(array);
+				if (resul.get(2).equalsIgnoreCase(es.getEscola().getNome())&& resul.get(0).substring(0,1).equals(es.getNome().substring(0,1))&& resul.get(1).substring(0, 1).equals(es.getTurno().substring(0, 1)) ) {
+						array[0] = es.getNome();
+						 array[1]=es.getTurno();
+						 array[2]=es.getNumeroDeVagas();
+						 array[3]=es.getNumeroDeVagasDiponiveis();
+						 modelo.addRow(array);
+						 break;
 
-					} else if ((resul.get(1).equalsIgnoreCase(es.getTurno()))) {
-						Object[] array = new Object[1];
-						array[0] = es.toStringPrincipal();
-						modelo.addRow(array);
-					}
+					
+				
 				}
+			else if(resul.get(1).substring(0, 1)!=es.getTurno().substring(0, 1)&& resul.get(0).substring(0,1)!=es.getNome().substring(0,1)){
+						JOptionPane.showMessageDialog(null,":( nenhum resultado correspondente foi encontrado");
+						break;
+					
+			
+						
+					}	
+						
+					
+				
+				}
+		
+		
+		
 
-			}
+}
 
 		}
-	}
 
 }

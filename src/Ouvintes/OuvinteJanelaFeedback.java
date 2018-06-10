@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import View.JanelaFeedback;
-import View.JanelaPrincipal;
+import View.JanelaListarVagas;
 
 public class OuvinteJanelaFeedback implements ActionListener {
 
