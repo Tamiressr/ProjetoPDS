@@ -1,5 +1,6 @@
 package View;
 
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -11,9 +12,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -22,12 +20,7 @@ import javax.swing.JTextField;
 import Controllers.EscolaController;
 import Model.Escola;
 import Ouvintes.OuvinteJanelaCadastro;
-import Ouvintes.OuvinteJanelaLogin;
-import Ouvintes.OuvinteListaEscolas;
 import Ouvintes.OuvinteVoltarInicio;
-
-import java.awt.Color;
-import javax.swing.SwingConstants;
 
 public class JanelaLogin {
 
@@ -135,21 +128,9 @@ public class JanelaLogin {
 		painel.add(labelSenha);
 
 		passwordFieldSenha = new JPasswordField();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 		passwordFieldSenha.setBounds(136, 164, 195, 20);
-=======
->>>>>>> 58e7d8c4a4b42c637ba79373fffe54a709b33305
-=======
->>>>>>> 58e7d8c4a4b42c637ba79373fffe54a709b33305
-=======
->>>>>>> 58e7d8c4a4b42c637ba79373fffe54a709b33305
 		painel.add(passwordFieldSenha);
 		
-=======
->>>>>>> parent of 2dba26d... 20:17
 		passwordFieldSenha.setBounds(126, 164, 205, 20);
 		painel.add(passwordFieldSenha);
 
