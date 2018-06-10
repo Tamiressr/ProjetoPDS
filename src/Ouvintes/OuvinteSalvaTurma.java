@@ -27,6 +27,10 @@ public class OuvinteSalvaTurma implements ActionListener{
 			
 		}else {
 			Facade.getFacade().salvarTurma(id,array);
+			janela.getTextField_TotalDeVagas().setText("");
+			janela.getTextField_VagasDisponiveis().setText("");
+			janela.getComboBox().setSelectedIndex(0);
+			janela.getGrupo().clearSelection();
 			JOptionPane.showMessageDialog(null, "Salvo Turma");
 		}
 	}

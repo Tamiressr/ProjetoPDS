@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import Model.Facade;
-import View.JanelaPrincipal;
+import View.JanelaListarVagas;
 
 public class OuvinteExcluirConta implements ActionListener{
 	private int id;
@@ -24,7 +24,7 @@ public class OuvinteExcluirConta implements ActionListener{
 		if(confirm==0) {
 			Facade.getFacade().excluirConta(id);
 			janela.dispose();
-			new JanelaPrincipal();
+			new JanelaListarVagas();
 		}else {
 			
 		}

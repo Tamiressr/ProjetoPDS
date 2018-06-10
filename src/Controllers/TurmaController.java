@@ -46,14 +46,11 @@ public class TurmaController {
 		em.getTransaction().commit();
 	}
 
-	public void atualizar(int id, ArrayList<String> array) {
+	public void atualizar(int id, int vagas) {
 		em.getTransaction().begin();
 		Turma t = em.find(Turma.class, id);
 		if (t != null) {
-			t.setNumeroDeVagasDiponiveis(Integer.parseInt(array.get(0)));
-			t.setNumeroDeVagas(Integer.parseInt(array.get(1)));
-			t.setNome(array.get(2));
-			t.setTurno(array.get(3));
+			t.setNumeroDeVagasDiponiveis(vagas);
 			
 			t = em.merge(t);
 			em.getTransaction().commit();

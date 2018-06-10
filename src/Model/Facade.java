@@ -90,8 +90,8 @@ public class Facade {
 	public void atualizar(int id, ArrayList<String> array) {
 		EscolaController.getEscolaController().atualizar(id,array);
 	}
-	public void atualizarTurma(int id, ArrayList<String> array) {
-		TurmaController.getTurmaController().atualizar(id, array);
+	public void atualizarTurma(int id, int vagas) {
+		TurmaController.getTurmaController().atualizar(id, vagas);
 	}
 
 	public List<Escola> listar() {
