@@ -157,10 +157,7 @@ public class JanelaLogin {
 		passwordFieldSenha = new JPasswordField();
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 		passwordFieldSenha.setBounds(136, 164, 195, 20);
-=======
->>>>>>> 58e7d8c4a4b42c637ba79373fffe54a709b33305
 =======
 >>>>>>> 58e7d8c4a4b42c637ba79373fffe54a709b33305
 =======
