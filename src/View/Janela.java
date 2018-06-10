@@ -29,7 +29,6 @@ public class Janela {
 		frame.setLocation(400, 100);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
 		frame.setResizable(false);
 		frame.setVisible(true);
 
@@ -40,17 +39,13 @@ public class Janela {
 		JMenuBar menuBar = new JMenuBar();
 
 		JMenu mnreaDaEscola = new JMenu("Iniciar");
-	
 		menuBar.add(mnreaDaEscola);
 
 		JMenuItem menufeedback = new JMenuItem(" Feedback");
-
 		menuBar.add(menufeedback);
-
-		
 		OuvinteJanelaFeedback jf = new OuvinteJanelaFeedback(frame);
 		menufeedback.addActionListener(jf);
-	
+
 		JMenuItem mntmLogin = new JMenuItem("Login");
 		OuvinteJanelaLogin ouvinteJanelaLogin = new OuvinteJanelaLogin(frame);
 		mntmLogin.addActionListener(ouvinteJanelaLogin);
@@ -66,7 +61,7 @@ public class Janela {
 		mntmCadastrar.addActionListener(ouvinteJanelaCadatro);
 		mnreaDaEscola.add(mntmCadastrar);
 
-			return menuBar;
+		return menuBar;
 
 	}
 

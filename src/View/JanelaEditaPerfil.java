@@ -94,7 +94,7 @@ public class JanelaEditaPerfil{
 		lblCadastrar.setFont(new Font("Times New Roman", Font.PLAIN, 36));
 		frame.getContentPane().add(lblCadastrar);
 
-		JLabel lblNome = new JLabel("Nome*");
+		JLabel lblNome = new JLabel("Nome");
 		lblNome.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNome.setBounds(10, 113, 103, 20);
 		frame.getContentPane().add(lblNome);
@@ -106,7 +106,7 @@ public class JanelaEditaPerfil{
 		frame.getContentPane().add(textFielNome);
 		textFielNome.setColumns(10);
 
-		JLabel lblNvelDeEnsino = new JLabel("N\u00EDvel de Governo*");
+		JLabel lblNvelDeEnsino = new JLabel("N\u00EDvel de Governo");
 		lblNvelDeEnsino.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNvelDeEnsino.setBounds(10, 153, 117, 20);
 		frame.getContentPane().add(lblNvelDeEnsino);
@@ -168,7 +168,7 @@ public class JanelaEditaPerfil{
 		frame.getContentPane().add(txtLinkdosite);
 		txtLinkdosite.setColumns(10);
 
-		JLabel lblEmail = new JLabel("Email*");
+		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblEmail.setBounds(294, 193, 92, 20);
 		frame.getContentPane().add(lblEmail);
@@ -180,7 +180,7 @@ public class JanelaEditaPerfil{
 		frame.getContentPane().add(txtEmail);
 		txtEmail.setColumns(10);
 
-		JLabel lblSenha = new JLabel("Senha*");
+		JLabel lblSenha = new JLabel("Senha");
 		lblSenha.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblSenha.setBounds(10, 233, 92, 20);
 		frame.getContentPane().add(lblSenha);
@@ -192,7 +192,7 @@ public class JanelaEditaPerfil{
 		frame.getContentPane().add(txtSenha);
 		txtSenha.setColumns(10);
 
-		JLabel lblRua = new JLabel("Rua*");
+		JLabel lblRua = new JLabel("Rua");
 		lblRua.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblRua.setBounds(10, 273, 46, 20);
 		frame.getContentPane().add(lblRua);
@@ -216,7 +216,7 @@ public class JanelaEditaPerfil{
 		frame.getContentPane().add(txtNumero);
 		txtNumero.setColumns(10);
 
-		JLabel lblCidade = new JLabel("Cidade*");
+		JLabel lblCidade = new JLabel("Cidade");
 		lblCidade.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblCidade.setBounds(10, 313, 46, 20);
 		frame.getContentPane().add(lblCidade);
@@ -228,7 +228,7 @@ public class JanelaEditaPerfil{
 		frame.getContentPane().add(txtCidade);
 		txtCidade.setColumns(10);
 
-		JLabel lblCep = new JLabel("CEP*");
+		JLabel lblCep = new JLabel("CEP");
 		lblCep.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblCep.setBounds(294, 313, 46, 20);
 		frame.getContentPane().add(lblCep);
@@ -247,7 +247,7 @@ public class JanelaEditaPerfil{
 		
 		txtCep.setColumns(10);
 
-		JLabel lblBairro = new JLabel("Bairro*");
+		JLabel lblBairro = new JLabel("Bairro");
 		lblBairro.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblBairro.setBounds(10, 353, 46, 20);
 		frame.getContentPane().add(lblBairro);
@@ -273,7 +273,7 @@ public class JanelaEditaPerfil{
 		btnVoltar.addActionListener(ouvinteJanelaPerfil);
 		frame.getContentPane().add(btnVoltar);
 		
-		JLabel lblCnpj = new JLabel("CNPJ*");
+		JLabel lblCnpj = new JLabel("CNPJ");
 		lblCnpj.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblCnpj.setBounds(294, 233, 46, 20);
 		frame.getContentPane().add(lblCnpj);
@@ -351,10 +351,13 @@ public class JanelaEditaPerfil{
 	
 	private int qualNivel(String nivel) {
 		if(nivel.equals("Municipal")) {
+			System.out.println("0");
 			return 0;
 		}else if(nivel.equals("Estadual")) {
+			System.out.println("01");
 			return 1;
 		}else if(nivel.equals("Federal")){
+			System.out.println("2");
 			return 2;
 		}
 		return 99;

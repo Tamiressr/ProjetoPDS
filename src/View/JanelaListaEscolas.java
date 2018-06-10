@@ -72,22 +72,13 @@ public class JanelaListaEscolas {
 		frame.getContentPane().setLayout(null);
 		modelo = new DefaultTableModel();
 
-		modelo.addColumn("NOME");
-		modelo.addColumn("CNPJ");
-		modelo.addColumn("LINK");
-		modelo.addColumn("EMAIL");
-		modelo.addColumn("NIVEL GOVERNAMENTAL");
-		
+		modelo.addColumn("Escolas");
+
 		List<Escola> list=Facade.getFacade().listar();
 		
-		
 		for (Escola e : list) {
-			Object[] array = new Object[6];
-			array[0] = e.getNome();
-			array[1] =e.getCnpj();
-			array[2]=e.getLink();
-			array[3]=e.getEmail();
-			array[4]=e.getNivelDeGoverno();
+			Object[] array = new Object[1];
+			array[0] = e.toString();
 			modelo.addRow(array);
 		}
 

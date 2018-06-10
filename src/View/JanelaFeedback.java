@@ -59,6 +59,7 @@ public class JanelaFeedback {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(255, 153, 51));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
 		frame.setBounds(100, 100, 550, 550);
@@ -101,7 +102,7 @@ public class JanelaFeedback {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnVoltar.setBounds(327, 434, 89, 41);
-		OuvinteVoltarInicio voltarinicio=new OuvinteVoltarInicio(this.frame);
+		OuvinteVoltarInicio voltarinicio=new OuvinteVoltarInicio(frame);
 		btnVoltar.addActionListener(voltarinicio);
 		frame.getContentPane().add(btnVoltar);
 		

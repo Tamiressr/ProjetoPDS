@@ -24,11 +24,13 @@ public class OuvinteEditaTurma implements ActionListener {
 		if (janela.isRetiraPainel()) {
 			janela.getFrame().remove(janela.getPanel());
 		}
-		if(janela.isRetiraTabela()) {
+		if(janela.isRetirarTabela()) {
 			janela.getFrame().remove(janela.getPainelTabela());			
 		}
 		janela.getFrame().repaint();
-		janela.addPainelEdita(turmaSelecionada);
+		janela.addPainel("Atualizar");
+		
+		janela.adicionarValores(turmaSelecionada);
 		janela.getFrame().repaint();
 	}
 

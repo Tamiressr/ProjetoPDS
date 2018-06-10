@@ -5,10 +5,6 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -28,7 +24,6 @@ import Model.Escola;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteListaEscolas;
-import Ouvintes.OuvinteRecuperarUsuario;
 import Ouvintes.OuvinteVoltarInicio;
 
 import java.awt.Color;
@@ -73,7 +68,7 @@ public class JanelaLogin {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		//frame.getContentPane().setBackground(new Color(255, 153, 51));
+		frame.getContentPane().setBackground(new Color(255, 153, 51));
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -88,7 +83,6 @@ public class JanelaLogin {
 
 		OuvinteLogin ouvinteDeLogin = new OuvinteLogin(this);
 		btnEntrar.addActionListener(ouvinteDeLogin);
-		frame.getContentPane().setLayout(null);
 
 		
 		
@@ -96,21 +90,12 @@ public class JanelaLogin {
 
 		
 		frame.getContentPane().add(this.adcionarPainel());
-		
-		
+		frame.getContentPane().setLayout(null);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnVoltar.setBounds(411, 24, 89, 40);
 		frame.getContentPane().add(btnVoltar);
-		
-		JLabel lblRecuperarConta = new JLabel("Clique aqui para Recuperar Conta");
-		lblRecuperarConta.setFont(new Font("Times New Roman", Font.ITALIC, 15));
-		lblRecuperarConta.setForeground(Color.BLACK);
-		lblRecuperarConta.setBounds(50, 375, 234, 34);
-		lblRecuperarConta.addMouseListener(new OuvinteRecuperarUsuario());
-		
-		frame.getContentPane().add(lblRecuperarConta);
 		
 		OuvinteVoltarInicio ouvinteVoltarInicio=new OuvinteVoltarInicio(frame);
 		btnVoltar.addActionListener(ouvinteVoltarInicio);
@@ -133,28 +118,24 @@ public class JanelaLogin {
 		painel.setBackground(new Color(255, 255, 255));
 
 		textFieldLogin = new JTextField();
-		textFieldLogin.setBounds(136, 113, 195, 20);
+		textFieldLogin.setBounds(126, 113, 205, 20);
 		painel.add(textFieldLogin);
 		textFieldLogin.setColumns(10);
-		
-		JLabel lblcamposObrigatorios = new JLabel("*Campos Obrigat\u00F3rios");
-		lblcamposObrigatorios.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblcamposObrigatorios.setBounds(201, 88, 130, 14);
-		painel.add(lblcamposObrigatorios);
 
-		JLabel lblLogin = new JLabel("Login:*");
+		JLabel lblLogin = new JLabel("Login:");
 		lblLogin.setFont(new Font("Times New Roman", Font.PLAIN, 22));
 		lblLogin.setForeground(new Color(255, 255, 255));
 		lblLogin.setBounds(60, 104, 81, 31);
 		painel.add(lblLogin);
 
-		JLabel labelSenha = new JLabel("Senha:*");
+		JLabel labelSenha = new JLabel("Senha:");
 		labelSenha.setForeground(new Color(255, 255, 255));
 		labelSenha.setFont(new Font("Times New Roman", Font.PLAIN, 22));
-		labelSenha.setBounds(59, 164, 82, 20);
+		labelSenha.setBounds(59, 164, 60, 20);
 		painel.add(labelSenha);
 
 		passwordFieldSenha = new JPasswordField();
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -167,26 +148,10 @@ public class JanelaLogin {
 >>>>>>> 58e7d8c4a4b42c637ba79373fffe54a709b33305
 		painel.add(passwordFieldSenha);
 		
+=======
+>>>>>>> parent of 2dba26d... 20:17
 		passwordFieldSenha.setBounds(126, 164, 205, 20);
-		passwordFieldSenha.addKeyListener(new KeyAdapter() {
-			public void keyTyped(KeyEvent e) {
-				// TODO Auto-generated method stub
-				if(passwordFieldSenha.getPassword().length== 8){
-					e.consume();
-				}
-				
-			}
-			
-			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+		painel.add(passwordFieldSenha);
 
 		JLabel lblBemVindo = new JLabel("BEM- VINDO!");
 		lblBemVindo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 32));
@@ -195,7 +160,7 @@ public class JanelaLogin {
 		painel.add(lblBemVindo);
 		
 		JButton btnCadastrarse = new JButton("CADASTRAR");
-		btnCadastrarse.setBounds(60, 218, 148, 31);
+		btnCadastrarse.setBounds(60, 218, 130, 31);
 		painel.add(btnCadastrarse);
 		btnCadastrarse.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 
@@ -294,6 +259,4 @@ public class JanelaLogin {
 	public void setBtnEntrar(JButton btnEntrar) {
 		this.btnEntrar = btnEntrar;
 	}
-
 }
-	

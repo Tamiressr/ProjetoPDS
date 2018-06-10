@@ -6,8 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import View.JanelaCadastrar;
-import View.JanelaPrinc;
-import View.JanelaListarVagas;
+import View.JanelaPrincipal;
 
 public class OuvinteVoltarInicio implements ActionListener{
 	private JFrame janela;
@@ -18,8 +17,7 @@ public class OuvinteVoltarInicio implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		janela.dispose();
-		JanelaPrinc p=new JanelaPrinc();
-		p.getFrame().setVisible(true);
+		new JanelaPrincipal();
 		
 	}
 

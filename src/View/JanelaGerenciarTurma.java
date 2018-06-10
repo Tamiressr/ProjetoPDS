@@ -66,7 +66,6 @@ public class JanelaGerenciarTurma {
 	private boolean retiraPainel;
 	private boolean retiraTabela;
 	private JButton buttonSalvar;
-	private JTextField txtVagasdisponivel;
 
 	/**
 	 * Launch the application.
@@ -108,10 +107,6 @@ public class JanelaGerenciarTurma {
 		frame.setResizable(false);
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setVisible(true);
-		
-		listaTurma();
-//		addPainelEdita();
-		
 
 		btnCadastrarTurma = new JButton("Cadastrar Turma");
 		btnCadastrarTurma.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -122,10 +117,30 @@ public class JanelaGerenciarTurma {
 
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnExcluir.setBounds(326, 428, 92, 40);
+		btnExcluir.setBounds(275, 87, 92, 40);
 		OuvinteExcluirTurma ouvinteExcluirTurma = new OuvinteExcluirTurma(this, id);
 		btnExcluir.addActionListener(ouvinteExcluirTurma);
 		frame.getContentPane().add(btnExcluir);
+
+		// JRadioButton rdbtnIntegral = new JRadioButton("Integral");
+		// rdbtnIntegral.setFont(new Font("Arial", Font.PLAIN, 14));
+		// rdbtnIntegral.setBounds(39, 156, 103, 25);
+		// frame.getContentPane().add(rdbtnIntegral);
+		//
+		// JRadioButton rdbtnManh = new JRadioButton("Manh\u00E3");
+		// rdbtnManh.setFont(new Font("Arial", Font.PLAIN, 14));
+		// rdbtnManh.setBounds(144, 156, 103, 25);
+		// frame.getContentPane().add(rdbtnManh);
+		//
+		// JRadioButton rdbtnTarde = new JRadioButton("Tarde");
+		// rdbtnTarde.setFont(new Font("Arial", Font.PLAIN, 14));
+		// rdbtnTarde.setBounds(249, 156, 89, 25);
+		// frame.getContentPane().add(rdbtnTarde);
+		//
+		// JRadioButton rdbtnNoite = new JRadioButton("Noite");
+		// rdbtnNoite.setFont(new Font("Arial", Font.PLAIN, 14));
+		// rdbtnNoite.setBounds(342, 156, 75, 25);
+		// frame.getContentPane().add(rdbtnNoite);
 
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -136,7 +151,7 @@ public class JanelaGerenciarTurma {
 
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnEditar.setBounds(428, 428, 92, 40);
+		btnEditar.setBounds(425, 87, 92, 40);
 		OuvinteEditaTurma ouvinteEditaTurma = new OuvinteEditaTurma(id, this);
 		btnEditar.addActionListener(ouvinteEditaTurma);
 		frame.getContentPane().add(btnEditar);
@@ -162,13 +177,12 @@ public class JanelaGerenciarTurma {
 		frame.repaint();
 	}
 
-	public void addPainel() {
+	public void addPainel(String tipo) {
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 153, 51));
 		panel.setBounds(39, 150, 478, 210);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
 
 		retiraPainel = true;
 
@@ -177,6 +191,8 @@ public class JanelaGerenciarTurma {
 		label.setBounds(22, 23, 48, 19);
 		panel.add(label);
 		
+		addBotãoAtualizar(tipo);
+
 		comboBox = new JComboBox(serie);
 		comboBox.setFont(new Font("Arial", Font.PLAIN, 14));
 		comboBox.setBounds(66, 22, 65, 20);
@@ -225,14 +241,6 @@ public class JanelaGerenciarTurma {
 		label_2.setFont(new Font("Arial", Font.PLAIN, 14));
 		label_2.setBounds(175, 23, 280, 14);
 		panel.add(label_2);
-		
-		JButton buttonSalvar = new JButton("Salvar");
-		buttonSalvar.setFont(new Font("Arial", Font.PLAIN, 14));
-		buttonSalvar.setBounds(366, 162, 89, 23);
-		OuvinteSalvaTurma ouvinteSalvaTurma = new OuvinteSalvaTurma(id, this);
-		buttonSalvar.addActionListener(ouvinteSalvaTurma);
-		
-		panel.add(buttonSalvar);
 
 	}
 
@@ -259,15 +267,12 @@ public class JanelaGerenciarTurma {
 			}
 		}
 	}
-	
-	public int retornaVagasDisponiveis(Turma turma) {
-		if(textField_VagasDisponiveis.equals("")) {
-			JOptionPane.showMessageDialog(null, "Campo Vazio");
-			return 0;
-		}else {
-			int disponivel = Integer.parseInt(textField_VagasDisponiveis.getText());
-			return disponivel;
-		}
+
+	public void adicionarValores(Turma turma) {
+		textField_TotalDeVagas.setText("" + turma.getNumeroDeVagas());
+		textField_VagasDisponiveis.setText("" + turma.getNumeroDeVagasDiponiveis());
+		selecionaBotao(turma.getTurno()).setSelected(true);
+		comboBox.setSelectedIndex(serieSelecionada(turma.getNome()));
 	}
 
 	private int serieSelecionada(String nome) {
@@ -305,123 +310,45 @@ public class JanelaGerenciarTurma {
 	public void listaTurma() {
 
 		table = new JTable();
-		table.setBounds(39, 200, 478, 194);
-		
+		table.setBounds(39, 250, 478, 194);
 		retiraPainel = false;
 		retiraTabela = true;
 
 		frame.getContentPane().setLayout(null);
 		modelo = new DefaultTableModel();
 
-		modelo.addColumn("Série");
-		modelo.addColumn("Turno");
-		modelo.addColumn("Total de Vagas");
-		modelo.addColumn("Vagas Disponíveis");
-		
+		modelo.addColumn("Escolas");
 
+		// List<Escola> list=Facade.getFacade().listar();
 		Escola o = Facade.getFacade().procurarEscolaPorID(id);
 		list = o.getTurmas();
-	
 
 		for (Turma e : list) {
-			Object[] array = new Object[4];
-			array[0] = e.getNome();
-			array[1]=e.getTurno();
-			array[2]=e.getNumeroDeVagas();
-			array[3]=e.getNumeroDeVagasDiponiveis();
+			Object[] array = new Object[1];
+			array[0] = e.toString();
 			modelo.addRow(array);
 		}
 
 		table = new JTable(modelo);
 
 		painelTabela = new JScrollPane(table);
-		painelTabela.setBounds(38, 88, 478, 326);
+		painelTabela.setBounds(39, 150, 478, 304);
 		frame.getContentPane().add(painelTabela);
 
 	}
 
-	
-	public void addPainelEdita(Turma turma) {
-		JPanel painel=new JPanel();
-		painel.setBackground(new Color(255, 153, 51));
-		painel.setSize(478, 149);
-		painel.setLocation(39, 150);
-		frame.getContentPane().add(painel);
-		painel.setLayout(null);
-		
-		JLabel lblNome = new JLabel("Nome: "+turma.getNome());
-		lblNome.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNome.setBounds(25, 23, 130, 16);
-		painel.add(lblNome);
-		
-		JLabel lblTotaldevagas = new JLabel("Total de Vagas: "+turma.getNumeroDeVagas());
-		lblTotaldevagas.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblTotaldevagas.setBounds(25, 105, 130, 16);
-		painel.add(lblTotaldevagas);
-		
-		JLabel lblTurno = new JLabel("Turno: "+turma.getTurno());
-		lblTurno.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblTurno.setBounds(25, 64, 130, 16);
-		painel.add(lblTurno);
-		
-		JLabel lblNumeroDeVagas = new JLabel("Numero de Vagas Dispon\u00EDvel");
-		lblNumeroDeVagas.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNumeroDeVagas.setBounds(194, 23, 196, 16);
-		painel.add(lblNumeroDeVagas);
-		
-		txtVagasdisponivel = new JTextField(turma.getNumeroDeVagasDiponiveis());
-		txtVagasdisponivel.setFont(new Font("Arial", Font.PLAIN, 14));
-		txtVagasdisponivel.setBounds(204, 50, 135, 20);
-		painel.add(txtVagasdisponivel);
-		txtVagasdisponivel.setColumns(10);
-		
-		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnSalvar.setBounds(365, 92, 103, 34);
-		painel.add(btnSalvar);
-		
-		OuvinteAtualizarTurma ouvinteAtualizarTurma=new OuvinteAtualizarTurma(this,turma);
-		btnSalvar.addActionListener(ouvinteAtualizarTurma);
-	}
-
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
-
-	public static int getId() {
-		return id;
-	}
-
-	public static void setId(int id) {
-		JanelaGerenciarTurma.id = id;
-	}
-
-	public JTextField getTextField_TotalDeVagas() {
-		return textField_TotalDeVagas;
-	}
-
-	public void setTextField_TotalDeVagas(JTextField textField_TotalDeVagas) {
-		this.textField_TotalDeVagas = textField_TotalDeVagas;
-	}
-
-	public JTextField getTextField_VagasDisponiveis() {
-		return textField_VagasDisponiveis;
-	}
-
-	public void setTextField_VagasDisponiveis(JTextField textField_VagasDisponiveis) {
-		this.textField_VagasDisponiveis = textField_VagasDisponiveis;
-	}
-
-	public JPanel getPanel() {
-		return panel;
-	}
-
-	public void setPanel(JPanel panel) {
-		this.panel = panel;
+	public void addBotãoAtualizar(String tipo) {
+		JButton buttonSalvar = new JButton("Salvar");
+		buttonSalvar.setFont(new Font("Arial", Font.PLAIN, 14));
+		buttonSalvar.setBounds(366, 162, 89, 23);
+		if (tipo.equals("Atualizar")) {
+			OuvinteAtualizarTurma ouvinteAtualizarTurma = new OuvinteAtualizarTurma(this);
+			buttonSalvar.addActionListener(ouvinteAtualizarTurma);
+		} else if(tipo.equals("Salvar")){
+			OuvinteSalvaTurma ouvinteSalvaTurma = new OuvinteSalvaTurma(id, this);
+			buttonSalvar.addActionListener(ouvinteSalvaTurma);
+		}
+		panel.add(buttonSalvar);
 	}
 
 	public JButton getBtnCadastrarTurma() {
@@ -440,6 +367,22 @@ public class JanelaGerenciarTurma {
 		this.btnListaTurma = btnListaTurma;
 	}
 
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+
 	public JTable getTable() {
 		return table;
 	}
@@ -456,84 +399,12 @@ public class JanelaGerenciarTurma {
 		this.modelo = modelo;
 	}
 
-	public String[] getSerie() {
-		return serie;
-	}
-
-	public void setSerie(String[] serie) {
-		this.serie = serie;
-	}
-
-	public JComboBox getComboBox() {
-		return comboBox;
-	}
-
-	public void setComboBox(JComboBox comboBox) {
-		this.comboBox = comboBox;
-	}
-
-	public ButtonGroup getGrupo() {
-		return grupo;
-	}
-
-	public void setGrupo(ButtonGroup grupo) {
-		this.grupo = grupo;
-	}
-
-	public JRadioButton getRadioButtonManha() {
-		return radioButtonManha;
-	}
-
-	public void setRadioButtonManha(JRadioButton radioButtonManha) {
-		this.radioButtonManha = radioButtonManha;
-	}
-
-	public JRadioButton getRadioButtonTarde() {
-		return radioButtonTarde;
-	}
-
-	public void setRadioButtonTarde(JRadioButton radioButtonTarde) {
-		this.radioButtonTarde = radioButtonTarde;
-	}
-
-	public JRadioButton getRadioButtonNoite() {
-		return radioButtonNoite;
-	}
-
-	public void setRadioButtonNoite(JRadioButton radioButtonNoite) {
-		this.radioButtonNoite = radioButtonNoite;
-	}
-
-	public JRadioButton getRadioButtonIntegral() {
-		return radioButtonIntegral;
-	}
-
-	public void setRadioButtonIntegral(JRadioButton radioButtonIntegral) {
-		this.radioButtonIntegral = radioButtonIntegral;
-	}
-
 	public JScrollPane getPainelTabela() {
 		return painelTabela;
 	}
 
 	public void setPainelTabela(JScrollPane painelTabela) {
 		this.painelTabela = painelTabela;
-	}
-
-	public List<Turma> getList() {
-		return list;
-	}
-
-	public void setList(List<Turma> list) {
-		this.list = list;
-	}
-
-	public int getLinhaSelecionada() {
-		return linhaSelecionada;
-	}
-
-	public void setLinhaSelecionada(int linhaSelecionada) {
-		this.linhaSelecionada = linhaSelecionada;
 	}
 
 	public boolean isRetiraPainel() {
@@ -544,12 +415,12 @@ public class JanelaGerenciarTurma {
 		this.retiraPainel = retiraPainel;
 	}
 
-	public boolean isRetiraTabela() {
+	public boolean isRetirarTabela() {
 		return retiraTabela;
 	}
 
-	public void setRetiraTabela(boolean retiraTabela) {
-		this.retiraTabela = retiraTabela;
+	public void setRetirarTabela(boolean retirarTabela) {
+		this.retiraTabela = retirarTabela;
 	}
 
 	public JButton getButtonSalvar() {
@@ -559,4 +430,13 @@ public class JanelaGerenciarTurma {
 	public void setButtonSalvar(JButton buttonSalvar) {
 		this.buttonSalvar = buttonSalvar;
 	}
+
+	public static int getId() {
+		return id;
+	}
+
+	public static void setId(int id) {
+		JanelaGerenciarTurma.id = id;
+	}
+
 }
