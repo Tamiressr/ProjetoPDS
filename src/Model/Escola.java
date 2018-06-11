@@ -166,4 +166,12 @@ public class Escola {
 		this.numeroCasa = numeroCasa;
 	}
 
+	public List<Documentacao> getDocumentacao() {
+		return documentacao;
+	}
+
+	public void setDocumentacao(List<Documentacao> documentacao) {
+		this.documentacao = documentacao;
+	}
+
 }

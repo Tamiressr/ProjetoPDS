@@ -68,6 +68,7 @@ public class JanelaGerenciarTurma {
 	private boolean retiraTabela;
 	private JButton buttonSalvar;
 	private JTextField txtVagasDisponivel;
+	private JPanel painel;
 
 	/**
 	 * Launch the application.
@@ -335,7 +336,7 @@ public class JanelaGerenciarTurma {
 	}
 
 	public void addPainelEdita(Turma turma) {
-		JPanel painel = new JPanel();
+		painel = new JPanel();
 		painel.setBackground(new Color(255, 153, 51));
 		painel.setSize(478, 149);
 		painel.setLocation(39, 150);
@@ -569,5 +570,14 @@ public class JanelaGerenciarTurma {
 	public void setTxtVagasDisponivel(JTextField txtVagasDisponivel) {
 		this.txtVagasDisponivel = txtVagasDisponivel;
 	}
+
+	public JPanel getPainel() {
+		return painel;
+	}
+
+	public void setPainel(JPanel painel) {
+		this.painel = painel;
+	}
+	
 
 }

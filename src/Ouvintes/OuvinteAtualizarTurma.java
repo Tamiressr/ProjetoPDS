@@ -29,6 +29,8 @@ public class OuvinteAtualizarTurma implements ActionListener {
 		} else if (confirm == 0) {
 			Facade.getFacade().atualizarTurma(turma.getId(), vagas);
 			JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
+			janela.getFrame().remove(janela.getPainel());
+			janela.listaTurma();
 		} else {
 
 		}

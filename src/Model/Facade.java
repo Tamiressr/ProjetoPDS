@@ -8,6 +8,7 @@ import java.util.ListIterator;
 
 import javax.swing.JOptionPane;
 
+import Controllers.DocumentacaoController;
 import Controllers.EscolaController;
 import Controllers.TurmaController;
 import View.JanelaCadastrar;
@@ -113,6 +114,9 @@ public class Facade {
 	public void excluirTurma(int id) {
 		TurmaController.getTurmaController().remover(id);
 	}
+	public void excluirDocumento(int id) {
+		DocumentacaoController.getDocumentacaoController().remover(id);
+	}
 	
 	public int procurarTurma(ArrayList<String> array) {
 		return TurmaController.getTurmaController().procurarID(array);
@@ -137,9 +141,13 @@ public class Facade {
 				return list;
 			}
 		}
-//		
-//		JOptionPane.showMessageDialog(null, "Nenhuma turma selecionada");
 		return null;
+	}
+	public void cadastrarDocumento(int id, String nome) {
+		Escola escola=procurarEscolaPorID(id);
+		Documentacao documento=new Documentacao(nome);
+		documento.setEscola(escola);	
+		escola.getDocumentacao().add(documento);
 	}
 
 }

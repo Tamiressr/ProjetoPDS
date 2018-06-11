@@ -12,6 +12,7 @@ import javax.swing.JMenuItem;
 
 import Controllers.EscolaController;
 import Model.Escola;
+import Ouvintes.OuvinteDocumentos;
 import Ouvintes.OuvinteEditaPerfil;
 import Ouvintes.OuvinteExcluirConta;
 import Ouvintes.OuvinteGerenciarTurma;
@@ -203,7 +204,11 @@ public class JanelaPerfil {
 		JButton btnDocumentao = new JButton("Documenta\u00E7\u00E3o");
 		btnDocumentao.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnDocumentao.setBounds(10, 395, 123, 40);
+		
+		OuvinteDocumentos ouvinteDocumentos=new OuvinteDocumentos(this, id);
+		btnDocumentao.addActionListener(ouvinteDocumentos);
 		frame.getContentPane().add(btnDocumentao);
+		
 		if (e.getTelefone() != null) {
 			JLabel lblMtelefonef = new JLabel("" + e.getTelefone().get(1));
 			lblMtelefonef.setBounds(375, 177, 133, 14);
