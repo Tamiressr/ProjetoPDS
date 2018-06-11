@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
 
 import Controllers.EscolaController;

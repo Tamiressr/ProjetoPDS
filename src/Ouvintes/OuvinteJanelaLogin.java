@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import View.Janela;
 import View.JanelaCadastrar;
 import View.JanelaLogin;
-import View.JanelaPrincipal;
+import View.JanelaListarVagas;
 
 public class OuvinteJanelaLogin implements ActionListener{
 	private JFrame frame;

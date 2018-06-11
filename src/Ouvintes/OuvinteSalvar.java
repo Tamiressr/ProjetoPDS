@@ -11,7 +11,7 @@ import Model.Escola;
 import Model.Facade;
 import View.JanelaCadastrar;
 import View.JanelaPerfil;
-import View.JanelaPrincipal;
+import View.JanelaListarVagas;
 
 public class OuvinteSalvar implements ActionListener {
 	private JanelaCadastrar janela;
