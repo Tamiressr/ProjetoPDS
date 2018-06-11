@@ -73,7 +73,7 @@ public class JanelaLogin {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		//frame.getContentPane().setBackground(new Color(255, 153, 51));
+		// frame.getContentPane().setBackground(new Color(255, 153, 51));
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -88,29 +88,24 @@ public class JanelaLogin {
 
 		OuvinteLogin ouvinteDeLogin = new OuvinteLogin(this);
 		btnEntrar.addActionListener(ouvinteDeLogin);
-
-		
-		
-
-
-		
-		frame.getContentPane().add(this.adcionarPainel());
 		frame.getContentPane().setLayout(null);
-		
+
+		frame.getContentPane().add(this.adcionarPainel());
+
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnVoltar.setBounds(411, 24, 89, 40);
 		frame.getContentPane().add(btnVoltar);
-		
+
 		JLabel lblRecuperarConta = new JLabel("Clique aqui para Recuperar Conta");
 		lblRecuperarConta.setFont(new Font("Times New Roman", Font.ITALIC, 15));
 		lblRecuperarConta.setForeground(Color.BLACK);
 		lblRecuperarConta.setBounds(50, 375, 234, 34);
 		lblRecuperarConta.addMouseListener(new OuvinteRecuperarUsuario());
-		
+
 		frame.getContentPane().add(lblRecuperarConta);
-		
-		OuvinteVoltarInicio ouvinteVoltarInicio=new OuvinteVoltarInicio(frame);
+
+		OuvinteVoltarInicio ouvinteVoltarInicio = new OuvinteVoltarInicio(frame);
 		btnVoltar.addActionListener(ouvinteVoltarInicio);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -131,43 +126,49 @@ public class JanelaLogin {
 		painel.setBackground(new Color(255, 255, 255));
 
 		textFieldLogin = new JTextField();
-		textFieldLogin.setBounds(126, 113, 205, 20);
+		textFieldLogin.setBounds(136, 113, 195, 20);
 		painel.add(textFieldLogin);
 		textFieldLogin.setColumns(10);
 
-		JLabel lblLogin = new JLabel("Login:");
+		JLabel lblLogin = new JLabel("Login:*");
 		lblLogin.setFont(new Font("Times New Roman", Font.PLAIN, 22));
 		lblLogin.setForeground(new Color(255, 255, 255));
 		lblLogin.setBounds(60, 104, 81, 31);
 		painel.add(lblLogin);
 
-		JLabel labelSenha = new JLabel("Senha:");
+		JLabel labelSenha = new JLabel("Senha:*");
 		labelSenha.setForeground(new Color(255, 255, 255));
 		labelSenha.setFont(new Font("Times New Roman", Font.PLAIN, 22));
-		labelSenha.setBounds(59, 164, 60, 20);
+		labelSenha.setBounds(59, 164, 82, 20);
 		painel.add(labelSenha);
+
+		JLabel lblcamposObrigatorios = new JLabel("*Campos Obrigat\u00F3rios");
+		lblcamposObrigatorios.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblcamposObrigatorios.setBounds(201, 88, 130, 14);
+		painel.add(lblcamposObrigatorios);
 
 		passwordFieldSenha = new JPasswordField();
 		painel.add(passwordFieldSenha);
+
+		passwordFieldSenha.setBounds(136, 164, 195, 20);
 		
-		passwordFieldSenha.setBounds(126, 164, 205, 20);
 		passwordFieldSenha.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
 				// TODO Auto-generated method stub
-				if(passwordFieldSenha.getPassword().length== 8){
+				if (passwordFieldSenha.getPassword().length == 8) {
 					e.consume();
 				}
-				
+
 			}
-			
+
 			public void keyReleased(KeyEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 
@@ -176,13 +177,13 @@ public class JanelaLogin {
 		lblBemVindo.setForeground(new Color(255, 255, 255));
 		lblBemVindo.setBounds(128, 11, 273, 62);
 		painel.add(lblBemVindo);
-		
+
 		JButton btnCadastrarse = new JButton("CADASTRAR");
 		btnCadastrarse.setBounds(60, 218, 148, 31);
 		painel.add(btnCadastrarse);
 		btnCadastrarse.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 
-		OuvinteJanelaCadastro ouvinteJanelaCadastro=new OuvinteJanelaCadastro(frame);
+		OuvinteJanelaCadastro ouvinteJanelaCadastro = new OuvinteJanelaCadastro(frame);
 		btnCadastrarse.addActionListener(ouvinteJanelaCadastro);
 
 		btnEntrar.setForeground(new Color(0, 0, 0));
@@ -231,10 +232,10 @@ public class JanelaLogin {
 			if (janela.passwordFieldSenha.getText().equals("") || janela.textFieldLogin.getText().equals("")) {
 				JOptionPane.showMessageDialog(null, "Campos vazios");
 			} else if (valor == 0) {
-				int confirm=JOptionPane.showConfirmDialog(null, "Escola não encontrada, Deseja se cadastrar?");
+				int confirm = JOptionPane.showConfirmDialog(null, "Escola não encontrada, Deseja se cadastrar?");
 				janela.getTextFieldLogin().setText("");
 				janela.getPasswordFieldSenha().setText("");
-				if(confirm==0) {
+				if (confirm == 0) {
 					new JanelaCadastrar();
 				}
 			} else {
@@ -279,4 +280,3 @@ public class JanelaLogin {
 	}
 
 }
-	

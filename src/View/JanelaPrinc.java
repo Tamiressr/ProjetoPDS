@@ -102,7 +102,7 @@ public class JanelaPrinc {
 		frame.getContentPane().add(lblPais);
 		
 		JLabel lblIconescola = new JLabel("iconescola");
-		lblIconescola.setIcon(new ImageIcon(JanelaPrinc.class.getResource("/if_School_65795.png")));
+		lblIconescola.setIcon(new ImageIcon(JanelaPrinc.class.getResource("/colegio.png")));
 		lblIconescola.setBounds(0, 196, 258, 209);
 		frame.getContentPane().add(lblIconescola);
 		

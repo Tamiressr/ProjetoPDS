@@ -8,5 +8,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Temas"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Email"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Outros"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

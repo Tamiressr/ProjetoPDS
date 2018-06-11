@@ -7,27 +7,30 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import Model.Facade;
+import Model.Turma;
 import View.JanelaGerenciarTurma;
 
-public class OuvinteAtualizarTurma implements ActionListener{
+public class OuvinteAtualizarTurma implements ActionListener {
 	private JanelaGerenciarTurma janela;
-	
-	public OuvinteAtualizarTurma(JanelaGerenciarTurma janela) {
-		this.janela=janela;
+	private Turma turma;
+
+	public OuvinteAtualizarTurma(JanelaGerenciarTurma janela, Turma turma) {
+		this.janela = janela;
+		this.turma = turma;
 	}
-	
 
 	public void actionPerformed(ActionEvent e) {
-		int confirm=JOptionPane.showConfirmDialog(null, "Tem Certeza?");
-		if(confirm==0) {
-			ArrayList<String> array=new ArrayList<>();
-			array=janela.retornaValoresTurma();
-			array.add(""+janela.getId());
-			int id=Facade.getFacade().procurarTurma(array);
-			Facade.getFacade().atualizarTurma(id, array);
-			JOptionPane.showMessageDialog(null,"Salvo com Sucesso");
-		}else{
-			
+		int confirm = JOptionPane.showConfirmDialog(null, "Tem Certeza?");
+		Turma turmaSelecionada = janela.linhaSelecionada();
+		int vagas = janela.retornaVagasDisponiveis();
+		if (turmaSelecionada.getNumeroDeVagas() < vagas) {
+			JOptionPane.showMessageDialog(null,
+					"Numero de Vagas Disponiveis deve ser menor que:" + turmaSelecionada.getNumeroDeVagas());
+		} else if (confirm == 0) {
+			Facade.getFacade().atualizarTurma(turma.getId(), vagas);
+			JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
+		} else {
+
 		}
 	}
 

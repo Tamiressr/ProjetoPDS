@@ -89,8 +89,8 @@ public class Facade {
 	public void atualizar(int id, ArrayList<String> array) {
 		EscolaController.getEscolaController().atualizar(id,array);
 	}
-	public void atualizarTurma(int id, ArrayList<String> array) {
-		TurmaController.getTurmaController().atualizar(id, array);
+	public void atualizarTurma(int id, int vagas) {
+		TurmaController.getTurmaController().atualizar(id,vagas);
 	}
 
 	public List<Escola> listar() {
@@ -116,6 +116,30 @@ public class Facade {
 	
 	public int procurarTurma(ArrayList<String> array) {
 		return TurmaController.getTurmaController().procurarID(array);
+	}
+	public List<String> retornarValoresTurmaPorID(int id){
+		List<Turma> lista=TurmaController.getTurmaController().listar();
+		ArrayList<String> list = new ArrayList<String>();
+		
+		for (Turma e : lista) {
+			if (e.getId() == id) {
+				list.add(e.getEscola().getNome());
+				list.add(e.getNome());
+				list.add(e.getTurno());
+				list.add(e.getNumeroDeVagas()+"");
+				list.add(e.getNumeroDeVagasDiponiveis()+"");
+				list.add(e.getEscola().getRua());
+				list.add(e.getEscola().getNumeroCasa()+"");
+				list.add(e.getEscola().getCidade());
+				list.add(e.getEscola().getBairro());
+				list.add(e.getEscola().getCep());
+				
+				return list;
+			}
+		}
+//		
+//		JOptionPane.showMessageDialog(null, "Nenhuma turma selecionada");
+		return null;
 	}
 
 }

@@ -81,8 +81,8 @@ public class JanelaListaEscolas {
 		List<Escola> list=Facade.getFacade().listar();
 		
 		
+		Object[] array = new Object[6];
 		for (Escola e : list) {
-			Object[] array = new Object[6];
 			array[0] = e.getNome();
 			array[1] =e.getCnpj();
 			array[2]=e.getLink();

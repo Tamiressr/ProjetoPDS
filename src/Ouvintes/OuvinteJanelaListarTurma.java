@@ -18,8 +18,8 @@ public class OuvinteJanelaListarTurma implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		janela.dispose();
-		JanelaAnteriorListagem j=new JanelaAnteriorListagem();
-	j.getFrame().setVisible(true);
+		JanelaAnteriorListagem j = new JanelaAnteriorListagem();
+		j.getFrame().setVisible(true);
 	}
 
 }

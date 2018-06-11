@@ -7,11 +7,13 @@ import javax.swing.JFrame;
 
 import View.JanelaListagemFiltro;
 
-public class OuvinteListagemFiltro implements ActionListener{
-private JFrame janela;
-public OuvinteListagemFiltro(JFrame j) {
-this.janela=j;
-}
+public class OuvinteListagemFiltro implements ActionListener {
+	private JFrame janela;
+
+	public OuvinteListagemFiltro(JFrame j) {
+		this.janela = j;
+	}
+
 	public void actionPerformed(ActionEvent e) {
 
 		janela.dispose();

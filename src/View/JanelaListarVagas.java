@@ -18,6 +18,7 @@ import java.awt.Cursor;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteListaEscolas;
+import Ouvintes.OuvinteMaisInformacoes;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -44,6 +45,8 @@ public class JanelaListarVagas {
 	private JFrame frame;
 	private JTable table;
 	private DefaultTableModel modelo;
+	private JTable tabela;
+	private List<Turma> list;
 
 	/**
 	 * Launch the application.
@@ -90,19 +93,66 @@ public class JanelaListarVagas {
 
 		modelo = new DefaultTableModel();
 		table = new JTable(modelo);
-		
+
 		JScrollPane painelTabela = new JScrollPane(table);
 		painelTabela.setBounds(10, 131, 524, 279);
 		frame.getContentPane().add(painelTabela);
-		
+
 		JLabel lblListagemDeVagas = new JLabel("Listagem de Vagas");
 		lblListagemDeVagas.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		lblListagemDeVagas.setBounds(139, 38, 335, 55);
 		frame.getContentPane().add(lblListagemDeVagas);
+
+		JButton btnMaisInformaes = new JButton("Mais Informa\u00E7\u00F5es");
+		btnMaisInformaes.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnMaisInformaes.setBounds(396, 431, 138, 40);
+		frame.getContentPane().add(btnMaisInformaes);
+
+		OuvinteMaisInformacoes ouvinteMaisInformacoes = new OuvinteMaisInformacoes(this);
+		btnMaisInformaes.addActionListener(ouvinteMaisInformacoes);
+
 		addTabela();
 
 	}
 
+	public int linhaSelecionada() {
+		int linha = tabela.getSelectedRow();
+//		System.out.println(linha);
+		Turma turma = list.get(linha);
+
+		return linha;
+	}
+
+	public void addTabela() {
+		frame.repaint();
+		list = TurmaController.getTurmaController().listar();
+
+		modelo.addColumn("Escola");
+		modelo.addColumn("Turma");
+		modelo.addColumn("Turno");
+		modelo.addColumn("N° Total de Vagas");
+		modelo.addColumn("Vagas Disponíveis");
+		tabela = new JTable(modelo);
+
+		Object[] array = new Object[5];
+		for (Turma e : list) {
+			array[0] = e.getEscola().getNome();
+			array[1] = e.getNome();
+			array[2] = e.getTurno();
+			array[3] = e.getNumeroDeVagas();
+			array[4] = e.getNumeroDeVagasDiponiveis();
+			modelo.addRow(array);
+		}
+
+	}
+
+	public JTable getTabela() {
+		return tabela;
+	}
+
+	public void setTabela(JTable tabela) {
+		this.tabela = tabela;
+	}
 
 	public JFrame getFrame() {
 		return frame;
@@ -127,31 +177,4 @@ public class JanelaListarVagas {
 	public void setModelo(DefaultTableModel modelo) {
 		this.modelo = modelo;
 	}
-
-	
-	public void addTabela() {
-		frame.repaint();
-	 List<Turma> list = TurmaController.getTurmaController().listar();
-
-		modelo.addColumn("Escola");
-		modelo.addColumn("Turma");
-		modelo.addColumn("Turno");
-		modelo.addColumn("N° Total de Vagas");
-		modelo.addColumn("Vagas Disponíveis");
-		JTable tabela= new JTable(modelo);
-	
-	
-		Object[] array = new Object[5];
-	 for (Turma e : list) {
-	array[0]=e.getEscola().getNome();
-	 array[1] = e.getNome();
-	 array[2]=e.getTurno();
-	 array[3]=e.getNumeroDeVagas();
-	 array[4]=e.getNumeroDeVagasDiponiveis();
-	 modelo.addRow(array);
-	 }
-	
-	}
-
 }
-
