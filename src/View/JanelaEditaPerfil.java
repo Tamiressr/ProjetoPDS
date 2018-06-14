@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
 
-import Model.Facade;
+import Facade.Facade;
 import Ouvintes.OuvinteAtualizarPerfil;
 import Ouvintes.OuvinteJanelaPerfil;
 
@@ -345,7 +345,6 @@ public class JanelaEditaPerfil{
 		txtCep.setText(list.get(10));
 		txtBairro.setText(list.get(11));
 
-		
 		comboBoxNivies.setSelectedIndex(qualNivel(list.get(12)));
 	}
 	

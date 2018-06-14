@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import Model.Facade;
+import Facade.Facade;
 import Model.Turma;
 import View.JanelaGerenciarTurma;
 
@@ -30,7 +30,7 @@ public class OuvinteAtualizarTurma implements ActionListener {
 			Facade.getFacade().atualizarTurma(turma.getId(), vagas);
 			JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
 			janela.getFrame().remove(janela.getPainel());
-			janela.listaTurma();
+			janela.listaTurma("outros");
 		} else {
 
 		}

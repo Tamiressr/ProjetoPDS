@@ -3,6 +3,7 @@ package Ouvintes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import Model.Turma;
 import View.JanelaInformacoes;
 import View.JanelaListarVagas;
 
@@ -18,7 +19,7 @@ public class OuvinteMaisInformacoes implements ActionListener{
 
 
 	public void actionPerformed(ActionEvent e) {
-		int id=janela.linhaSelecionada();
+		int id=janela.linhaSelecionada().getId();
 		new JanelaInformacoes(id);
 		
 	}

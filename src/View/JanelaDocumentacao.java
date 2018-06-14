@@ -21,9 +21,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
+import Facade.Facade;
 import Model.Documentacao;
 import Model.Escola;
-import Model.Facade;
 import Model.Turma;
 import Ouvintes.OuvinteExcluirDocumento;
 import Ouvintes.OuvinteSalvaDocumento;

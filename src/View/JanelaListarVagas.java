@@ -34,8 +34,8 @@ import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 
 import Controllers.EscolaController;
 import Controllers.TurmaController;
+import Facade.Facade;
 import Model.Escola;
-import Model.Facade;
 import Model.Turma;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
@@ -45,7 +45,6 @@ public class JanelaListarVagas {
 	private JFrame frame;
 	private JTable table;
 	private DefaultTableModel modelo;
-	private JTable tabela;
 	private List<Turma> list;
 
 	/**
@@ -90,17 +89,12 @@ public class JanelaListarVagas {
 		frame.setResizable(false);
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.getContentPane().setLayout(null);
-
-		modelo = new DefaultTableModel();
-		table = new JTable(modelo);
-
-		JScrollPane painelTabela = new JScrollPane(table);
-		painelTabela.setBounds(10, 131, 524, 279);
-		frame.getContentPane().add(painelTabela);
+		
+		
 
 		JLabel lblListagemDeVagas = new JLabel("Listagem de Vagas");
-		lblListagemDeVagas.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		lblListagemDeVagas.setBounds(139, 38, 335, 55);
+		lblListagemDeVagas.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		frame.getContentPane().add(lblListagemDeVagas);
 
 		JButton btnMaisInformaes = new JButton("Mais Informa\u00E7\u00F5es");
@@ -115,16 +109,16 @@ public class JanelaListarVagas {
 
 	}
 
-	public int linhaSelecionada() {
-		int linha = tabela.getSelectedRow();
-//		System.out.println(linha);
+	public Turma linhaSelecionada() {
+		int linha = table.getSelectedRow();
 		Turma turma = list.get(linha);
 
-		return linha;
+		return turma;
 	}
 
 	public void addTabela() {
-		frame.repaint();
+		modelo = new DefaultTableModel();
+
 		list = TurmaController.getTurmaController().listar();
 
 		modelo.addColumn("Escola");
@@ -132,7 +126,6 @@ public class JanelaListarVagas {
 		modelo.addColumn("Turno");
 		modelo.addColumn("N° Total de Vagas");
 		modelo.addColumn("Vagas Disponíveis");
-		tabela = new JTable(modelo);
 
 		Object[] array = new Object[5];
 		for (Turma e : list) {
@@ -143,15 +136,14 @@ public class JanelaListarVagas {
 			array[4] = e.getNumeroDeVagasDiponiveis();
 			modelo.addRow(array);
 		}
+		table = new JTable(modelo);
 
-	}
+		JScrollPane painelTabela = new JScrollPane(table);
+		painelTabela.setBounds(10, 131, 524, 279);
+		frame.getContentPane().add(painelTabela);
 
-	public JTable getTabela() {
-		return tabela;
-	}
+		frame.repaint();
 
-	public void setTabela(JTable tabela) {
-		this.tabela = tabela;
 	}
 
 	public JFrame getFrame() {

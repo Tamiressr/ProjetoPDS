@@ -1,4 +1,6 @@
-package Model;
+package BuilderEscola;
+
+import Model.Escola;
 
 public abstract class BuilderEscola {
 	

@@ -9,8 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Controllers.TurmaController;
-import Model.Facade;
+import Facade.Facade;
 import Model.Turma;
+import Ouvintes.OuvinteVoltaBusca;
 import Ouvintes.OuvinteVoltarInicio;
 
 import javax.swing.JLabel;
@@ -75,7 +76,6 @@ public class JanelaInformacoes {
 	
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(255, 153, 102));
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -188,9 +188,17 @@ public class JanelaInformacoes {
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(317, 355, 89, 23);
-		btnVoltar.addActionListener(new OuvinteVoltarInicio(frame));
+		btnVoltar.addActionListener(new OuvinteVoltaBusca(this));
 		frame.getContentPane().add(btnVoltar);
 		
-		
 	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+	
 }

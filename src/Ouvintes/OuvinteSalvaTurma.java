@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import Model.Facade;
+import Facade.Facade;
 import View.JanelaGerenciarTurma;
 
 public class OuvinteSalvaTurma implements ActionListener {

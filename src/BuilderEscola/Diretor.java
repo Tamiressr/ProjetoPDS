@@ -1,6 +1,10 @@
-package Model;
+package BuilderEscola;
+
 
 import java.util.ArrayList;
+
+import Controllers.EscolaController;
+import Model.Escola;
 
 public class Diretor {
 	private BuilderEscola builderEscola;
@@ -27,6 +31,8 @@ public class Diretor {
 		String bairro=array.get(12);
 		
 		Escola escola=criarEscola(nome, telefoneFixo, telefoneCelular, senha, email, link, cnpj, nivel, rua, bairro, numero, cep, cidade);
+		
+		EscolaController.getEscolaController().salvar(escola);
 		
 		return escola;
 	}

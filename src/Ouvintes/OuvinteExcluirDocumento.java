@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import Facade.Facade;
 import Model.Documentacao;
-import Model.Facade;
 import View.JanelaDocumentacao;
 
 public class OuvinteExcluirDocumento implements ActionListener{

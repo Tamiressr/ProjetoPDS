@@ -47,6 +47,7 @@ public class EscolaController {
 		}
 		return 0;
 	}
+	
 
 	public Escola procurarEscola(int id) {
 		List<Escola> list = listar();
@@ -57,6 +58,35 @@ public class EscolaController {
 			}
 		}
 		return null;
+	}
+	
+	public List<String> retornaValoresEscolaPorID(int id) {
+		List<Escola> lista = listar();
+		ArrayList<String> list = new ArrayList<String>();
+		
+		for (Escola e : lista) {
+			if (e.getId() == id) {
+				list.add(e.getNome());
+				list.add(e.getTelefone().get(0).toString());
+				list.add(e.getTelefone().get(1).toString());
+				list.add(e.getLink());
+				list.add(e.getEmail());
+				list.add(e.getSenha());
+				list.add(e.getCnpj());
+				list.add(e.getRua());
+				list.add(e.getNumeroCasa()+"");
+				list.add(e.getCidade());
+				list.add(e.getCep());
+				list.add(e.getBairro());
+				
+				list.add(e.getNivelDeGoverno());
+	
+				return list;
+			}
+		}
+		JOptionPane.showMessageDialog(null, "Nada");
+		return null;
+
 	}
 
 	public void remover(int id) {

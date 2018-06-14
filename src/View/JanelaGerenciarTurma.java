@@ -30,8 +30,9 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import Controllers.TurmaController;
+import Facade.Facade;
 import Model.Escola;
-import Model.Facade;
 import Model.Turma;
 
 import javax.swing.JRadioButton;
@@ -111,7 +112,7 @@ public class JanelaGerenciarTurma {
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setVisible(true);
 
-		listaTurma();
+		listaTurma("primeiro");
 
 		btnCadastrarTurma = new JButton("Cadastrar Turma");
 		btnCadastrarTurma.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -155,6 +156,7 @@ public class JanelaGerenciarTurma {
 		Turma turma = list.get(linhaSelecionada);
 
 		return turma;
+
 	}
 
 	public void removerLinha() {
@@ -300,24 +302,46 @@ public class JanelaGerenciarTurma {
 		return "";
 	}
 
-	public void listaTurma() {
-
-		table = new JTable();
-		table.setBounds(39, 200, 478, 194);
-		retiraPainel = false;
-		retiraTabela = true;
-
-		frame.getContentPane().setLayout(null);
-		modelo = new DefaultTableModel();
-
-		modelo.addColumn("Série");
-		modelo.addColumn("Turno");
-		modelo.addColumn("Total de Vagas");
-		modelo.addColumn("Vagas Disponiveis");
-
+	public void listaTurma(String nome) {
 		Escola o = Facade.getFacade().procurarEscolaPorID(id);
-		list = o.getTurmas();
+		if (nome.equals("primeiro")) {
+			table = new JTable();
+			table.setBounds(39, 200, 478, 194);
+			retiraPainel = false;
+			retiraTabela = true;
 
+			frame.getContentPane().setLayout(null);
+			modelo = new DefaultTableModel();
+
+			modelo.addColumn("Série");
+			modelo.addColumn("Turno");
+			modelo.addColumn("Total de Vagas");
+			modelo.addColumn("Vagas Disponiveis");
+
+			list = o.getTurmas();
+
+		} else {
+			table = new JTable();
+			table.setBounds(39, 200, 478, 194);
+			retiraPainel = false;
+			retiraTabela = true;
+
+			frame.getContentPane().setLayout(null);
+			modelo = new DefaultTableModel();
+
+			modelo.addColumn("Série");
+			modelo.addColumn("Turno");
+			modelo.addColumn("Total de Vagas");
+			modelo.addColumn("Vagas Disponiveis");
+			list=null;
+			list = TurmaController.getTurmaController().listar();
+			
+			for (Turma t : list) {
+				if (t.getEscola().getId() != o.getId()) {
+					list.remove(t);
+				}
+			}
+		}
 		Object[] array = new Object[4];
 		for (Turma e : list) {
 			array[0] = e.getNome();
@@ -343,6 +367,9 @@ public class JanelaGerenciarTurma {
 		frame.getContentPane().add(painel);
 		painel.setLayout(null);
 
+		retiraPainel = true;
+		retiraTabela = false;
+
 		JLabel lblNome = new JLabel("Nome: " + turma.getNome());
 		lblNome.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNome.setBounds(25, 23, 130, 16);
@@ -364,7 +391,7 @@ public class JanelaGerenciarTurma {
 		painel.add(lblNumeroDeVagas);
 
 		txtVagasDisponivel = new JTextField();
-		txtVagasDisponivel.setText(turma.getNumeroDeVagasDiponiveis()+"");
+		txtVagasDisponivel.setText(turma.getNumeroDeVagasDiponiveis() + "");
 		txtVagasDisponivel.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtVagasDisponivel.setBounds(204, 50, 135, 20);
 		painel.add(txtVagasDisponivel);
@@ -578,6 +605,5 @@ public class JanelaGerenciarTurma {
 	public void setPainel(JPanel painel) {
 		this.painel = painel;
 	}
-	
 
 }

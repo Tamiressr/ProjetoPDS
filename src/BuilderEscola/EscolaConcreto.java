@@ -1,4 +1,6 @@
-package Model;
+package BuilderEscola;
+
+import Model.Telefone;
 
 public class EscolaConcreto extends BuilderEscola {
 

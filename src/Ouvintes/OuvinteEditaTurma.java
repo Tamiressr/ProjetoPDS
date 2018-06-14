@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import Model.Facade;
+import Facade.Facade;
 import Model.Turma;
 import View.JanelaGerenciarTurma;
 

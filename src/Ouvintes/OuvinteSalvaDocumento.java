@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import Model.Facade;
+import Facade.Facade;
 import View.JanelaDocumentacao;
 
 public class OuvinteSalvaDocumento implements ActionListener {

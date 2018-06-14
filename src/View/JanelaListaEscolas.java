@@ -20,8 +20,9 @@ import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import Facade.Facade;
 import Model.Escola;
-import Model.Facade;
+
 import javax.swing.JButton;
 
 public class JanelaListaEscolas {

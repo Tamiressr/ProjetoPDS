@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import Facade.Facade;
 import Model.Escola;
-import Model.Facade;
 import View.JanelaCadastrar;
 import View.JanelaPerfil;
 import View.JanelaListarVagas;

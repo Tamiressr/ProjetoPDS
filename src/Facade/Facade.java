@@ -1,4 +1,4 @@
-package Model;
+package Facade;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,9 +8,16 @@ import java.util.ListIterator;
 
 import javax.swing.JOptionPane;
 
+import BuilderEscola.Diretor;
+import BuilderEscola.EscolaConcreto;
 import Controllers.DocumentacaoController;
 import Controllers.EscolaController;
 import Controllers.TurmaController;
+import Model.Documentacao;
+import Model.Escola;
+import Model.FeedBack;
+import Model.PreMatricula;
+import Model.Turma;
 import View.JanelaCadastrar;
 
 public class Facade {
@@ -36,10 +43,8 @@ public class Facade {
 
 	public int criarEscola(ArrayList<String> array) {
 		Escola escola = diretor.criarEscola(array);
-		EscolaController.getEscolaController().salvar(escola);
 		
-		return EscolaController.getEscolaController().procurarID(escola);
-		
+		return EscolaController.getEscolaController().procurarID(escola);		
 	}
 
 	public void excluirConta(int id) {
@@ -47,15 +52,8 @@ public class Facade {
 		
 	}
 
-
 	public Escola procurarEscolaPorID(int id) {
-		List<Escola> list = EscolaController.getEscolaController().listar();
-		for (Escola e : list) {
-			if (e.getId() == id) {
-				return e;
-			}
-		}
-		return null;
+		return EscolaController.getEscolaController().procurarEscola(id);
 	}
 
 	public List<String> retornaValoresEscolaPorID(int id) {
