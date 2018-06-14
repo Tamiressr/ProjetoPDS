@@ -15,9 +15,11 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Cursor;
 
+import Ouvintes.OuvinteBuscar;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteMaisInformacoes;
+import Ouvintes.OuvinteVoltarInicio;
 import OuvintesEscolas.OuvinteListaEscolas;
 
 import javax.swing.JMenuBar;
@@ -39,6 +41,8 @@ import Model.Escola;
 import Model.Turma;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class JanelaListarVagas {
 
@@ -46,6 +50,22 @@ public class JanelaListarVagas {
 	private JTable table;
 	private DefaultTableModel modelo;
 	private List<Turma> list;
+	private ArrayList<String> txt = new ArrayList<>();
+	private JComboBox escolaComboBox = null;
+	private JComboBox TurmacomboBox = null;
+	private JComboBox TurnocomboBox = null;
+	private String[] turnos = { "", "Manhã", "Tarde", "Integral", "Noite" };
+	private List<Escola> escolas;
+	private String[] arrayturmas = { "1° ano", "2° ano", "3° ano", "4° ano", "5° ano", "6° ano", "7° ano", "8° ano",
+			"9° ANO" };
+
+	public ArrayList<String> getTxt() {
+		return txt;
+	}
+
+	public void setTxt(ArrayList<String> txt) {
+		txt = txt;
+	}
 
 	/**
 	 * Launch the application.
@@ -56,7 +76,7 @@ public class JanelaListarVagas {
 				try {
 					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 
-					JanelaListarVagas window = new JanelaListarVagas();
+					JanelaListarVagas window = new JanelaListarVagas("primeiro",null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -68,15 +88,15 @@ public class JanelaListarVagas {
 	/**
 	 * Create the application.
 	 */
-	public JanelaListarVagas() {
-		initialize();
+	public JanelaListarVagas(String nome, ArrayList<String> txt) {
+		initialize(nome,txt);
 
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String nome, ArrayList<String> txt) {
 		frame = new JFrame();
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
@@ -89,24 +109,80 @@ public class JanelaListarVagas {
 		frame.setResizable(false);
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.getContentPane().setLayout(null);
-		
-		
 
 		JLabel lblListagemDeVagas = new JLabel("Listagem de Vagas");
-		lblListagemDeVagas.setBounds(139, 38, 335, 55);
+		lblListagemDeVagas.setHorizontalAlignment(SwingConstants.CENTER);
+		lblListagemDeVagas.setBounds(122, 11, 335, 40);
 		lblListagemDeVagas.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		frame.getContentPane().add(lblListagemDeVagas);
 
 		JButton btnMaisInformaes = new JButton("Mais Informa\u00E7\u00F5es");
 		btnMaisInformaes.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnMaisInformaes.setBounds(396, 431, 138, 40);
+		btnMaisInformaes.setBounds(396, 446, 138, 40);
 		frame.getContentPane().add(btnMaisInformaes);
 
 		OuvinteMaisInformacoes ouvinteMaisInformacoes = new OuvinteMaisInformacoes(this);
 		btnMaisInformaes.addActionListener(ouvinteMaisInformacoes);
 
-		addTabela();
+		addTabela(nome,txt);
+		
+		JLabel lblEscola = new JLabel("Escola:");
+		lblEscola.setFont(new Font("Arial", Font.BOLD, 14));
+		lblEscola.setBounds(10, 64, 77, 14);
+		frame.getContentPane().add(lblEscola);
 
+		JLabel lblTurma = new JLabel("Turma:");
+		lblTurma.setFont(new Font("Arial", Font.BOLD, 14));
+		lblTurma.setBounds(10, 89, 60, 14);
+		frame.getContentPane().add(lblTurma);
+
+		escolaComboBox = new JComboBox<>();
+		escolaComboBox.setToolTipText("Selecione o nome da escola desejada");
+		escolaComboBox.setBounds(70, 64, 301, 20);
+		frame.getContentPane().add(escolaComboBox);
+
+		escolas = EscolaController.getEscolaController().listar();
+
+		for (Escola e : escolas) {
+			escolaComboBox.addItem(e.getNome());
+		}
+		TurmacomboBox = new JComboBox(arrayturmas);
+		TurmacomboBox.setBackground(Color.WHITE);
+
+		TurmacomboBox.setBounds(70, 89, 129, 20);
+		frame.getContentPane().add(TurmacomboBox);
+
+		JLabel lblTurno = new JLabel("Turno:");
+		lblTurno.setFont(new Font("Arial", Font.BOLD, 14));
+		lblTurno.setBounds(212, 89, 46, 14);
+		frame.getContentPane().add(lblTurno);
+		TurnocomboBox = new JComboBox(turnos);
+		TurnocomboBox.setBounds(268, 87, 103, 20);
+		frame.getContentPane().add(TurnocomboBox);
+
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setFont(new Font("Arial", Font.BOLD, 12));
+		btnBuscar.setBounds(395, 64, 109, 42);
+		OuvinteBuscar ouvinteBuscar=new OuvinteBuscar(this);
+		btnBuscar.addActionListener(ouvinteBuscar);
+		frame.getContentPane().add(btnBuscar);
+		frame.setVisible(true);
+
+		frame.getContentPane().add(btnBuscar);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(10, 11, 89, 23);
+		frame.getContentPane().add(btnVoltar);
+		btnVoltar.addActionListener(new OuvinteVoltarInicio(frame));
+		
+		frame.setVisible(true);
+
+	}
+
+	public void valor() {
+		txt.add(escolas.get(escolaComboBox.getSelectedIndex()).getNome());
+		txt.add(arrayturmas[TurmacomboBox.getSelectedIndex()]);
+		txt.add(turnos[TurnocomboBox.getSelectedIndex()]);
 	}
 
 	public Turma linhaSelecionada() {
@@ -116,10 +192,30 @@ public class JanelaListarVagas {
 		return turma;
 	}
 
-	public void addTabela() {
+	public void addTabela(String nome, ArrayList<String> txt) {
 		modelo = new DefaultTableModel();
 
 		list = TurmaController.getTurmaController().listar();
+		if (nome.equals("primeiro")) {
+
+		} else {
+			ArrayList<Turma> turmas = new ArrayList<>();
+			System.out.println(txt.get(0));
+			System.out.println(txt.get(1));
+			System.out.println(txt.get(2));
+			for (Turma t : list) {
+				if (txt.get(0).equalsIgnoreCase(t.getEscola().getNome())) {
+					if (txt.get(1).equalsIgnoreCase(t.getNome())) {
+						if (txt.get(2).equalsIgnoreCase(t.getTurno())) {
+							turmas.add(t);
+						}
+					}
+				} else {
+
+				}
+			}
+			list = turmas;
+		}
 
 		modelo.addColumn("Escola");
 		modelo.addColumn("Turma");
@@ -139,7 +235,7 @@ public class JanelaListarVagas {
 		table = new JTable(modelo);
 
 		JScrollPane painelTabela = new JScrollPane(table);
-		painelTabela.setBounds(10, 131, 524, 279);
+		painelTabela.setBounds(10, 128, 524, 307);
 		frame.getContentPane().add(painelTabela);
 
 		frame.repaint();

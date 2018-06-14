@@ -15,6 +15,7 @@ import Model.Escola;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteJanelaPerfil;
+import OuvintesDocumentos.OuvinteDocumentos;
 import OuvintesEscolas.OuvinteEditaPerfil;
 import OuvintesEscolas.OuvinteExcluirConta;
 import OuvintesEscolas.OuvinteListaEscolas;
@@ -212,8 +213,8 @@ public class JanelaPerfil {
 		lblJanelaPerfil.setFont(new Font("Arial", Font.BOLD, 21));
 		frame.getContentPane().add(lblJanelaPerfil);
 
-		// OuvinteDocumentos ouvinteDocumentos=new OuvinteDocumentos(this, id);
-		// btnDocumentao.addActionListener(ouvinteDocumentos);
+		 OuvinteDocumentos ouvinteDocumentos=new OuvinteDocumentos(this, id);
+		 btnDocumentao.addActionListener(ouvinteDocumentos);
 		frame.getContentPane().add(btnDocumentao);
 
 		if (e.getTelefone() != null) {

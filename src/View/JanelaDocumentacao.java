@@ -25,6 +25,7 @@ import Facade.Facade;
 import Model.Documentacao;
 import Model.Escola;
 import Model.Turma;
+import Ouvintes.OuvinteJanelaPerfil;
 import OuvintesDocumentos.OuvinteExcluirDocumento;
 import OuvintesDocumentos.OuvinteSalvaDocumento;
 import OuvintesDocumentos.OuvinteSalvaPrimeiroDocumento;
@@ -95,6 +96,12 @@ public class JanelaDocumentacao {
 		frame.setResizable(false);
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.getContentPane().setLayout(null);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnVoltar.setBounds(405, 27, 89, 40);
+		frame.getContentPane().add(btnVoltar);
+		btnVoltar.addActionListener(new OuvinteJanelaPerfil(frame, id));
 
 		listaDocumentacao();
 		addPainel();
@@ -176,10 +183,6 @@ public class JanelaDocumentacao {
 			lblCadastrarDocumentao.setBounds(122, 5, 201, 14);
 			panel.add(lblCadastrarDocumentao);
 
-			JButton btnVoltar = new JButton("Voltar");
-			btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
-			btnVoltar.setBounds(405, 27, 89, 40);
-			frame.getContentPane().add(btnVoltar);
 			
 			JLabel lblDocumentosCadastrados = new JLabel("Documentos Cadastrados");
 			lblDocumentosCadastrados.setHorizontalAlignment(SwingConstants.CENTER);

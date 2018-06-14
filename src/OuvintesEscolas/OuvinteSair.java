@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import View.JanelaPerfil;
+import View.JanelaPrinc;
 import View.JanelaListarVagas;
 
 public class OuvinteSair implements ActionListener{
@@ -17,7 +18,7 @@ public class OuvinteSair implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		janela.setId(0);
 		janela.getFrame().dispose();
-		new JanelaListarVagas();
+		new JanelaPrinc();
 	}
 
 }

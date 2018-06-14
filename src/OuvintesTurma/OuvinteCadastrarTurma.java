@@ -22,7 +22,7 @@ public class OuvinteCadastrarTurma implements ActionListener {
 		if (janela.isRetiraTabela()) {
 			janela.getFrame().remove(janela.getPainelTabela());
 		}
-		janela.addPainel();
+		janela.addPainelCadastrar();
 		janela.getFrame().repaint();
 	}
 

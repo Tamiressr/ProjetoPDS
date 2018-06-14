@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import View.JanelaAnteriorListagem;
 import View.JanelaListarVagas;
 
 public class OuvinteJanelaListarTurma implements ActionListener {
@@ -18,7 +17,7 @@ public class OuvinteJanelaListarTurma implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		janela.dispose();
-		JanelaAnteriorListagem j = new JanelaAnteriorListagem();
+		JanelaListarVagas j = new JanelaListarVagas("primeiro",null);
 		j.getFrame().setVisible(true);
 	}
 

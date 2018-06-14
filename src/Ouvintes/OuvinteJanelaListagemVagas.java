@@ -14,7 +14,7 @@ private JFrame janela;
 }
 	public void actionPerformed(ActionEvent arg0) {
 		janela.dispose();
-		JanelaListarVagas j=new JanelaListarVagas();
+		JanelaListarVagas j=new JanelaListarVagas("primeiro",null);
 		j.getFrame().setVisible(true);
 		
 	}

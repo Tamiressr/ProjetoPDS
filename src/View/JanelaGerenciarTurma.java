@@ -49,7 +49,7 @@ public class JanelaGerenciarTurma {
 	private static int id;
 	private JTextField textField_TotalDeVagas;
 	private JTextField textField_VagasDisponiveis;
-	private JPanel panel;
+	private JPanel panelCadastrar;
 	private JButton btnCadastrarTurma;
 	private JButton btnListaTurma;
 	private JTable table;
@@ -69,7 +69,7 @@ public class JanelaGerenciarTurma {
 	private boolean retiraTabela;
 	private JButton buttonSalvar;
 	private JTextField txtVagasDisponivel;
-	private JPanel painel;
+	private JPanel painelEditar;
 
 	/**
 	 * Launch the application.
@@ -164,75 +164,75 @@ public class JanelaGerenciarTurma {
 		frame.repaint();
 	}
 
-	public void addPainel() {
-		panel = new JPanel();
-		panel.setBackground(new Color(255, 153, 51));
-		panel.setBounds(39, 150, 478, 210);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
+	public void addPainelCadastrar() {
+		panelCadastrar = new JPanel();
+		panelCadastrar.setBackground(new Color(255, 153, 51));
+		panelCadastrar.setBounds(39, 150, 478, 210);
+		frame.getContentPane().add(panelCadastrar);
+		panelCadastrar.setLayout(null);
 
 		retiraPainel = true;
 
 		JLabel label = new JLabel("S\u00E9rie");
 		label.setFont(new Font("Arial", Font.PLAIN, 14));
 		label.setBounds(22, 23, 48, 19);
-		panel.add(label);
+		panelCadastrar.add(label);
 
 		comboBox = new JComboBox(serie);
 		comboBox.setFont(new Font("Arial", Font.PLAIN, 14));
 		comboBox.setBounds(66, 22, 65, 20);
-		panel.add(comboBox);
+		panelCadastrar.add(comboBox);
 
 		grupo = new ButtonGroup();
 
 		radioButtonManha = new JRadioButton("Manh\u00E3");
 		radioButtonManha.setBounds(22, 62, 109, 23);
 		grupo.add(radioButtonManha);
-		panel.add(radioButtonManha);
+		panelCadastrar.add(radioButtonManha);
 
 		radioButtonTarde = new JRadioButton("Tarde");
 		radioButtonTarde.setBounds(22, 92, 109, 23);
 		grupo.add(radioButtonTarde);
-		panel.add(radioButtonTarde);
+		panelCadastrar.add(radioButtonTarde);
 
 		radioButtonNoite = new JRadioButton("Noite");
 		radioButtonNoite.setBounds(22, 122, 109, 23);
 		grupo.add(radioButtonNoite);
-		panel.add(radioButtonNoite);
+		panelCadastrar.add(radioButtonNoite);
 
 		radioButtonIntegral = new JRadioButton("Integral");
 		radioButtonIntegral.setBounds(22, 152, 109, 23);
 		grupo.add(radioButtonIntegral);
-		panel.add(radioButtonIntegral);
+		panelCadastrar.add(radioButtonIntegral);
 
 		textField_TotalDeVagas = new JTextField();
 		textField_TotalDeVagas.setFont(new Font("Arial", Font.PLAIN, 14));
 		textField_TotalDeVagas.setColumns(10);
 		textField_TotalDeVagas.setBounds(185, 49, 118, 23);
-		panel.add(textField_TotalDeVagas);
+		panelCadastrar.add(textField_TotalDeVagas);
 
 		JLabel label_1 = new JLabel("Quantidade Disponivel de Vagas na Turma");
 		label_1.setFont(new Font("Arial", Font.PLAIN, 14));
 		label_1.setBounds(175, 96, 280, 14);
-		panel.add(label_1);
+		panelCadastrar.add(label_1);
 
 		textField_VagasDisponiveis = new JTextField();
 		textField_VagasDisponiveis.setFont(new Font("Arial", Font.PLAIN, 14));
 		textField_VagasDisponiveis.setColumns(10);
 		textField_VagasDisponiveis.setBounds(185, 122, 118, 23);
-		panel.add(textField_VagasDisponiveis);
+		panelCadastrar.add(textField_VagasDisponiveis);
 
 		JLabel label_2 = new JLabel("Quantidade Total de Vagas na Turma");
 		label_2.setFont(new Font("Arial", Font.PLAIN, 14));
 		label_2.setBounds(175, 23, 280, 14);
-		panel.add(label_2);
+		panelCadastrar.add(label_2);
 
 		JButton buttonSalvar = new JButton("Salvar");
 		buttonSalvar.setFont(new Font("Arial", Font.PLAIN, 14));
 		buttonSalvar.setBounds(366, 162, 89, 23);
 		OuvinteSalvaTurma ouvinteSalvaTurma = new OuvinteSalvaTurma(id, this);
 		buttonSalvar.addActionListener(ouvinteSalvaTurma);
-		panel.add(buttonSalvar);
+		panelCadastrar.add(buttonSalvar);
 
 	}
 
@@ -304,35 +304,23 @@ public class JanelaGerenciarTurma {
 
 	public void listaTurma(String nome) {
 		Escola o = Facade.getFacade().procurarEscolaPorID(id);
+		table = new JTable();
+		table.setBounds(39, 200, 478, 194);
+		retiraPainel = false;
+		retiraTabela = true;
+		
+		frame.getContentPane().setLayout(null);
+		modelo = new DefaultTableModel();
+		
+		modelo.addColumn("Série");
+		modelo.addColumn("Turno");
+		modelo.addColumn("Total de Vagas");
+		modelo.addColumn("Vagas Disponiveis");
+		
 		if (nome.equals("primeiro")) {
-			table = new JTable();
-			table.setBounds(39, 200, 478, 194);
-			retiraPainel = false;
-			retiraTabela = true;
-
-			frame.getContentPane().setLayout(null);
-			modelo = new DefaultTableModel();
-
-			modelo.addColumn("Série");
-			modelo.addColumn("Turno");
-			modelo.addColumn("Total de Vagas");
-			modelo.addColumn("Vagas Disponiveis");
-
 			list = o.getTurmas();
 
 		} else {
-			table = new JTable();
-			table.setBounds(39, 200, 478, 194);
-			retiraPainel = false;
-			retiraTabela = true;
-
-			frame.getContentPane().setLayout(null);
-			modelo = new DefaultTableModel();
-
-			modelo.addColumn("Série");
-			modelo.addColumn("Turno");
-			modelo.addColumn("Total de Vagas");
-			modelo.addColumn("Vagas Disponiveis");
 			list=null;
 			list = TurmaController.getTurmaController().listar();
 			
@@ -360,47 +348,47 @@ public class JanelaGerenciarTurma {
 	}
 
 	public void addPainelEdita(Turma turma) {
-		painel = new JPanel();
-		painel.setBackground(new Color(255, 153, 51));
-		painel.setSize(478, 149);
-		painel.setLocation(39, 150);
-		frame.getContentPane().add(painel);
-		painel.setLayout(null);
+		painelEditar = new JPanel();
+		painelEditar.setBackground(new Color(255, 153, 51));
+		painelEditar.setSize(478, 149);
+		painelEditar.setLocation(39, 150);
+		frame.getContentPane().add(painelEditar);
+		painelEditar.setLayout(null);
 
 		retiraPainel = true;
 		retiraTabela = false;
 
 		JLabel lblNome = new JLabel("Nome: " + turma.getNome());
 		lblNome.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNome.setBounds(25, 23, 130, 16);
-		painel.add(lblNome);
+		lblNome.setBounds(25, 23, 180, 16);
+		painelEditar.add(lblNome);
 
 		JLabel lblTotaldevagas = new JLabel("Total de Vagas: " + turma.getNumeroDeVagas());
 		lblTotaldevagas.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblTotaldevagas.setBounds(25, 105, 130, 16);
-		painel.add(lblTotaldevagas);
+		lblTotaldevagas.setBounds(25, 105, 180, 16);
+		painelEditar.add(lblTotaldevagas);
 
 		JLabel lblTurno = new JLabel("Turno: " + turma.getTurno());
 		lblTurno.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblTurno.setBounds(25, 64, 130, 16);
-		painel.add(lblTurno);
+		painelEditar.add(lblTurno);
 
 		JLabel lblNumeroDeVagas = new JLabel("Numero de Vagas Dispon\u00EDvel");
 		lblNumeroDeVagas.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNumeroDeVagas.setBounds(194, 23, 196, 16);
-		painel.add(lblNumeroDeVagas);
+		painelEditar.add(lblNumeroDeVagas);
 
 		txtVagasDisponivel = new JTextField();
 		txtVagasDisponivel.setText(turma.getNumeroDeVagasDiponiveis() + "");
 		txtVagasDisponivel.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtVagasDisponivel.setBounds(204, 50, 135, 20);
-		painel.add(txtVagasDisponivel);
+		painelEditar.add(txtVagasDisponivel);
 		txtVagasDisponivel.setColumns(10);
 
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnSalvar.setBounds(365, 92, 103, 34);
-		painel.add(btnSalvar);
+		painelEditar.add(btnSalvar);
 
 		OuvinteAtualizarTurma ouvinteAtualizarTurma = new OuvinteAtualizarTurma(this, turma);
 		btnSalvar.addActionListener(ouvinteAtualizarTurma);
@@ -439,11 +427,11 @@ public class JanelaGerenciarTurma {
 	}
 
 	public JPanel getPanel() {
-		return panel;
+		return panelCadastrar;
 	}
 
 	public void setPanel(JPanel panel) {
-		this.panel = panel;
+		this.panelCadastrar = panel;
 	}
 
 	public JTable getTable() {
@@ -599,11 +587,11 @@ public class JanelaGerenciarTurma {
 	}
 
 	public JPanel getPainel() {
-		return painel;
+		return painelEditar;
 	}
 
 	public void setPainel(JPanel painel) {
-		this.painel = painel;
+		this.painelEditar = painel;
 	}
 
 }
