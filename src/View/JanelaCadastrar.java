@@ -25,11 +25,11 @@ import javax.swing.text.MaskFormatter;
 
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
-import Ouvintes.OuvinteListaEscolas;
-import Ouvintes.OuvinteSalvar;
 import Ouvintes.OuvinteVoltarInicio;
+import OuvintesEscolas.OuvinteListaEscolas;
+import OuvintesEscolas.OuvinteSalvar;
 
-public class JanelaCadastrar{
+public class JanelaCadastrar {
 	private JFrame frame;
 	private JTextField textFielNome;
 	private JTextField txtLinkdosite;
@@ -43,7 +43,7 @@ public class JanelaCadastrar{
 	private JFormattedTextField frmtdtxtfldTelefonefixo;
 	private JFormattedTextField formattedTextFieldTelefoneCelular;
 	private JComboBox comboBoxNivies;
-	private String[] niveis={ "Municipal", "Estadual", "Federal" };
+	private String[] niveis = { "Municipal", "Estadual", "Federal" };
 	private JFormattedTextField txtCnpj;
 
 	/**
@@ -73,7 +73,7 @@ public class JanelaCadastrar{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame=new JFrame();
+		frame = new JFrame();
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -84,11 +84,9 @@ public class JanelaCadastrar{
 		frame.getContentPane().setLayout(null);
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.setResizable(false);
-		frame.setVisible(true);	
+		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-		
+
 		JLabel lblCadastrar = new JLabel("Cadastro de Escola");
 		lblCadastrar.setBounds(10, 32, 514, 37);
 		lblCadastrar.setHorizontalAlignment(SwingConstants.CENTER);
@@ -112,7 +110,7 @@ public class JanelaCadastrar{
 		lblNvelDeEnsino.setBounds(10, 153, 117, 20);
 		frame.getContentPane().add(lblNvelDeEnsino);
 
-		comboBoxNivies= new JComboBox(niveis);
+		comboBoxNivies = new JComboBox(niveis);
 		comboBoxNivies.setAlignmentX(Component.LEFT_ALIGNMENT);
 		comboBoxNivies.setFont(new Font("Arial", Font.PLAIN, 14));
 		comboBoxNivies.setBounds(134, 150, 133, 25);
@@ -122,7 +120,6 @@ public class JanelaCadastrar{
 		lblTelefoneCelular.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblTelefoneCelular.setBounds(277, 113, 109, 20);
 		frame.getContentPane().add(lblTelefoneCelular);
-
 
 		try {
 			MaskFormatter mascaraTelefone = new MaskFormatter("(##) # ####-####");
@@ -141,7 +138,6 @@ public class JanelaCadastrar{
 		lblTelefoneFixo.setBounds(294, 153, 92, 20);
 		frame.getContentPane().add(lblTelefoneFixo);
 
-		
 		try {
 			MaskFormatter mascaraTelefoneFixo = new MaskFormatter("(##) ####-####");
 			frmtdtxtfldTelefonefixo = new JFormattedTextField(mascaraTelefoneFixo);
@@ -160,7 +156,7 @@ public class JanelaCadastrar{
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnVoltar.setBounds(20, 410, 150, 40);
-		OuvinteVoltarInicio ouvinteVoltarInicio=new OuvinteVoltarInicio(frame);
+		OuvinteVoltarInicio ouvinteVoltarInicio = new OuvinteVoltarInicio(frame);
 		btnVoltar.addActionListener(ouvinteVoltarInicio);
 		frame.getContentPane().add(btnVoltar);
 
@@ -252,7 +248,7 @@ public class JanelaCadastrar{
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
+
 		txtCep.setColumns(10);
 
 		JLabel lblBairro = new JLabel("Bairro*");
@@ -266,28 +262,27 @@ public class JanelaCadastrar{
 		txtBairro.setBounds(94, 350, 173, 25);
 		frame.getContentPane().add(txtBairro);
 		txtBairro.setColumns(10);
-		
+
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnSalvar.setBounds(360, 410, 150, 40);
 		btnSalvar.setBackground(new Color(164, 255, 72));
-		OuvinteSalvar ouvinteSalvar=new OuvinteSalvar(this);
+		OuvinteSalvar ouvinteSalvar = new OuvinteSalvar(this);
 		btnSalvar.addActionListener(ouvinteSalvar);
 		frame.getContentPane().add(btnSalvar);
-		
+
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnLimpar.setBounds(190, 410, 150, 40);
-		OuvinteLimpaCampos ouvinteLimpaCampos=new OuvinteLimpaCampos(frame);
+		OuvinteLimpaCampos ouvinteLimpaCampos = new OuvinteLimpaCampos(frame);
 		btnLimpar.addActionListener(ouvinteLimpaCampos);
 		frame.getContentPane().add(btnLimpar);
-		
+
 		JLabel lblCnpj = new JLabel("CNPJ*");
 		lblCnpj.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblCnpj.setBounds(294, 233, 46, 20);
 		frame.getContentPane().add(lblCnpj);
-		
-		
+
 		try {
 			MaskFormatter mascaraCNPJ = new MaskFormatter("##.###.###/####-##");
 			txtCnpj = new JFormattedTextField(mascaraCNPJ);
@@ -297,54 +292,44 @@ public class JanelaCadastrar{
 			txtCnpj.setColumns(10);
 
 			txtCnpj.setText("TelefoneFixo");
-			
+
 			JLabel lblCamposObrigatorios = new JLabel("*Campos Obrigatorios");
 			lblCamposObrigatorios.setBounds(396, 80, 128, 14);
 			frame.getContentPane().add(lblCamposObrigatorios);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
+
 		frame.setVisible(true);
 
 	}
-	
 
-	public ArrayList<String> returnValores(){
-		ArrayList<String> array=new ArrayList<>();
+	public ArrayList<String> returnValores() {
+		ArrayList<String> array = new ArrayList<>();
 		array.add(textFielNome.getText());
 		array.add(formattedTextFieldTelefoneCelular.getText());
-		String nivel=niveis[comboBoxNivies.getSelectedIndex()];
+		String nivel = niveis[comboBoxNivies.getSelectedIndex()];
 		array.add(nivel);
 		array.add(frmtdtxtfldTelefonefixo.getText());
 		array.add(txtLinkdosite.getText());
 		array.add(txtEmail.getText());
 		array.add(txtSenha.getText());
 		array.add(txtCnpj.getText());
-		
+
 		array.add(txtRua.getText());
 		array.add(txtNumero.getText());
 		array.add(txtCidade.getText());
 		array.add(txtCep.getText());
 		array.add(txtBairro.getText());
-		
+
 		return array;
 	}
 
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
-	
-	
 	public class OuvinteLimpaCampos implements ActionListener {
 		private JFrame frame;
-		
+
 		public OuvinteLimpaCampos(JFrame frame) {
-			this.frame=frame;
+			this.frame = frame;
 		}
 
 		public void actionPerformed(ActionEvent arg0) {
@@ -360,8 +345,17 @@ public class JanelaCadastrar{
 			frmtdtxtfldTelefonefixo.setText("");
 			formattedTextFieldTelefoneCelular.setText("");
 			txtCnpj.setText("");
-			
+
 			frame.repaint();
 		}
 	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
 }

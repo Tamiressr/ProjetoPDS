@@ -85,4 +85,26 @@ public class TurmaController {
 		return 0;
 	}
 
+	public List<String> retornarValoresTurmaPorID(int id) {
+		List<Turma> lista = TurmaController.getTurmaController().listar();
+		ArrayList<String> list = new ArrayList<String>();
+
+		for (Turma e : lista) {
+			if (e.getId() == id) {
+				list.add(e.getEscola().getNome());
+				list.add(e.getNome());
+				list.add(e.getTurno());
+				list.add(e.getNumeroDeVagas() + "");
+				list.add(e.getNumeroDeVagasDiponiveis() + "");
+				list.add(e.getEscola().getRua());
+				list.add(e.getEscola().getNumeroCasa() + "");
+				list.add(e.getEscola().getCidade());
+				list.add(e.getEscola().getBairro());
+				list.add(e.getEscola().getCep());
+
+				return list;
+			}
+		}
+		return null;
+	}
 }

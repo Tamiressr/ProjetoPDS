@@ -13,8 +13,8 @@ import javax.swing.JScrollPane;
 
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
-import Ouvintes.OuvinteListaEscolas;
 import Ouvintes.OuvinteVoltarInicio;
+import OuvintesEscolas.OuvinteListaEscolas;
 
 import javax.swing.JList;
 import javax.swing.JTable;

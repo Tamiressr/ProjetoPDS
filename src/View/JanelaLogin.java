@@ -27,9 +27,9 @@ import Controllers.EscolaController;
 import Model.Escola;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
-import Ouvintes.OuvinteListaEscolas;
-import Ouvintes.OuvinteRecuperarUsuario;
 import Ouvintes.OuvinteVoltarInicio;
+import OuvintesEscolas.OuvinteListaEscolas;
+import OuvintesEscolas.OuvinteRecuperarUsuario;
 
 import java.awt.Color;
 import javax.swing.SwingConstants;

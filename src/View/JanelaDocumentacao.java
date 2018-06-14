@@ -25,9 +25,9 @@ import Facade.Facade;
 import Model.Documentacao;
 import Model.Escola;
 import Model.Turma;
-import Ouvintes.OuvinteExcluirDocumento;
-import Ouvintes.OuvinteSalvaDocumento;
-import Ouvintes.OuvinteSalvaPrimeiroDocumento;
+import OuvintesDocumentos.OuvinteExcluirDocumento;
+import OuvintesDocumentos.OuvinteSalvaDocumento;
+import OuvintesDocumentos.OuvinteSalvaPrimeiroDocumento;
 
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;

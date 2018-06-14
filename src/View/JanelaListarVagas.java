@@ -17,8 +17,8 @@ import java.awt.Cursor;
 
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
-import Ouvintes.OuvinteListaEscolas;
 import Ouvintes.OuvinteMaisInformacoes;
+import OuvintesEscolas.OuvinteListaEscolas;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;

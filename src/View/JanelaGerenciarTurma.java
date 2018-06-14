@@ -12,16 +12,16 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-import Ouvintes.OuvinteAtualizarTurma;
-import Ouvintes.OuvinteCadastrarTurma;
-import Ouvintes.OuvinteEditaTurma;
-import Ouvintes.OuvinteExcluirTurma;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteJanelaPerfil;
-import Ouvintes.OuvinteListaEscolas;
-import Ouvintes.OuvinteListaTurma;
-import Ouvintes.OuvinteSalvaTurma;
+import OuvintesEscolas.OuvinteListaEscolas;
+import OuvintesTurma.OuvinteAtualizarTurma;
+import OuvintesTurma.OuvinteCadastrarTurma;
+import OuvintesTurma.OuvinteEditaTurma;
+import OuvintesTurma.OuvinteExcluirTurma;
+import OuvintesTurma.OuvinteListaTurma;
+import OuvintesTurma.OuvinteSalvaTurma;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;

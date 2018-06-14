@@ -12,15 +12,14 @@ import javax.swing.JMenuItem;
 
 import Controllers.EscolaController;
 import Model.Escola;
-//import Ouvintes.OuvinteDocumentos;
-import Ouvintes.OuvinteEditaPerfil;
-import Ouvintes.OuvinteExcluirConta;
-import Ouvintes.OuvinteGerenciarTurma;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaLogin;
 import Ouvintes.OuvinteJanelaPerfil;
-import Ouvintes.OuvinteListaEscolas;
-import Ouvintes.OuvinteSair;
+import OuvintesEscolas.OuvinteEditaPerfil;
+import OuvintesEscolas.OuvinteExcluirConta;
+import OuvintesEscolas.OuvinteListaEscolas;
+import OuvintesEscolas.OuvinteSair;
+import OuvintesTurma.OuvinteGerenciarTurma;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;

@@ -12,8 +12,8 @@ import javax.swing.UIManager;
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 
 import Ouvintes.OuvinteJanelaListagemVagas;
-import Ouvintes.OuvinteJanelaListarTurma;
 import Ouvintes.OuvinteListagemFiltro;
+import OuvintesTurma.OuvinteJanelaListarTurma;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -39,14 +39,6 @@ public class JanelaAnteriorListagem {
 		});
 	}
 
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
-
 	/**
 	 * Create the application.
 	 */
@@ -59,7 +51,7 @@ public class JanelaAnteriorListagem {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		//frame.getContentPane().setBackground(new Color(255, 153, 51));
+		// frame.getContentPane().setBackground(new Color(255, 153, 51));
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
 		frame.setTitle("Acompanhamento de Vagas");
@@ -71,27 +63,36 @@ public class JanelaAnteriorListagem {
 		frame.setResizable(false);
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.getContentPane().setLayout(null);
-		
+
 		JLabel lblCaroPaiOu = new JLabel("Caro Pai ou Respons\u00E1vel, Selecione a Op\u00E7\u00E3o Desejada");
 		lblCaroPaiOu.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		lblCaroPaiOu.setBounds(22, 30, 442, 44);
 		frame.getContentPane().add(lblCaroPaiOu);
-		
+
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(JanelaAnteriorListagem.class.getResource("/AnitaBlack.jpg")));
 		lblNewLabel.setBounds(22, 171, 524, 412);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		JButton btnVisualizarVagasDe = new JButton("Visualizar Vagas de Todas as Escolas");
 		btnVisualizarVagasDe.setBounds(22, 103, 427, 23);
-		btnVisualizarVagasDe.addActionListener(new  OuvinteJanelaListagemVagas(frame));
+		btnVisualizarVagasDe.addActionListener(new OuvinteJanelaListagemVagas(frame));
 		frame.getContentPane().add(btnVisualizarVagasDe);
-		
+
 		JButton btnSelecionarVagasPor = new JButton("Selecionar Vagas por Turno, Turma e Escola");
 		btnSelecionarVagasPor.setBounds(22, 137, 427, 23);
-		
+
 		btnSelecionarVagasPor.addActionListener(new OuvinteListagemFiltro(frame));
 		frame.getContentPane().add(btnSelecionarVagasPor);
-		
+
 	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
 }

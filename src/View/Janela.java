@@ -11,7 +11,7 @@ import javax.swing.JMenuItem;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaFeedback;
 import Ouvintes.OuvinteJanelaLogin;
-import Ouvintes.OuvinteListaEscolas;
+import OuvintesEscolas.OuvinteListaEscolas;
 
 public class Janela {
 

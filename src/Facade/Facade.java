@@ -43,13 +43,13 @@ public class Facade {
 
 	public int criarEscola(ArrayList<String> array) {
 		Escola escola = diretor.criarEscola(array);
-		
-		return EscolaController.getEscolaController().procurarID(escola);		
+
+		return EscolaController.getEscolaController().procurarID(escola);
 	}
 
 	public void excluirConta(int id) {
 		EscolaController.getEscolaController().remover(id);
-		
+
 	}
 
 	public Escola procurarEscolaPorID(int id) {
@@ -57,95 +57,45 @@ public class Facade {
 	}
 
 	public List<String> retornaValoresEscolaPorID(int id) {
-		List<Escola> lista = EscolaController.getEscolaController().listar();
-		ArrayList<String> list = new ArrayList<String>();
-		
-		for (Escola e : lista) {
-			if (e.getId() == id) {
-				list.add(e.getNome());
-				list.add(e.getTelefone().get(0).toString());
-				list.add(e.getTelefone().get(1).toString());
-				list.add(e.getLink());
-				list.add(e.getEmail());
-				list.add(e.getSenha());
-				list.add(e.getCnpj());
-				list.add(e.getRua());
-				list.add(e.getNumeroCasa()+"");
-				list.add(e.getCidade());
-				list.add(e.getCep());
-				list.add(e.getBairro());
-				
-				list.add(e.getNivelDeGoverno());
-	
-				return list;
-			}
-		}
-		JOptionPane.showMessageDialog(null, "Nada");
-		return null;
+		return EscolaController.getEscolaController().retornaValoresEscolaPorID(id);
 
 	}
 
 	public void atualizar(int id, ArrayList<String> array) {
-		EscolaController.getEscolaController().atualizar(id,array);
+		EscolaController.getEscolaController().atualizar(id, array);
 	}
+
 	public void atualizarTurma(int id, int vagas) {
-		TurmaController.getTurmaController().atualizar(id,vagas);
+		TurmaController.getTurmaController().atualizar(id, vagas);
 	}
 
 	public List<Escola> listar() {
 		return EscolaController.getEscolaController().listar();
 	}
-	
+
 	public void salvarTurma(int id, ArrayList<String> array) {
-		Escola escola = EscolaController.getEscolaController().procurarEscola(id);
-				
-		Turma turma=new Turma();
-		turma.setNumeroDeVagasDiponiveis(Integer.parseInt(array.get(0)));
-		turma.setNumeroDeVagas(Integer.parseInt(array.get(1)));
-		turma.setNome(array.get(2));
-		turma.setTurno(array.get(3));
-		
-		escola.getTurmas().add(turma);
-		turma.setEscola(escola);
-		
+		diretor.salvarTurma(id, array);
+
 	}
+
 	public void excluirTurma(int id) {
 		TurmaController.getTurmaController().remover(id);
 	}
+
 	public void excluirDocumento(int id) {
 		DocumentacaoController.getDocumentacaoController().remover(id);
 	}
-	
+
 	public int procurarTurma(ArrayList<String> array) {
 		return TurmaController.getTurmaController().procurarID(array);
 	}
-	public List<String> retornarValoresTurmaPorID(int id){
-		List<Turma> lista=TurmaController.getTurmaController().listar();
-		ArrayList<String> list = new ArrayList<String>();
-		
-		for (Turma e : lista) {
-			if (e.getId() == id) {
-				list.add(e.getEscola().getNome());
-				list.add(e.getNome());
-				list.add(e.getTurno());
-				list.add(e.getNumeroDeVagas()+"");
-				list.add(e.getNumeroDeVagasDiponiveis()+"");
-				list.add(e.getEscola().getRua());
-				list.add(e.getEscola().getNumeroCasa()+"");
-				list.add(e.getEscola().getCidade());
-				list.add(e.getEscola().getBairro());
-				list.add(e.getEscola().getCep());
-				
-				return list;
-			}
-		}
-		return null;
+
+	public List<String> retornarValoresTurmaPorID(int id) {
+		return TurmaController.getTurmaController().retornarValoresTurmaPorID(id);
 	}
+
 	public void cadastrarDocumento(int id, String nome) {
-		Escola escola=procurarEscolaPorID(id);
-		Documentacao documento=new Documentacao(nome);
-		documento.setEscola(escola);	
-		escola.getDocumentacao().add(documento);
+		diretor.cadastrarDocumento(id, nome);
 	}
 
 }

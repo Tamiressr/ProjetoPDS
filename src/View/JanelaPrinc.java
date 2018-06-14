@@ -13,9 +13,9 @@ import javax.swing.UIManager;
 
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 
-import Ouvintes.OuvinteJanelaListarTurma;
 import Ouvintes.OuvinteJanelaLogin;
-import Ouvintes.OuvinteListaTurma;
+import OuvintesTurma.OuvinteJanelaListarTurma;
+import OuvintesTurma.OuvinteListaTurma;
 
 import javax.swing.ImageIcon;
 import java.awt.Color;

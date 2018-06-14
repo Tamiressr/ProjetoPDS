@@ -21,8 +21,8 @@ import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
 
 import Facade.Facade;
-import Ouvintes.OuvinteAtualizarPerfil;
 import Ouvintes.OuvinteJanelaPerfil;
+import OuvintesEscolas.OuvinteAtualizarPerfil;
 
 public class JanelaEditaPerfil{
 	private JFrame frame;
