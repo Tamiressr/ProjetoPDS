@@ -27,7 +27,10 @@ public class OuvinteSalvar implements ActionListener {
 				|| array.get(7).equals("") || array.get(8).equals("") || array.get(10).equals("")
 				|| array.get(11).equals("") || array.get(12).equals("")) {
 			JOptionPane.showMessageDialog(null, "Campos Obrigatorios (Marcados com *) em Branco");
-		} else {
+		}if(array.get(6).length()<8) {
+		JOptionPane.showMessageDialog(null,"Informe uma senha com no mínimo 8 caracteres");
+		}
+		else {
 			janela.getFrame().dispose();
 			int id = Facade.getFacade().criarEscola(array);
 			new JanelaPerfil(id);

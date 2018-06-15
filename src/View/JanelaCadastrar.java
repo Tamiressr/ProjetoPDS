@@ -90,7 +90,7 @@ public class JanelaCadastrar {
 		JLabel lblCadastrar = new JLabel("Cadastro de Escola");
 		lblCadastrar.setBounds(10, 32, 514, 37);
 		lblCadastrar.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCadastrar.setFont(new Font("Times New Roman", Font.PLAIN, 36));
+		lblCadastrar.setFont(new Font("Arial", Font.PLAIN, 20));
 		frame.getContentPane().add(lblCadastrar);
 
 		JLabel lblNome = new JLabel("Nome*");

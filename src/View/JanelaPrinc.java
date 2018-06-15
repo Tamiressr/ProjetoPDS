@@ -48,6 +48,7 @@ public class JanelaPrinc {
 		initialize();
 	}
 
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */

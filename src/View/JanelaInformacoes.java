@@ -7,9 +7,14 @@ import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import Controllers.TurmaController;
 import Facade.Facade;
+import Model.Documentacao;
+import Model.Escola;
 import Model.Turma;
 import Ouvintes.OuvinteVoltaBusca;
 import Ouvintes.OuvinteVoltarInicio;
@@ -43,21 +48,17 @@ public class JanelaInformacoes {
 	private JLabel lBairro;
 	private JLabel lCEP;
 	
-	private static  int id;
+	private static Turma turma;
 
-	public JanelaInformacoes(int id) {
-		this.id=id;
+	public JanelaInformacoes(Turma turma) {
+		this.turma=turma;
 		initialize();
 		colocarDados();
 		frame.setVisible(true);
 	}
 	
-	public static void main(String[] args) {
-		new  JanelaInformacoes(1);
-	}
-	
 	public void colocarDados() {
-		List<String> list= Facade.getFacade().retornarValoresTurmaPorID(id);
+		List<String> list= Facade.getFacade().retornarValoresTurmaPorID(turma.getId());
 		
 
 		nomeEscola.setText(list.get(0));
@@ -191,6 +192,33 @@ public class JanelaInformacoes {
 		btnVoltar.addActionListener(new OuvinteVoltaBusca(this));
 		frame.getContentPane().add(btnVoltar);
 		
+		addTabela();
+		
+	}
+	public void addTabela() {
+		JTable table = new JTable();
+		table.setBounds(39, 200, 478, 194);
+
+		frame.getContentPane().setLayout(null);
+		DefaultTableModel modelo = new DefaultTableModel();
+
+		modelo.addColumn("Documento");
+		
+		
+		Escola o = turma.getEscola();
+		List<Documentacao> list = o.getDocumentacao();
+
+		for (Documentacao e : list) {
+			Object[] array = new Object[1];
+			array[0] = e.getNome();
+			modelo.addRow(array);
+		}
+
+		table = new JTable(modelo);
+
+		JScrollPane painelTabela = new JScrollPane(table);
+		painelTabela.setBounds(20, 235, 246, 151);
+		frame.getContentPane().add(painelTabela);
 	}
 
 	public JFrame getFrame() {

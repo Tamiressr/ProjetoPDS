@@ -56,15 +56,16 @@ public class JanelaListarVagas {
 	private JComboBox TurnocomboBox = null;
 	private String[] turnos = { "", "Manhã", "Tarde", "Integral", "Noite" };
 	private List<Escola> escolas;
-	private String[] arrayturmas = { "1° ano", "2° ano", "3° ano", "4° ano", "5° ano", "6° ano", "7° ano", "8° ano",
-			"9° ANO" };
+	private String[] arrayturmas = { "", "1° ano", "2° ano", "3° ano", "4° ano", "5° ano", "6° ano", "7° ano", "8° ano",
+			"9° ano" };
+	private String[] escola;
 
 	public ArrayList<String> getTxt() {
 		return txt;
 	}
 
 	public void setTxt(ArrayList<String> txt) {
-		txt = txt;
+		this.txt = txt;
 	}
 
 	/**
@@ -76,7 +77,7 @@ public class JanelaListarVagas {
 				try {
 					UIManager.setLookAndFeel(new BernsteinLookAndFeel());
 
-					JanelaListarVagas window = new JanelaListarVagas("primeiro",null);
+					JanelaListarVagas window = new JanelaListarVagas("primeiro", null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -89,7 +90,7 @@ public class JanelaListarVagas {
 	 * Create the application.
 	 */
 	public JanelaListarVagas(String nome, ArrayList<String> txt) {
-		initialize(nome,txt);
+		initialize(nome, txt);
 
 	}
 
@@ -124,8 +125,8 @@ public class JanelaListarVagas {
 		OuvinteMaisInformacoes ouvinteMaisInformacoes = new OuvinteMaisInformacoes(this);
 		btnMaisInformaes.addActionListener(ouvinteMaisInformacoes);
 
-		addTabela(nome,txt);
-		
+		addTabela(nome, txt);
+
 		JLabel lblEscola = new JLabel("Escola:");
 		lblEscola.setFont(new Font("Arial", Font.BOLD, 14));
 		lblEscola.setBounds(10, 64, 77, 14);
@@ -136,16 +137,20 @@ public class JanelaListarVagas {
 		lblTurma.setBounds(10, 89, 60, 14);
 		frame.getContentPane().add(lblTurma);
 
-		escolaComboBox = new JComboBox<>();
+		escolas = EscolaController.getEscolaController().listar();
+
+		escola=new String[escolas.size()+1];
+		escola[0]="";
+		int contador=1;
+		for (Escola e : escolas) {
+			escola[contador]=e.getNome();
+			contador++;
+		}
+		escolaComboBox=new JComboBox<>(escola);
 		escolaComboBox.setToolTipText("Selecione o nome da escola desejada");
 		escolaComboBox.setBounds(70, 64, 301, 20);
 		frame.getContentPane().add(escolaComboBox);
-
-		escolas = EscolaController.getEscolaController().listar();
-
-		for (Escola e : escolas) {
-			escolaComboBox.addItem(e.getNome());
-		}
+		
 		TurmacomboBox = new JComboBox(arrayturmas);
 		TurmacomboBox.setBackground(Color.WHITE);
 
@@ -163,24 +168,24 @@ public class JanelaListarVagas {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnBuscar.setBounds(395, 64, 109, 42);
-		OuvinteBuscar ouvinteBuscar=new OuvinteBuscar(this);
+		OuvinteBuscar ouvinteBuscar = new OuvinteBuscar(this);
 		btnBuscar.addActionListener(ouvinteBuscar);
 		frame.getContentPane().add(btnBuscar);
 		frame.setVisible(true);
 
 		frame.getContentPane().add(btnBuscar);
-		
+
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(10, 11, 89, 23);
 		frame.getContentPane().add(btnVoltar);
 		btnVoltar.addActionListener(new OuvinteVoltarInicio(frame));
-		
+
 		frame.setVisible(true);
 
 	}
 
 	public void valor() {
-		txt.add(escolas.get(escolaComboBox.getSelectedIndex()).getNome());
+		txt.add(escola[escolaComboBox.getSelectedIndex()]);
 		txt.add(arrayturmas[TurmacomboBox.getSelectedIndex()]);
 		txt.add(turnos[TurnocomboBox.getSelectedIndex()]);
 	}
@@ -196,23 +201,52 @@ public class JanelaListarVagas {
 		modelo = new DefaultTableModel();
 
 		list = TurmaController.getTurmaController().listar();
-		if (nome.equals("primeiro")) {
+		if (nome.equals("primeiro") || txt.get(0).isEmpty() && txt.get(1).isEmpty() && txt.get(2).isEmpty()) {
 
 		} else {
 			ArrayList<Turma> turmas = new ArrayList<>();
-			System.out.println(txt.get(0));
-			System.out.println(txt.get(1));
-			System.out.println(txt.get(2));
 			for (Turma t : list) {
-				if (txt.get(0).equalsIgnoreCase(t.getEscola().getNome())) {
+				if (txt.get(0).equals("") == false && txt.get(1).isEmpty() == false && txt.get(2).isEmpty() == false) {
+					if (txt.get(0).equalsIgnoreCase(t.getEscola().getNome())) {
+						if (txt.get(1).equalsIgnoreCase(t.getNome())) {
+							if (txt.get(2).equalsIgnoreCase(t.getTurno())) {
+								turmas.add(t);
+							}
+						}
+					}
+				} else if (txt.get(0).equals("") == false) {
+					if (txt.get(0).equalsIgnoreCase(t.getEscola().getNome())) {
+						turmas.add(t);
+
+					}
+				} else if (txt.get(0).equals("") == false && txt.get(1).isEmpty() == false) {
+					if (txt.get(0).equalsIgnoreCase(t.getEscola().getNome())) {
+						if (txt.get(1).equalsIgnoreCase(t.getNome())) {
+							turmas.add(t);
+						}
+					}
+				} else if (txt.get(0).equals("") == false && txt.get(2).isEmpty() == false) {
+					if (txt.get(0).equalsIgnoreCase(t.getEscola().getNome())) {
+						if (txt.get(2).equalsIgnoreCase(t.getTurno())) {
+							turmas.add(t);
+						}
+					}
+				} else if (txt.get(1).isEmpty() == false) {
+					if (txt.get(1).equalsIgnoreCase(t.getNome())) {
+						turmas.add(t);
+					}
+				} else if (txt.get(1).isEmpty() == false && txt.get(2).isEmpty() == false) {
 					if (txt.get(1).equalsIgnoreCase(t.getNome())) {
 						if (txt.get(2).equalsIgnoreCase(t.getTurno())) {
 							turmas.add(t);
 						}
 					}
-				} else {
-
+				} else if (txt.get(2).isEmpty() == false) {
+					if (txt.get(2).equalsIgnoreCase(t.getTurno())) {
+						turmas.add(t);
+					}
 				}
+
 			}
 			list = turmas;
 		}

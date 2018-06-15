@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class JanelaFeedback {
 
@@ -81,8 +82,9 @@ public class JanelaFeedback {
 		frame.getContentPane().add(textotextArea);
 		
 		JLabel lblFeedback = new JLabel("FeedBack");
-		lblFeedback.setBounds(147, 50, 247, 26);
-		lblFeedback.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblFeedback.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFeedback.setBounds(137, 50, 247, 26);
+		lblFeedback.setFont(new Font("Arial", Font.PLAIN, 24));
 		lblFeedback.setBackground(Color.BLACK);
 		frame.getContentPane().add(lblFeedback);
 		

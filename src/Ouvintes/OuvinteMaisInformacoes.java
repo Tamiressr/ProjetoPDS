@@ -19,8 +19,7 @@ public class OuvinteMaisInformacoes implements ActionListener{
 
 
 	public void actionPerformed(ActionEvent e) {
-		int id=janela.linhaSelecionada().getId();
-		new JanelaInformacoes(id);
+		new JanelaInformacoes(janela.linhaSelecionada());
 		
 	}
 

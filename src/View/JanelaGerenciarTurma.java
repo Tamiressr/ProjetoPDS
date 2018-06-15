@@ -42,6 +42,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 
 public class JanelaGerenciarTurma {
 
@@ -123,21 +124,21 @@ public class JanelaGerenciarTurma {
 
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnExcluir.setBounds(326, 428, 92, 40);
+		btnExcluir.setBounds(117, 428, 92, 40);
 		OuvinteExcluirTurma ouvinteExcluirTurma = new OuvinteExcluirTurma(this, id);
 		btnExcluir.addActionListener(ouvinteExcluirTurma);
 		frame.getContentPane().add(btnExcluir);
 
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnVoltar.setBounds(10, 22, 69, 40);
+		btnVoltar.setBounds(38, 428, 69, 40);
 		OuvinteJanelaPerfil ouvinteJanelaPerfil = new OuvinteJanelaPerfil(frame, id);
 		btnVoltar.addActionListener(ouvinteJanelaPerfil);
 		frame.getContentPane().add(btnVoltar);
 
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnEditar.setBounds(428, 428, 92, 40);
+		btnEditar.setBounds(219, 428, 92, 40);
 		OuvinteEditaTurma ouvinteEditaTurma = new OuvinteEditaTurma(id, this);
 		btnEditar.addActionListener(ouvinteEditaTurma);
 		frame.getContentPane().add(btnEditar);
@@ -148,6 +149,12 @@ public class JanelaGerenciarTurma {
 		OuvinteListaTurma ouvinteListaTurma = new OuvinteListaTurma(this, id);
 		btnListaTurma.addActionListener(ouvinteListaTurma);
 		frame.getContentPane().add(btnListaTurma);
+		
+		JLabel lblGerenciarTurmas = new JLabel("Gerenciar Turmas");
+		lblGerenciarTurmas.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGerenciarTurmas.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblGerenciarTurmas.setBounds(10, 25, 227, 40);
+		frame.getContentPane().add(lblGerenciarTurmas);
 
 	}
 
@@ -593,5 +600,4 @@ public class JanelaGerenciarTurma {
 	public void setPainel(JPanel painel) {
 		this.painelEditar = painel;
 	}
-
 }

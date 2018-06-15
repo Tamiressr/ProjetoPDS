@@ -11,6 +11,7 @@ import javax.swing.JMenuItem;
 import Ouvintes.OuvinteJanelaCadastro;
 import Ouvintes.OuvinteJanelaFeedback;
 import Ouvintes.OuvinteJanelaLogin;
+import Ouvintes.OuvinteVoltarInicio;
 import OuvintesEscolas.OuvinteListaEscolas;
 
 public class Janela {
@@ -50,9 +51,9 @@ public class Janela {
 		OuvinteJanelaFeedback jf = new OuvinteJanelaFeedback(frame);
 		menufeedback.addActionListener(jf);
 
-		JMenuItem mntmLogin = new JMenuItem("Login");
-		OuvinteJanelaLogin ouvinteJanelaLogin = new OuvinteJanelaLogin(frame);
-		mntmLogin.addActionListener(ouvinteJanelaLogin);
+		JMenuItem mntmLogin = new JMenuItem("Tela Inicial");
+		OuvinteVoltarInicio ouvinteVoltarInicio = new OuvinteVoltarInicio(frame);
+		mntmLogin.addActionListener(ouvinteVoltarInicio);
 		mnreaDaEscola.add(mntmLogin);
 
 		JMenuItem mntmListaEscolas = new JMenuItem("Listar Escolas");

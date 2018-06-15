@@ -94,16 +94,22 @@ public class JanelaLogin {
 
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnVoltar.setBounds(411, 24, 89, 40);
+		btnVoltar.setBounds(50, 376, 92, 40);
 		frame.getContentPane().add(btnVoltar);
 
 		JLabel lblRecuperarConta = new JLabel("Clique aqui para Recuperar Conta");
 		lblRecuperarConta.setFont(new Font("Times New Roman", Font.ITALIC, 15));
 		lblRecuperarConta.setForeground(Color.BLACK);
-		lblRecuperarConta.setBounds(50, 375, 234, 34);
+		lblRecuperarConta.setBounds(266, 374, 234, 34);
 		lblRecuperarConta.addMouseListener(new OuvinteRecuperarUsuario());
 
 		frame.getContentPane().add(lblRecuperarConta);
+		
+		JLabel lblJanelaLogin = new JLabel("Janela Login");
+		lblJanelaLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblJanelaLogin.setFont(new Font("Arial", Font.PLAIN, 20));
+		lblJanelaLogin.setBounds(161, 28, 182, 36);
+		frame.getContentPane().add(lblJanelaLogin);
 
 		OuvinteVoltarInicio ouvinteVoltarInicio = new OuvinteVoltarInicio(frame);
 		btnVoltar.addActionListener(ouvinteVoltarInicio);
