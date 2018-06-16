@@ -161,7 +161,7 @@ public class JanelaLogin {
 		passwordFieldSenha.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
 				// TODO Auto-generated method stub
-				if (passwordFieldSenha.getPassword().length == 8) {
+				if (passwordFieldSenha.getPassword().length >20) {
 					e.consume();
 				}
 
@@ -237,7 +237,10 @@ public class JanelaLogin {
 
 			if (janela.passwordFieldSenha.getText().equals("") || janela.textFieldLogin.getText().equals("")) {
 				JOptionPane.showMessageDialog(null, "Campos vazios");
-			} else if (valor == 0) {
+			}
+			if(janela.passwordFieldSenha.getText().length()<8) {
+				JOptionPane.showMessageDialog(null,"Informe uma senha com no mínimo 8 caracteres");
+			}else if (valor == 0) {
 				int confirm = JOptionPane.showConfirmDialog(null, "Escola não encontrada, Deseja se cadastrar?");
 				janela.getTextFieldLogin().setText("");
 				janela.getPasswordFieldSenha().setText("");

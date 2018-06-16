@@ -18,7 +18,8 @@ public class OuvinteSair implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		janela.setId(0);
 		janela.getFrame().dispose();
-		new JanelaPrinc();
+		new JanelaPrinc().getFrame().setVisible(true);
+		
 	}
 
 }

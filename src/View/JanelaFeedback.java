@@ -23,6 +23,7 @@ public class JanelaFeedback {
 
 	private JFrame frame;
 	private TextArea textotextArea;
+	private JTextField textField;
 
 	public TextArea getTextotextArea() {
 		return textotextArea;
@@ -83,7 +84,7 @@ public class JanelaFeedback {
 		
 		JLabel lblFeedback = new JLabel("FeedBack");
 		lblFeedback.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFeedback.setBounds(137, 50, 247, 26);
+		lblFeedback.setBounds(118, 0, 247, 26);
 		lblFeedback.setFont(new Font("Arial", Font.PLAIN, 24));
 		lblFeedback.setBackground(Color.BLACK);
 		frame.getContentPane().add(lblFeedback);
@@ -91,13 +92,13 @@ public class JanelaFeedback {
 		JLabel lblARtaSystem = new JLabel("A empresa R.T.A System gostaria de saber o que voc\u00EA tem a dizer");
 		lblARtaSystem.setForeground(new Color(0, 0, 0));
 		lblARtaSystem.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		lblARtaSystem.setBounds(28, 138, 496, 33);
+		lblARtaSystem.setBounds(28, 30, 496, 33);
 		frame.getContentPane().add(lblARtaSystem);
 		
-		JLabel lbldeixaAquiSua = new JLabel("Reclama\u00E7\u00F5es, D\u00FAvidas e Sugest\u00F5es de melhoria");
+		JLabel lbldeixaAquiSua = new JLabel("Reclama\u00E7\u00F5es, D\u00FAvidas e Sugest\u00F5es de Melhoria");
 		lbldeixaAquiSua.setForeground(new Color(0, 0, 0));
 		lbldeixaAquiSua.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lbldeixaAquiSua.setBounds(0, 434, 368, 43);
+		lbldeixaAquiSua.setBounds(92, 74, 368, 43);
 		frame.getContentPane().add(lbldeixaAquiSua);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -107,10 +108,28 @@ public class JanelaFeedback {
 		btnVoltar.addActionListener(voltarinicio);
 		frame.getContentPane().add(btnVoltar);
 		
+		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNome.setBounds(10, 144, 46, 14);
+		frame.getContentPane().add(lblNome);
+		
+		textField = new JTextField();
+		textField.setBounds(66, 143, 334, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
 	}
 
 	public JFrame getFrame() {
 		return frame;
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
 	}
 
 	public void setFrame(JFrame frame) {

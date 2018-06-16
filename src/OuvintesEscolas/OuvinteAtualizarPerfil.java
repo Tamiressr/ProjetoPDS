@@ -31,7 +31,11 @@ public class OuvinteAtualizarPerfil implements ActionListener {
 			}
 			if (array.get(6).length() < 8) {
 
-				JOptionPane.showMessageDialog(null, "informe uma senha com no mínimo 8 caracteres");
+				JOptionPane.showMessageDialog(null, "informe uma senha com no mínimo 8 caracteres ");
+
+			}if (array.get(6).length() >20) {
+
+				JOptionPane.showMessageDialog(null, "informe uma senha com no maximo 20 caracteres ");
 
 			}
 
