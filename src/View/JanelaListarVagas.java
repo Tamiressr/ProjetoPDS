@@ -101,7 +101,7 @@ public class JanelaListarVagas {
 		frame = new JFrame();
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
-		frame.setTitle("Acompanhamento de Vagas");
+		frame.setTitle("SISTEMA DE ACOMPANHAMENTO DE VAGAS");
 		frame.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		frame.setBounds(100, 100, 550, 550);
 		frame.setLocation(400, 100);
@@ -146,7 +146,7 @@ public class JanelaListarVagas {
 			escola[contador]=e.getNome();
 			contador++;
 		}
-		escolaComboBox=new JComboBox<>(escola);
+		escolaComboBox=new JComboBox(escola);
 		escolaComboBox.setToolTipText("Selecione o nome da escola desejada");
 		escolaComboBox.setBounds(70, 64, 301, 20);
 		frame.getContentPane().add(escolaComboBox);
@@ -178,6 +178,12 @@ public class JanelaListarVagas {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(10, 11, 89, 23);
 		frame.getContentPane().add(btnVoltar);
+		
+		JLabel lblVagasDisponveis = new JLabel("VAGAS DISPON\u00CDVEIS");
+		lblVagasDisponveis.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVagasDisponveis.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		lblVagasDisponveis.setBounds(169, 136, 217, 23);
+		frame.getContentPane().add(lblVagasDisponveis);
 		btnVoltar.addActionListener(new OuvinteVoltarInicio(frame));
 
 		frame.setVisible(true);
@@ -269,7 +275,7 @@ public class JanelaListarVagas {
 		table = new JTable(modelo);
 
 		JScrollPane painelTabela = new JScrollPane(table);
-		painelTabela.setBounds(10, 128, 524, 307);
+		painelTabela.setBounds(10, 159, 524, 276);
 		frame.getContentPane().add(painelTabela);
 
 		frame.repaint();

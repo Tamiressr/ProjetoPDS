@@ -16,6 +16,7 @@ public class OuvinteEnviarEmail implements ActionListener {
 		this.janela = j;
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	public void actionPerformed(ActionEvent arg0) {
 		if(janela.getTextField().getText().equals("")||janela.getTextotextArea().equals("")) {
 			JOptionPane.showMessageDialog(null,"Campos vazios, por favor informe seu nome e a mensagem"

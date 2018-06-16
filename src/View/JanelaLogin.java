@@ -73,10 +73,9 @@ public class JanelaLogin {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		// frame.getContentPane().setBackground(new Color(255, 153, 51));
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
-		frame.setTitle("Acompanhamento de Vagas");
+		frame.setTitle("ASISTEMA DE ACOMPANHAMENTO DE VAGAS");
 		frame.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		frame.setBounds(100, 100, 550, 550);
 		frame.setLocation(400, 100);
@@ -132,6 +131,7 @@ public class JanelaLogin {
 		painel.setBackground(new Color(255, 255, 255));
 
 		textFieldLogin = new JTextField();
+		textFieldLogin.setToolTipText("INFORME SEU EMAIL CADASTRADO");
 		textFieldLogin.setBounds(136, 113, 195, 20);
 		painel.add(textFieldLogin);
 		textFieldLogin.setColumns(10);
@@ -154,6 +154,7 @@ public class JanelaLogin {
 		painel.add(lblcamposObrigatorios);
 
 		passwordFieldSenha = new JPasswordField();
+		passwordFieldSenha.setToolTipText("INFORME SUA SENHA");
 		painel.add(passwordFieldSenha);
 
 		passwordFieldSenha.setBounds(136, 164, 195, 20);

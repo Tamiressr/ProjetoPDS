@@ -62,7 +62,7 @@ public class JanelaFeedback {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
-		frame.setTitle("Acompanhamento de Vagas");
+		frame.setTitle("SISTEMA DE ACOMPANHAMENTO DE VAGAS");
 		frame.setBounds(100, 100, 550, 550);
 		frame.setJMenuBar(Janela.setMenuBar(frame));
 		frame.getContentPane().setLayout(null);

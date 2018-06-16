@@ -79,7 +79,7 @@ public class JanelaInformacoes {
 		frame = new JFrame();
 		frame.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 14));
-		frame.setTitle("Acompanhamento de Vagas");
+		frame.setTitle("SISTEMA DE ACOMPANHAMENTO DE VAGAS");
 		frame.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		frame.setBounds(100, 100, 450, 450);
 		frame.setLocation(400, 100);
